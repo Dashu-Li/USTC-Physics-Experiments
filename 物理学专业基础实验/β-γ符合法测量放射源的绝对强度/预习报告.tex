@@ -1,0 +1,99 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[UTF8]{ctex}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{geometry}
+\usepackage{pgfplots}
+\usepackage{siunitx}
+\pgfplotsset{compat=1.17}
+\usepackage{ulem}
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+
+\title{\Huge{\textbf{\uuline{预\ 习\ 报\ 告}}}}
+\author{\uline{少年班学院} \quad 姓名: \uline{李大恕} \quad 学号: \uline{PB24000145}}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{实验题目}
+$\beta$-$\gamma$符合法测量放射源的绝对强度
+
+\section{实验目的}
+\begin{enumerate}
+    \item 掌握符合分辨时间的测量方法。
+    \item 利用 $\beta$-$\gamma$ 符合法测定 $^{60}\text{Co}$ 源的活度。
+\end{enumerate}
+
+\section{实验原理}
+\subsection{符合分辨时间}
+任何符合电路都有一定的分辨时间，即当两个脉冲信号的起始时间相差甚微，以至在符合电路的分辨时间之内被当作两个完全同时发生的信号而使符合电路有输出。符合电路所能分辨的最小时间间隔 $\tau$，即为符合分辨时间。
+
+\subsection{测量符合分辨时间的原理}
+\subsubsection{偶然符合法测符合分辨时间}
+偶然符合计数率与符合分辨时间 $\tau$ 有一定的关系，可以利用这一关系来测定符合分辨时间。
+设探测器 Ⅰ 和源 $\text{S}_1$，探测器 Ⅱ 和源 $\text{S}_2$，各自进行独立测量。两个源之间，两个探测器之间有充分的屏蔽，使两个探测器基本上无法同时接受另一源发出的粒子。在这样条件下，如果符合道有输出，即为偶然符合。
+若二道输出均为宽为 $\tau$ 的矩形脉冲，Ⅰ道、Ⅱ道的平均计数率分别为 $n_1$、$n_2$，则偶然符合计数率为 $n_{\text{rc}} = 2\tau n_1 n_2$。加上本底后偶然符合计数率 $n'_{\text{rc}}$ 为：
+\begin{equation}
+    n'_{\text{rc}} = 2\tau n_1 n_2 + n_{\text{b}12}
+\end{equation}
+若本底符合计数率基本上为一常数时，$n'_{\text{rc}}$ 对 $n_1 n_2$ 是一条直线，斜率即为 $2\tau$。
+
+\subsubsection{利用瞬时符合曲线法测符合分辨时间}
+当 $n_1, n_2$ 比较小时，$n_{\text{rc}}$ 很小，$\tau$ 就不易测准，这时可用瞬时符合曲线法来测。
+在符合测量装置中人为地改变两符合道的相对延迟时间 $t_{\mathrm{d}}$，则符合计数率 $n_{\text{rc}}$ 将随 $t_{\mathrm{d}}$ 有一个分布曲线。如果用探测器输出信号作为脉冲信号，由于粒子进入探测器的时间与输出脉冲前沿之间的间距不固定，脉冲前沿存在统计性的离散，分布曲线将呈一钟罩型（即瞬时符合曲线），它的半高宽即为物理上的符合分辨时间。
+
+\subsection{$\boldsymbol{\beta}$-$\boldsymbol{\gamma}$符合法测放射源的活度}
+$^{60}\text{Co}$ 的衰变纲图如图 \ref{fig:decay} 所示。
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.35\textwidth]{assets/page2_img1.png}
+    \caption{$^{60}\text{Co}$ 的衰变纲图}
+    \label{fig:decay}
+\end{figure}
+
+若放射源的活度为 $A$，对于 $\beta$、$\gamma$ 的探测效率分别为 $p_{\beta}$ 和 $p_{\gamma}$，则有：
+\begin{align}
+    n_{\beta} &= A p_{\beta} \\
+    n_{\gamma} &= A p_{\gamma}
+\end{align}
+总符合计数率为 $n_{\beta\gamma} = A p_{\beta} p_{\gamma} = \frac{n_{\beta} n_{\gamma}}{A}$，因此 $A = \frac{n_{\beta} n_{\gamma}}{n_{\beta\gamma}}$。
+
+由于本底的存在及 $\gamma$ 射线进入 $\beta$ 探测器引起计数等因素，对上述关系还需要进行修正：
+\begin{itemize}
+    \item $\beta$ 道净计数率：$n_{\beta} = n_{\beta}(\beta) - n_{\beta}(\text{b}) - n_{\beta}(\gamma)$
+    \item $\gamma$ 道净计数率：$n_{\gamma} = n_{\gamma}(\gamma) - n_{\gamma}(\text{b})$
+    \item 真正的 $\beta$-$\gamma$ 符合计数率：$n_{\beta\gamma} = n_{\beta\gamma}(\beta,\gamma) - 2\tau n_{\beta}(\beta) n_{\gamma}(\gamma) - n_{\beta\gamma}(\gamma,\gamma)$
+\end{itemize}
+
+最终测定放射源绝对活度 $A$ 的公式为：
+\begin{equation}
+A = \frac{\left[ n_{\beta}(\beta) - n_{\beta}(\text{b}) - n_{\beta}(\gamma) \right] \left[ n_{\gamma}(\gamma) - n_{\gamma}(\text{b}) \right]}{n_{\beta\gamma}(\beta,\gamma) - 2\tau n_{\beta}(\beta) n_{\gamma}(\gamma) - n_{\beta\gamma}(\gamma,\gamma)} 
+\end{equation}
+
+\section{实验步骤}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1\textwidth]{assets/page3_img1.png}
+    \caption{$\beta$-$\gamma$ 符合实验装置示意图}
+    \label{fig:device}
+\end{figure}
+
+\begin{enumerate}
+    \item 把仪器按实验要求中的 $\beta$-$\gamma$ 符合实验装置方框图连接好（如图 \ref{fig:device}）。
+    \item 用精密脉冲发生器的输出脉冲为信号，调节放大器放大倍数及成形时间，调节单道的阈值及符合电路的延迟时间，使符合电路有符合输出。
+    \item 把一路的延迟固定，连续调节另一路延迟时间，从示波器上观看符合输出波形的变化。在有符合输出的延迟内选择 $2\sim 3$ 点测量符合计数，观察符合计数有无变化。
+    \item 以探测器信号代替脉冲发生器信号，细测瞬时符合曲线。将一路的延迟时间固定，另一路延迟以 \qty{0.1}{\micro\second} 为步进间隔调整，测量各点的符合计数，直至整个曲线测出。
+    \item 将延迟时间调到符合曲线的中部，测源的绝对活度：
+    \begin{enumerate}
+        \item 放上 $^{60}\text{Co}$ 源，测量 $\beta$ 道、$\gamma$ 道的相关实测计数率以及符合计数率 $n_{\beta\gamma}(\beta,\gamma)$。
+        \item 在放射源和 $\beta$ 探头间放上铝片，测量符合计数率 $n_{\beta\gamma}(\gamma,\gamma)$ 及 $n_{\beta}(\text{b}) + n_{\beta}(\gamma)$。
+        \item 去掉铝片和 $^{60}\text{Co}$ 源，测量对应的各项本底计数 $n_{\gamma}(\text{b})$、$n_{\beta}(\text{b})$、$n_{\beta\gamma}(\text{b})$。
+        \item 根据公式求出源的活度。
+    \end{enumerate}
+    \item 用 $^{137}\text{Cs}$ 作为偶然符合源，测量 $n_1$、$n_2$、$n'_{\text{rc}}$ 和 $n_{\text{b}12}$ 等对应的计数，按公式算出符合分辨时间，并与符合分辨曲线的分辨时间比较。
+\end{enumerate}
+
+\end{document}

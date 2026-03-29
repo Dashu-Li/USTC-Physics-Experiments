@@ -1,0 +1,18 @@
+
+[AI Diagnosis Request]
+Timestamp: 20260122_171032
+Experiment: Michelson Interferometer Wavelength Measurement
+
+[Current System State]
+- Stage Position: -1.407942 mm
+- Fringe Count: -112
+- Movement Status: Idle
+- Signal Visibility (FFT Strength): 14.1470 (Ideal > 0.1)
+- Reference Wavelength: 632.8 nm
+
+[Task for AI]
+1. Analyze the attached interference image 'interference_pattern.jpg'.
+2. Check if the concentric rings are clear, well-centered, and have good contrast.
+3. Based on the Visibility metric (14.1470), judge if the optical path alignment is optimal.
+4. If Visibility < 0.05, suggest re-aligning the mirrors (M1/M2 tilt).
+5. Confirm if the system is ready for precise measurement.

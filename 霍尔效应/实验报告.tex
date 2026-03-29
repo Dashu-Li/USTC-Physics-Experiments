@@ -1,0 +1,218 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[UTF8]{ctex}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{geometry}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepackage{ulem}
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+
+\title{\Huge{\textbf{霍尔效应实验报告}}}
+% 请按需要填写下行信息
+\author{学院：\uline{少年班学院} \quad 姓名: \uline{徐子钦} \quad 学号: \uline{PB24000224}}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+本实验旨在研究半导体材料的霍尔效应。通过在不同磁场和工作电流下测量霍尔电压，验证了霍尔电压与工作电流及磁感应强度的线性关系。实验中采用了对称测量法（改变电流和磁场方向）以消除不等位电势、爱廷豪森效应等副效应的影响。基于测量数据计算了样品的霍尔系数 $R_H$、载流子浓度 $n$、电导率 $\sigma$ 及迁移率 $\mu$。
+
+\textbf{关键词}：霍尔效应；霍尔系数；载流子浓度；迁移率；对称测量法
+\end{abstract}
+
+\section{实验目的}
+\begin{enumerate}
+	\item 了解霍尔效应的物理原理，掌握测量霍尔系数、电导率和迁移率的方法。
+	\item 学习使用对称测量法消除副效应（不等位电势、能斯特效应、里吉-勒杜克效应等）对霍尔电压测量的影响。
+	\item 测量半导体样品的霍尔电压 $V_H$ 随工作电流 $I_S$ 和励磁电流 $I_M$ 的变化关系。
+    \item （提高内容）在特定条件下测量样品电压 $U$，以进一步计算材料参数。
+\end{enumerate}
+
+\section{实验原理}
+\subsection*{霍尔效应原理}
+将通有电流 $I_S$ 的半导体样品置于垂直于电流方向的磁场 $B$ 中时，载流子在洛伦兹力的作用下发生偏转，在垂直于电流和磁场的方向上产生横向电场，从而在样品两侧产生电势差 $V_H$，称为霍尔电压。
+\[ V_H = R_H \frac{I_S B}{d} = \frac{1}{ne} \frac{I_S B}{d} \]
+其中 $R_H$ 为霍尔系数，$n$ 为载流子浓度，$d$ 为样品厚度。
+
+\subsection*{副效应的消除}
+实际测量中，测得的电压不仅包含霍尔电压，还包含不等位电势 $V_0$ 以及爱廷豪森效应、能斯特效应、里吉-勒杜克效应等产生的附加电压。利用这些副效应与电流 $I_S$ 和磁场 $B$ 方向的奇偶对称性，可以通过四次测量（$\pm I_S, \pm B$）取平均值来消除：
+\[ |V_H| = \frac{1}{4} \left( |V_1(+I_S, +B)| + |V_2(+I_S, -B)| + |V_3(-I_S, -B)| + |V_4(-I_S, +B)| \right) \]
+
+\subsection*{电导率与迁移率}
+电导率 $\sigma$ 可通过测量样品纵向电压 $U_\sigma$ 求得（设样品长 $l$，宽 $b$，厚 $d$）：
+\[ \sigma = \frac{I_S l}{U_\sigma b d} \]
+载流子迁移率 $\mu$ 为：
+\[ \mu = |R_H| \sigma \]
+
+\section{实验内容与数据处理}
+
+\subsection{实验参数}
+\begin{itemize}
+    \item 样品尺寸：
+    \begin{itemize}
+        \item 宽度 $b = 4.0$ mm
+        \item 厚度 $d = 0.3$ mm
+        \item 长度 $l = 2.0$ mm （用于电导率计算）
+    \end{itemize}
+    \item 电磁铁常数关系 $B/I_M$：$K_B = 0.576$ T/A
+\end{itemize}
+
+\subsection{基础实验：霍尔电压的测量}
+
+\subsubsection{保持磁场恒定，改变工作电流 $I_S$}
+设定励磁电流 $I_M = 0.45$ A。
+测量不同工作电流 $I_S$ 下的 $V_H$。
+
+\begin{center}
+\begin{table}[h]
+\centering
+\caption{$V_H - I_S$ 测量数据 ($I_M = 0.45$ A)}
+\begin{tabular}{cccccc}
+\toprule
+$I_S$ (mA) & $V_1 (+I,+B)$ & $V_2 (+I,-B)$ & $V_3 (-I,-B)$ & $V_4 (-I,+B)$ & $\bar{V}_H$ (mV) \\
+\midrule
+1.0 & 0.792 & -0.756 & 0.753 & -0.795 & 0.774 \\
+1.5 & 1.232 & -1.173 & 1.171 & -1.233 & 1.202 \\
+2.0 & 1.682 & -1.603 & 1.602 & -1.685 & 1.643 \\
+2.5 & 2.114 & -2.008 & 2.009 & -2.112 & 2.061 \\
+3.0 & 2.547 & -2.419 & 2.423 & -2.543 & 2.483 \\
+3.5 & 2.986 & -2.842 & 2.837 & -2.980 & 2.911 \\
+4.0 & 3.445 & -3.270 & 3.277 & -3.437 & 3.357 \\
+4.5 & 3.888 & -3.691 & 3.699 & -3.878 & 3.789 \\
+\bottomrule
+\end{tabular}
+\end{table}
+\end{center}
+
+\noindent \textbf{数据处理：}
+利用最小二乘法拟合 $V_H - I_S$ 关系，如图所示。
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\linewidth]{VH_IS.png}
+    \caption{$V_H - I_S$ 拟合曲线}
+\end{figure}
+
+由图可知斜率 $k_1 = 0.83284 \, \Omega$。
+已知 $B = K_B I_M = 0.576 \times 0.45 = 0.2592 \, \text{T}$，样品厚度 $d = 0.3 \times 10^{-3} \, \text{m}$。
+计算霍尔系数：
+\[ R_{H1} = \frac{k_1 d}{B} = \frac{0.83284 \times 0.3 \times 10^{-3}}{0.2592} = 9.64 \times 10^{-4} \, \text{m}^3/\text{C} \]
+
+\subsubsection{保持工作电流恒定，改变磁场 (励磁电流 $I_M$)}
+设定工作电流 $I_S = 4.5$ mA。
+测量不同励磁电流 $I_M$ 下的 $V_H$。
+
+\begin{center}
+\begin{table}[h]
+\centering
+\caption{$V_H - I_M$ 测量数据 ($I_S = 4.5$ mA)}
+\begin{tabular}{cccccc}
+\toprule
+$I_M$ (A) & $V_1 (+I,+B)$ & $V_2 (+I,-B)$ & $V_3 (-I,-B)$ & $V_4 (-I,+B)$ & $\bar{V}_H$ (mV) \\
+\midrule
+0.10 & 0.851 & -0.682 & 0.692 & -0.846 & 0.768 \\
+0.15 & 1.253 & -1.088 & 1.099 & -1.242 & 1.171 \\
+0.20 & 1.682 & -1.520 & 1.530 & -1.672 & 1.601 \\
+0.25 & 2.124 & -1.958 & 1.969 & -2.113 & 2.041 \\
+0.30 & 2.561 & -2.391 & 2.400 & -2.550 & 2.476 \\
+0.35 & 2.995 & -2.821 & 2.831 & -2.985 & 2.908 \\
+0.40 & 3.431 & -3.251 & 3.262 & -3.419 & 3.341 \\
+0.45 & 3.866 & -3.683 & 3.692 & -3.855 & 3.774 \\
+\bottomrule
+\end{tabular}
+\end{table}
+\end{center}
+
+\noindent \textbf{数据处理：}
+利用最小二乘法拟合 $V_H - I_M$ 关系，如图所示。
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\linewidth]{VH_IM.png}
+    \caption{$V_H - I_M$ 拟合曲线}
+\end{figure}
+
+由图可知斜率 $k_2 = 8.27915 \, \text{mV/A} = 8.279 \times 10^{-3} \, \text{V/A}$。
+已知 $I_S = 4.5 \, \text{mA} = 4.5 \times 10^{-3} \, \text{A}$，$K_B = 0.576 \, \text{T/A}$。
+计算霍尔系数：
+\[ R_{H2} = \frac{k_2 d}{I_S K_B} = \frac{8.279 \times 10^{-3} \times 0.3 \times 10^{-3}}{4.5 \times 10^{-3} \times 0.576} = 9.58 \times 10^{-4} \, \text{m}^3/\text{C} \]
+
+\subsubsection{零场电阻测量}
+在 $B=0$ (即 $I_M=0$) 条件下，测量样品纵向电压 $V_\sigma$。
+\begin{itemize}
+    \item 工作电流 $I_S = 0.78$ mA
+    \item 纵向电压 $V_\sigma = 54.3$ mV
+    \item 样品电阻 $R = V_\sigma / I_S = 69.6 \, \Omega$
+\end{itemize}
+
+\subsubsection{导电类型判断}
+根据霍尔电压 $V_H$ 的符号（或 $K_H, S_H$ 的符号）判断样品的导电类型。
+\begin{itemize}
+    \item $V_H$ 符号情况：$V_H > 0$ (在 $+I, +B$ 象限)
+    \item 判定结果：P 型半导体
+\end{itemize}
+
+\subsubsection{参数计算汇总}
+综合上述实验数据，计算样品的四个关键参数：
+\begin{enumerate}
+    \item \textbf{霍尔系数} $R_H$：
+    取两次测量的平均值：
+    \[ R_H = \frac{R_{H1} + R_{H2}}{2} = \frac{9.64 + 9.58}{2} \times 10^{-4} = 9.61 \times 10^{-4} \, \text{m}^3/\text{C} \]
+    \item \textbf{载流子浓度} $n$：
+    \[ n = \frac{1}{|R_H| e} = \frac{1}{9.61 \times 10^{-4} \times 1.602 \times 10^{-19}} = 6.49 \times 10^{21} \, \text{m}^{-3} \]
+    \item \textbf{电导率} $\sigma$：
+    \[ \sigma = \frac{l}{R b d} = \frac{2.0 \times 10^{-3}}{69.6 \times 4.0 \times 10^{-3} \times 0.3 \times 10^{-3}} = 24.0 \, \text{S/m} \]
+    \item \textbf{迁移率} $\mu$：
+    \[ \mu = |R_H| \sigma = 9.61 \times 10^{-4} \times 24.0 = 0.023 \, \text{m}^2/(\text{V}\cdot\text{s}) \]
+\end{enumerate}
+
+\subsection{提高实验：变温霍尔效应测量}
+在固定的工作电流 $I_S$ 和励磁电流 $I_H$ 下，测量不同温度 $T$ 下的样品电压 $U$。
+
+\noindent \textbf{实验条件：}
+\begin{itemize}
+    \item 固定工作电流 $I_S = 1.06$ mA
+    \item 固定励磁/加热电流 $I_H = 0.4$ A
+    \item 磁场/电流比系数 $B/I = 0.243$ T/A
+\end{itemize}
+
+\begin{center}
+\begin{table}[h]
+\centering
+\caption{变温测量数据 ($T$ vs $U$)}
+\begin{tabular}{ccccccccccccc}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\linewidth]{VH_T.png}
+    \caption{$V_H - T$ 曲线}
+\end{figure}
+
+\toprule
+$T$ ($^\circ$C) & -10 & 0 & 10 & 20 & 30 & 40 & 50 & 60 & 70 & 80 & 90 & 100 \\
+\midrule
+$U$ (mV) & 18.55 & 18.46 & 18.32 & 18.16 & 18.04 & 17.93 & 17.86 & 17.80 & 17.82 & 17.79 & 17.72 & 17.60 \\
+\bottomrule
+\end{tabular}
+\end{table}
+\end{center}
+
+\section{误差分析}
+\begin{enumerate}
+    \item \textbf{系统误差}：电磁铁的剩磁、地磁场影响（已通过对称测量减小）、仪表精度等级。
+    \item \textbf{随机误差}：读数波动、温度变化导致的样品电阻变化。
+    \item \textbf{近似误差}：公式推导中的近似条件（如无限长样品假设与实际尺寸的偏差）。
+\end{enumerate}
+
+\section{结论}
+（此处总结实验测得的 $R_H, n, \sigma, \mu$ 等主要结果，并评价实验方法的有效性。）
+
+\appendix
+\section{原始数据记录}
+\begin{figure}[h]
+    \centering
+    % \includegraphics[width=0.8\linewidth]{原始数据.jpg}
+    \vspace{5cm}
+    \caption{原始数据记录表}
+\end{figure}
+
+\end{document}

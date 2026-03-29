@@ -1,0 +1,68 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand*\HyPL@Entry[1]{}
+\HyPL@Entry{0<</S/D>>}
+\@writefile{toc}{\contentsline {section}{\numberline {1}引言}{1}{section.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2}原理推导}{1}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}等倾干涉的光强分布模型}{1}{subsection.2.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces 迈克尔逊干涉实验光路原理图}}{1}{figure.caption.1}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:setup}{{1}{1}{迈克尔逊干涉实验光路原理图}{figure.caption.1}{}}
+\newlabel{eq:phase_r}{{5}{1}{等倾干涉的光强分布模型}{equation.2.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces 实验采集的原始等倾干涉图样（$512 \times 512$ 像素）}}{2}{figure.caption.2}\protected@file@percent }
+\newlabel{fig:raw_fringe}{{2}{2}{实验采集的原始等倾干涉图样（$512 \times 512$ 像素）}{figure.caption.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}变量代换与信号线性化 ($r^2$ Resampling)}{2}{subsection.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}算法实现流程}{2}{subsection.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{1. 极坐标展开 (Polar Unwrapping)}{2}{section*.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces 极坐标展开后的径向光强分布 $I(r)$}}{2}{figure.caption.4}\protected@file@percent }
+\newlabel{fig:profile_r}{{3}{2}{极坐标展开后的径向光强分布 $I(r)$}{figure.caption.4}{}}
+\@writefile{toc}{\contentsline {paragraph}{2. 非线性重采样 (Non-linear Resampling)}{2}{section*.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces 重采样后的线性空间信号 $I(u)$，可见波峰处明显的饱和平台}}{2}{figure.caption.6}\protected@file@percent }
+\newlabel{fig:profile_u}{{4}{2}{重采样后的线性空间信号 $I(u)$，可见波峰处明显的饱和平台}{figure.caption.6}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.1}整数级基准：光强饱和时长计数法}{2}{subsubsection.2.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.2}亚波长精度：相位追踪计数法}{2}{subsubsection.2.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{1. 信号增强与导数变换}{3}{section*.7}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces 信号频谱特征：主峰 $k$ 值（本例中 $k=3$）直接反映了视场内的条纹级数}}{3}{figure.caption.8}\protected@file@percent }
+\newlabel{fig:fft}{{5}{3}{信号频谱特征：主峰 $k$ 值（本例中 $k=3$）直接反映了视场内的条纹级数}{figure.caption.8}{}}
+\@writefile{toc}{\contentsline {paragraph}{2. 加速归一化互相关 (FFT-NCC) 原理}{3}{section*.9}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces 归一化互相关 (NCC) 函数的亚像素峰值}}{3}{figure.caption.10}\protected@file@percent }
+\newlabel{fig:ncc}{{6}{3}{归一化互相关 (NCC) 函数的亚像素峰值}{figure.caption.10}{}}
+\@writefile{toc}{\contentsline {paragraph}{3. 卡尔曼滤波相位锁定}{3}{section*.11}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}实验系统与软件架构}{3}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}硬件架构}{3}{subsection.3.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces 实验装置实物图：包含激光器、干涉仪、高速相机与电动位移台}}{3}{figure.caption.12}\protected@file@percent }
+\newlabel{fig:hardware}{{7}{3}{实验装置实物图：包含激光器、干涉仪、高速相机与电动位移台}{figure.caption.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces 迈克尔逊干涉光路示意图}}{4}{figure.caption.13}\protected@file@percent }
+\newlabel{fig:optical_path}{{8}{4}{迈克尔逊干涉光路示意图}{figure.caption.13}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}软件架构}{4}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}集成控制台}{4}{subsection.3.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces 系统集成控制台用户界面}}{4}{figure.caption.14}\protected@file@percent }
+\newlabel{fig:console}{{9}{4}{系统集成控制台用户界面}{figure.caption.14}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}实验过程}{4}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}系统初始化与标定}{4}{subsection.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}回程误差补偿 (Backlash Compensation)}{4}{subsection.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}对测量数据的采集}{4}{subsection.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}数据处理与不确定度评定}{4}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}线性回归模型}{4}{subsection.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}数据筛选与统计}{5}{subsection.5.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces 高精度波长测量数据筛选结果 (单位: nm)}}{5}{table.caption.15}\protected@file@percent }
+\newlabel{tab:selected_data}{{1}{5}{高精度波长测量数据筛选结果 (单位: nm)}{table.caption.15}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}不确定度分析 (Uncertainty Analysis)}{5}{subsection.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.1}A 类不确定度 (统计分量)}{5}{subsubsection.5.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.2}B 类不确定度 (系统分量)}{5}{subsubsection.5.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.3}合成不确定度与结果表达}{5}{subsubsection.5.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}应用与展望}{6}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}频域方法 (FFT) 的亚条纹优化}{6}{subsection.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}钠光双线波长差测量}{6}{subsection.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}机器智能辅助}{6}{subsection.6.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {A}附录：核心算法数理基础详述}{6}{appendix.A}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.1}离散信号的频域处理基础}{6}{subsection.A.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.2}亚像素峰值估计的几何演变推导}{6}{subsection.A.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.2.1}1. 局部二阶泰勒建模}{6}{subsubsection.A.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.2.2}2. 方程组解析计算}{6}{subsubsection.A.2.2}\protected@file@percent }
+\newlabel{eq:delta_step1}{{28}{6}{2. 方程组解析计算}{equation.A.28}{}}
+\newlabel{eq:a_step2}{{29}{7}{2. 方程组解析计算}{equation.A.29}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.3}自适应扩展卡尔曼滤波 (AEKF) 的稳态分析}{7}{subsection.A.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.3.1}1. 状态递归关系}{7}{subsubsection.A.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.3.2}2. 极值扰动下的增益特性}{7}{subsubsection.A.3.2}\protected@file@percent }
+\gdef \@abspage@last{7}

@@ -1,0 +1,25 @@
+
+[AI Diagnosis Request]
+Timestamp: 20260128_102952
+Experiment: Michelson Interferometer Wavelength Measurement
+
+[Current System State]
+- Stage Position: 5.935830 mm
+- **Fringe Count**: 46
+- Movement Status: Idle
+- Signal Visibility (FFT Strength): 11.9005 (Ideal > 0.1)
+- Reference Wavelength: 632.8 nm
+
+[Measurement Results (Real-time Fit)]
+
+- [N1 Method] Lambda: 689.54 nm (R^2 = 0.9999)
+- [FFT Method] Lambda: 812.01 nm (R^2 = 0.9964)
+
+
+[Task for AI]
+1. Analyze the attached interference image 'interference_pattern.jpg'.
+2. Check if the concentric rings are clear, well-centered, and have good contrast.
+3. Review the 'data_Fit.png' (Linear Regression) if available. Does the N-d plot show good linearity?
+4. Evaluate the R^2 values. If R^2 < 0.999, suggest potential stability issues (vibration, backlash).
+5. Based on the Visibility metric (11.9005), judge if the optical path alignment is optimal.
+6. If Lambda is far from 632.8nm, check for cosine error or mode jumping.

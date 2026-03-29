@@ -1,0 +1,181 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage[utf8]{ctex}
+\usepackage{amsmath}
+\usepackage[fontsize=10pt]{fontsize}
+\usepackage{geometry}
+\geometry{a4paper,left=0.75in,right=0.75in,top=1in,bottom=0.75in}
+\usepackage{setspace}
+\setlength{\parindent}{0em}
+\def\kong{\hspace*{2em}}
+\usepackage{amsfonts,amssymb}
+\usepackage{xcolor}
+\usepackage{fontspec}
+\usepackage{enumitem}
+\linespread{1.5}
+\usepackage{hyperref}
+\usepackage{hyperref}
+\hypersetup{hidelinks,
+	colorlinks=true,
+	allcolors=black,
+	pdfstartview=Fit,
+	breaklinks=true}
+\usepackage{multirow}
+\usepackage{listings}
+	\lstset{
+ columns=fixed,
+ numbers=left,
+ numberstyle=\tiny\color{gray},
+ frame=none,
+ backgroundcolor=\color[RGB]{245,245,244},
+ keywordstyle=\color[RGB]{40,40,255},
+ numberstyle=\footnotesize\color{darkgray},
+ commentstyle=\it\color[RGB]{0,96,96},
+ stringstyle=\rmfamily\slshape\color[RGB]{128,0,0},
+ showstringspaces=false,
+ language=c,
+ basicstyle=\ttfamily
+	}
+
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE,LO]{\kaishu PB21000276施耀炜}
+
+
+
+\date{2022年3月}
+
+\begin{document}
+
+\setcounter{page}{1}
+\thispagestyle{empty}
+\kong
+\\[10pt]
+\begin{center}
+	\textbf{\huge \heiti 实验报告七}\\[6pt]
+    \textbf{\huge \heiti 分光计的调节与使用}\\[12pt]
+	\textbf{学号：}\underline{\kaishu PB21000276} \qquad 
+    \textbf{姓名：}\underline{\kaishu 施耀炜} \qquad 
+    \textbf{班级：}\underline{\kaishu 21级少院6班}\qquad 
+    \textbf{日期：}\underline{2022年5月25日}\\[24pt]
+\end{center}
+\section{实验名称}
+    \kong 分光计的调节与使用
+\section{实验目的}
+    \kong 了解硅分光计工作原理，掌握分光计的调节与使用，并用最小偏向角法测三棱镜材料的折射率。
+\section{实验原理}
+    \subsection{分光计的结构}
+        \kong 分光计主要由底座、平行光管、望远镜、载物台和读数圆盘五部分组成。外形如图7.1所示。\\[12pt]
+        \begin{minipage}{1\linewidth}
+            \centering
+            \textbf{图\ 7.1}\quad 分光计外形图 \\[4pt]
+            \includegraphics[width=0.8\linewidth]{tp1.png}
+            \label{tp1.png}
+        \end{minipage}\\[12pt]
+    \subsection{分光计的调整原理和方法}
+        \kong 调整分光计，最后要达到下列要求：\\
+        \kong 1.平行光管发出平行光；\\
+        \kong 2.望远镜对平行光聚焦（即接收平行光）；\\
+        \kong 3.望远镜、平行光管的光轴垂直仪器公共轴。\\
+        \kong 分光计调整的关键是调好望远镜，其他的调整可以以望远镜为基准。具体的调节方法如下图7.2，7.3，7.4。\\[12pt]
+        \begin{minipage}{1\linewidth}
+            \centering
+            \textbf{图\ 7.2}\quad 载物台倾角的调整原理与方法 \\[4pt]
+            \includegraphics[width=0.8\linewidth]{tp2.png}
+            \label{tp2.png}
+        \end{minipage}\\[12pt]
+        \begin{minipage}{1\linewidth}
+            \centering
+            \textbf{图\ 7.3}\quad 望远镜光轴的调整原理与方法 \\[4pt]
+            \includegraphics[width=0.8\linewidth]{tp3.png}
+            \label{tp3.png}
+        \end{minipage}\\[12pt]
+        \begin{minipage}{1\linewidth}
+            \centering
+            \textbf{图\ 7.4}\quad 平行光管光轴与望远镜光轴共线 \quad \quad 
+            \textbf{图\ 7.5}\quad 用最小偏向角法测折射率原理图 \\[4pt]
+            \includegraphics[width=0.8\linewidth]{tp4.png}
+            \label{tp4.png}
+        \end{minipage}\\[12pt]
+    \subsection{用最小偏向角法测三棱镜材料的折射率}
+    \kong 如上图7.5，一束单色光以$i_1$角入射到$AB$面上，经棱镜两次折射后，从$AC$面折射出来，出射角为$i'_2$。入射光和出射光之间的夹角$\delta$称为偏向角。当棱镜顶角$A$一定时，偏向角$\delta$的大小随入射角$i_1$的变化而变化。当$i_1＝i'_2$时，$\delta$为最小。这时的偏向角称为最小偏向角，记作$\delta_{min}$。可以计算得：
+    $$
+        n=\frac{\sin i_1}{\sin \displaystyle\frac A 2}=\frac{\sin \displaystyle\frac{\delta _{min}+A}{2}}{\sin \displaystyle\frac A 2} \eqno{(7.1)}
+    $$
+%实验仪器
+\section{实验仪器}
+    \begin{itemize}[noitemsep]
+        \item 分光计
+        \item 三棱镜
+        \item 平面镜
+    \end{itemize}
+%实验内容
+\section{实验内容}
+        \subsection{调整分光计}
+            \kong 要求与调整方法见原理部分。
+        \subsection{使三棱镜光学侧面垂直望远镜光轴}
+            \kong (1)调载物台的上下台面大致平行，将棱镜放到平台上，使棱镜三边与台下三螺钉的连线所成三边相互垂直。试分析这样放置的好处。\\
+            \kong \textbf{答：}每一次只需要调整一颗螺丝，便于调节。\\
+            \kong (2)接通目镜照明光源，遮住从平行光管来的光。转动载物台，在望远镜中观察从侧面$AC$和$AB$反射回来的十字像，只调台下三螺钉，使其反射像都落到上十字线处。调节时，切莫动螺钉。注意：每个螺钉的调节要轻微，要同时观察它对各侧面反射像的影响。调好后的棱镜，其位置不能再动。
+        \subsection{测棱镜顶角}
+            \kong 对两游标作适当标记，分别称游标1和游标2，旋紧度盘下螺钉，望远镜和刻度盘固定不动。转动游标盘，使棱镜$AC$面正对望远镜，记下游标1的读数$\theta_1$和游标2$\theta_2$的读数 。再转动游标盘，再使AB面正对望远镜，记下游标1的读数$\theta'_1$和游标2$\theta'_2$的读数 。两次读数之差即是载物台转过的角度$\Phi =[|\theta_1-\theta'_1|+|\theta_2-\theta'_2|]/2$ ，顶角$A=\pi-\Phi$。
+        \subsection{测三棱镜的最小偏向角}
+            \kong (1)平行光管狭缝对准前方汞灯光源。\\
+            \kong (2)旋松望远镜止动螺钉和游标盘止动螺钉，把载物台及望远镜转至所示位置，再左右微微转动望远镜，找出棱镜出射的各种颜色的汞灯光谱线（各种波长的狭缝像）。
+            \kong (3)轻轻转动载物台，改变入射角$i_1$，在望远镜中将看到谱线跟着动。改变$i_1$，应使谱线往$\delta $减小的方向移动（向顶角A方向移动）。望远镜要跟踪光谱线转动，直到棱镜继续转动，而谱线开始要反向移动（即偏向角反而变大）为止。这个反向移动的转折位置，就是光线以最小偏向角射出的方向。固定载物台，再使望远镜微动，使其分划板上的中心竖线对准其中的那条绿谱线（546.1 nm）。
+        \subsection{测量}
+            \kong 记下此时两游标处的读数$\theta _1$和$\theta _2$。取下三棱镜（载物台保持不动），转动望远镜对准平行发光管，以确定入射光的方向，再记下两游标处的读数$\theta'_1$和$\theta '_2$。此时绿谱线的最小偏向角为：$\delta _{min}=[|\theta_1-\theta'_1|+|\theta_2-\theta'_2|]/2$。
+        \subsection{验证柯西色散公式}
+            \kong 测量汞灯其余频率光谱的折射率，并尝试验证柯西色散公式。
+%数据处理与分析
+\section{数据处理与分析}
+    \kong $P=0.95$，$n=3$时，$t=3.18$，正态分布$K_P=1.960$，均匀分布$K_P=1.645$
+    \subsection{测量三棱镜的顶角}
+        \kong 数据如表7.1：\\[12pt]
+        \begin{minipage}{1\linewidth}
+            \centering
+            \textbf{表\ 7.1}\quad 测量三棱镜顶角数据  \\[4pt]
+            \begin{tabular}{|l|l|l|l|l|l|} \hline
+                    & $\theta_1$       & $\theta_2$       & $\theta'_1$      & $\theta'_2$      & $\Phi$              \\\hline
+                第1次 & $152^{\circ}12'$ & $332^{\circ}12'$ & $272^{\circ}13'$ & $92^{\circ}13'$  & $120^{\circ}1'$     \\\hline
+                第2次 & $2^{\circ}19$'   & $182^{\circ}19'$ & $122^{\circ}21'$ & $302^{\circ}18'$ & $120^{\circ}0'30''$ \\\hline
+                第3次 & $2^{\circ}20$'   & $182^{\circ}20'$ & $122^{\circ}22'$ & $302^{\circ}18'$ & $120^{\circ}0'30''$ \\\hline
+            \end{tabular}
+        \end{minipage}\\[12pt]
+        \kong $\displaystyle \bar \Phi=\frac{1}{3}(120^{\circ}1'+120^{\circ}0'30''+120^{\circ}0'30'')=120^{\circ}0'40''$\\
+        \kong $\displaystyle \sigma_{\Phi}=\sqrt \frac{(\Phi_1-\bar \Phi)^2+(\Phi_2-\bar \Phi)^2++(\Phi_3-\bar \Phi)^2}{3-1}=(30\sqrt2)''$\\
+        \kong $\Delta_B=60'’$\\
+        \kong $\displaystyle  U_{\Phi}=\sqrt {(3.18\times (30\sqrt2))^2+(1.645\times \frac{60''}{\sqrt 3})^2}=2'27''$\\
+        \kong $\bar \Phi=120^{\circ}0'40''\pm 2'27''$
+        \kong 即$A=59^{\circ}59'20''\pm 2'27''$
+    \subsection{测量546.1 nm谱线对应最小偏向角计算折射率}
+        \kong 数据如表7.2：\\[12pt]
+        \begin{minipage}{1\linewidth}
+            \centering
+            \textbf{表\ 7.2}\quad  测量546.1 $nm$谱线对应最小偏向角数据 \\[4pt]
+            \begin{tabular}{|l|l|l|l|l|l|}
+                \hline
+                    & $\theta_1$       & $\theta_2$       & $\theta'_1$     & $\theta'_2$      & $\delta$        \\ \hline
+                第1次 & $125^{\circ}23'$ & $305^{\circ}23'$ & $63^{\circ}39'$ & $243^{\circ}39'$ & $61^{\circ}44'$ \\ \hline
+                第2次 & $123^{\circ}28$' & $303^{\circ}26'$ & $61^{\circ}44'$ & $241^{\circ}42'$ & $61^{\circ}44'$ \\ \hline
+                第3次 & $61^{\circ}14$'  & $241^{\circ}11'$ & $123^{\circ}0'$ & $322^{\circ}25'$ & $61^{\circ}44'$ \\ \hline
+                \end{tabular} 
+        \end{minipage}\\[12pt]
+        \kong $\displaystyle \bar \delta_{min}=\frac{1}{3}(61^{\circ}44'+61^{\circ}44'+61^{\circ}44')=61^{\circ}44''$\\
+        \kong $\displaystyle \sigma_{\delta_{min}}=\sqrt \frac{(\delta_{1,min}-\bar \delta_{min})^2+(\delta_{2,min}-\bar \delta_{min})^2++(\delta_{3,min}-\bar \delta_{min})^2}{3-1}=0$\\
+        \kong $\Delta_B=60'’$\\
+        \kong $\displaystyle  U_{\delta_{min}}=\sqrt {(3.18\times 0)^2+(1.645\times \frac{60''}{\sqrt 3})^2}=57''$\\
+        \kong $\bar \delta_{min}=61^{\circ}44'\pm 57''$
+        \kong 由公示7.1，得$\displaystyle n=\frac{\sin \displaystyle\frac{\delta _{min}+A}{2}}{\sin \displaystyle\frac A 2}=1.747$\\
+        \kong 对上式做全微分，得$\displaystyle \frac{\Delta n}{n}=\frac 1 2(\cot\frac{\delta _{min}+A}{2}-\cot\frac A 2)\Delta A+\frac 1 2 \cot\frac{\delta _{min}+A}{2}\Delta \delta_{min}$\\
+        \kong 计算得$\displaystyle U_{n}=n\sqrt{\frac 1 4(\cot\frac{\delta _{min}+A}{2}-\cot\frac A 2)^2\Delta A^2+\frac 1 4 \cot^2\frac{\delta _{min}+A}{2}\Delta \delta_{min}^2}=0.0426$\\
+        \kong 即$n=1.747\pm 0.0426$。
+        
+        
+\section{思考题}
+    \kong \textbf{1.}1. 已调好望远镜光轴垂直主轴，若将平面镜取下后，又放到载物台上（放的位置与拿下前的位置不同），发现两镜面又不垂直望远镜光轴了，这是为什么？是否说明望远镜光轴还没调好？\\
+    \kong \textbf{答：}因为在此前仅能保证镜面平面与望远镜光轴垂直，并不能保证望远镜本身水平。这并不能说明望远镜光轴没调好，即使调好了，对平面镜进行重新防置，也仍然可能出现未垂直的问题。
+\end{document}

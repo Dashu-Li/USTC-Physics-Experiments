@@ -1,0 +1,303 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage[utf8]{ctex}
+\usepackage{amsmath}
+\usepackage[fontsize=10pt]{fontsize}
+\usepackage{geometry}
+\geometry{a4paper,left=1.25in,right=1.25in,top=1in,bottom=1in}
+\usepackage{setspace}
+\setlength{\parindent}{0em}
+\def\kong{\hspace*{2em}}
+\usepackage{amsfonts,amssymb}
+\usepackage{xcolor}
+\usepackage{fontspec}
+\usepackage{enumitem}
+\linespread{1.5}
+\usepackage{hyperref}
+\usepackage{hyperref}
+\hypersetup{hidelinks,
+	colorlinks=true,
+	allcolors=black,
+	pdfstartview=Fit,
+	breaklinks=true}
+
+\usepackage{listings}
+	\lstset{
+ columns=fixed,
+ numbers=left,
+ numberstyle=\tiny\color{gray},
+ frame=none,
+ backgroundcolor=\color[RGB]{245,245,244},
+ keywordstyle=\color[RGB]{40,40,255},
+ numberstyle=\footnotesize\color{darkgray},
+ commentstyle=\it\color[RGB]{0,96,96},
+ stringstyle=\rmfamily\slshape\color[RGB]{128,0,0},
+ showstringspaces=false,
+ language=c,
+ basicstyle=\ttfamily
+	}
+
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE,LO]{\kaishu PB21000276施耀炜}
+
+
+
+\date{2022年3月}
+
+\begin{document}
+
+\thispagestyle{empty}
+\hspace*{2em}
+\\[140pt]
+
+\begin{center}
+{\heiti \Huge 大学物理—基础实验I}
+\\[14pt]
+{\Large \kaishu{施耀炜}\ PB21000276}
+\\[10pt]
+{\Large 2022年3月}
+\end{center}
+
+\clearpage
+\thispagestyle{empty}
+\kong
+\newpage
+\thispagestyle{empty}
+\kong
+\\[12pt]
+\begin{center}
+	{\huge \heiti 目录}\\[26pt]
+\end{center}
+{\large {\heiti 实验报告一}\quad 重力加速度的测量 \hfill \textbf{1}}
+
+
+\newpage
+\kong
+\thispagestyle{empty}
+\newpage
+\setcounter{page}{1}
+\thispagestyle{empty}
+\kong
+\\[10pt]
+\begin{center}
+	{\LARGE \heiti 实验报告一}\\[6pt]
+  {\LARGE \heiti 重力加速度的测量}\\[12pt]
+	\textbf{学号：}\underline{\kaishu PB21000276} \qquad \textbf{姓名：}\underline{\kaishu 施耀炜} \qquad \textbf{班级：}\underline{\kaishu 21级少院6班}\qquad \textbf{日期：}\underline{2022年3月16日}\\[12pt]
+\end{center}
+\section{实验名称}
+\kong 重力加速度的测量
+\section{实验方法}
+\kong 测量当地的重力加速度
+\section{实验方法及仪器}
+	\subsection{自由落体法}
+		\begin{itemize}[noitemsep]
+			\item 立柱支架
+			\item 数字毫秒计
+			\item 光电门（1，2）
+			\item 电磁铁
+			\item 卷尺
+			\item 纸杯
+			\item 小球、大球（钢制）
+		\end{itemize}
+
+	\subsection{单摆法}
+		\begin{itemize}[noitemsep]
+			\item 电子秒表
+			\item 单摆（带标尺、平面镜，摆线长度可调）
+			\item 游标卡尺
+			\item 千分尺
+			\item 卷尺
+			\item 摆球
+		\end{itemize}
+\section{实验原理}
+	\subsection{自由落体法}
+  	\kong 由牛顿运动定律，自由落体运动方程为：
+    \begin{equation*}
+    	h=\frac12gt^2 \eqno(1.1)
+    \end{equation*}
+    其中$h$为下落距离，$t$是下落时间。但实际工作中，$t$的测量精度不高，利用(1.1)很难精确测的重力加速度$g$。\\
+    \kong 用卷尺测量$h$，采用双光电门法测$t$，光电门1位于光电门2的上方，光电门1的位置固定，保证小球通过光电门1时的速度$v_0$保持不变。光电门1与2之间的高度差为$h_i$，时间差为$t_i$，改变光电门2的位置，则有：
+    \begin{equation*}
+    	h_i=v_0t_i+\frac12 gt_i^2 \eqno(1.2)
+    \end{equation*}
+    同时除以$t_i$，即：
+    \begin{equation*}
+    	\bar{v_i}=v_0+\frac12gt_i \eqno(1.3)
+    \end{equation*}
+    测出一系列的$h_i,\ t_i$，利用线性拟合即可求出重力加速度$g$。
+	\subsection{单摆法}
+  	\kong 实际的单摆实验中，悬线是一根有质量（弹性很小）的线，摆球是有质量有体积的刚性小球，摆角不为零，摆球的运动还会受到空气的影响。单摆的周期公式为：
+    \begin{equation*}
+    	T = 2 \pi \sqrt { \frac { l } { g } [ 1 + \frac { d ^ { 2 } } { 20 l ^ { 2 } } - \frac { m _ { 0 } } { 12 m } ( 1 + \frac { d } { 2 l } + \frac { m _ { 0 } } { m } ) + \frac { \rho _ { 0 } } { 2 \rho } + \frac { \theta ^ { 2 } } { 16 } ] } \eqno(1.4)
+    \end{equation*}
+    其中$T$是单摆的周期，$l,\ m_0$是单摆的摆线的长度和质量，$d,\ m, \rho $是摆球的直径、质量和密度，$\rho _0$是空气密度，$\theta$是摆角。\\
+		\kong 在一级近似下，单摆周期公式为
+    \begin{equation*}
+      T=2\pi\sqrt{\frac{l}{g}} \eqno(1.5)
+    \end{equation*}
+    通过测量周期$T$和摆长$l$可求出重力加速度$g$。
+
+\section{实验设计（预习）}
+	\subsection{自由落体法}
+  	\kong 见实验原理，略。
+  \subsection{单摆法}
+  	\kong 对(1.5)变形，得：
+    \[
+    	g=\frac{4\pi^2l}{T^2} \eqno(1.6)
+    \]
+		分析其不确定度，由不确定度均分原理：
+    \[
+    	\frac{\Delta g}g=2\frac{\Delta T}T+\frac{\Delta l}l \eqno(1.7)
+    \]
+    实验要求为$\Delta g/g< 1\% $，即$2\Delta T/T<0.5\%,\ \Delta l/l<0.5\%$，线长需用卷尺测量长度，卷尺的允差$\Delta  \approx 0.2cm$ ，故摆长$l>40cm$ ；秒表的允差$\Delta \approx 0.01s$ ，人工测量时间的允差$\Delta \approx 0.2s$ ，故测量总时间$t>84s$ 。\\
+    \kong 注意到，适当增加摆长，其测量精度越高，同时其周期也越长，时间测量精度对应提高，故实验精度相应提高；但也不易过长，增加测量负担，导致周期过长而周期数偏小。故若取摆长 $l\approx 90 cm$ ，则代入 $ g\approx 9.8 m/s^2$，粗略计算得周期 $ T \approx 1.9s$ ，即至少需要测约45个周期。\\
+    \kong 注意到摆长为悬挂点到小球的中心，但千分尺或游标卡尺精度过高，对测量意义不大，故直接用钢卷尺测量，从摆线顶端至小球中间（切点）$l$ 。\\
+    \kong 具体实验操作如下：\\
+    \kong 1.组装实验仪器；\\
+    \kong 2.多次测量 $l$ 取平均值，计算出摆长$l$；\\
+    \kong 3.将摆球拉离平衡位置一个小角度（ $\theta<5^{\circ}$ ）同平面摆动，并用秒表测量50个振动周期的时间，重复多次；\\
+    \kong 4.处理数据，利用(1.6)计算出当地的重力加速度 $g$ 。
+
+\section{数据处理与分析}
+%自由落体法
+\subsection{自由落体法}
+\subsubsection{原始数据}
+  	\begin{center}
+			\textbf{表\ 1.1}\quad 自由落体法原始数据\\[6pt]
+      \begin{tabular}{|c|r|r|r|r|r|r|r|}
+				\hline No. &  $\boldsymbol{l_1} / \mathbf{m}$ & $\boldsymbol{l_2} / \mathbf{m}$ &  $\boldsymbol{T_1} / \mathrm{s}$ & $\boldsymbol{T_2} / \mathrm{s}$ & $\boldsymbol{(T_2-T_1)} / \mathrm{s}$ & $\bar{\boldsymbol{v}}$ / \mathrm{m}\cdot \mathrm{s}^{-1}} &球形（大/小）\\
+				\hline $\mathbf{1}$ & $0.100$ & $0.500$ & $0.1374$ &$0.3161$ &$0.1787$ & $2.2383$ & 大 \\
+				\hline $\mathbf{2}$ & $0.100$ & $0.500$ & $0.1377$ &$0.3173$ &$0.1796$ & $2.2271$ & 小 \\
+				\hline $\mathbf{3}$ & $0.100$ & $0.600$ & $0.1338$ &$0.3455$ &$0.2117$ & $2.3618$ & 大 \\
+				\hline $\mathbf{4}$ & $0.100$ & $0.600$ & $0.1382$ &$0.3484$ &$0.2102$ & $2.3786$ & 小 \\
+        \hline $\mathbf{5}$ & $0.100$ & $0.700$ & $0.1343$ &$0.3735$ &$0.2392$ & $2.5083$ & 大 \\
+        \hline $\mathbf{6}$ & $0.100$ & $0.700$ & $0.1376$ &$0.3762$ &$0.2386$ & $2.5146$ & 小 \\
+        \hline
+			\end{tabular}
+		\end{center}
+\subsubsection{数据处理}
+		利用公式(1.3)，对表中$\boldsymbol{T_2-T_1}$和$\bar{\boldsymbol{v}}$进行基于最小二乘法的线性回归拟合，得图1.1，即$g=4.6496\times 2=9.2992 \ \text{m}/\text{s}^2$
+    \begin{figure}[htp]
+    	\centering
+      \textbf{图\ 1.1}\quad 自由落体法数据最小二乘法线性拟合图\\[2pt]
+    	\includegraphics[width=15cm]{data1}
+		\end{figure}
+
+
+%单摆法
+\subsection{单摆法}
+	\subsubsection{原始数据}
+  	\begin{center}
+			\textbf{表\ 1.2}\quad 单摆法原始数据\\[6pt]
+      \begin{tabular}{|c|r|r|r|r|}
+				\hline No. & 摆长 $\boldsymbol{l} / \mathbf{m}$ & 周期数
+        $\boldsymbol{n}$ & 时间 $\boldsymbol{t} / \mathrm{s}$ & 周期$\mathrm{s}$\\
+				\hline $\mathbf{1}$ & $0.6105$ & $49$ & $77.25$ &$1.577$\\
+				\hline $\mathbf{2}$ & $0.6144$ & $50$ & $78.39$ &$1.568$\\
+				\hline $\mathbf{3}$ & $0.6098$ & $50$ & $78.31$ &$1.566$\\
+				\hline $\mathbf{4}$ & $0.6103$ &   &  &\\
+        \hline $\mathbf{5}$ & $0.6152$ &   &  &\\
+        \hline
+			\end{tabular}
+		\end{center}
+    \kong 注意到，本实验应该同摆长、同周期数进行测量，但是数据中出现周期数为49的一行，是因为在测量过程中，计数时应该是喊到“51”时恰好按住表秒，但是测量时我组误在喊到“50”时就停止计时，故导致有一组数据周期数为49。测量过程中，我组并未注意要同摆长同周期数进行测量，认为这组数据单次计算得到的重力加速度$g$可用，故保留，在交由老师审查时才发现问题。
+  %不确定度
+  \subsubsection{不确定度分析}
+  	%摆长
+    \kong \textbf{1.摆长}\quad 摆长$l$的平均值为
+    $$
+    	\bar{l}=\frac{0.6105+0.6144+0.6098+0.6103+0.6152}{5}\ \text{m}=0.6120\ \text{m} \eqno{(1.8)}
+    $$
+    标准差为\\[4pt]
+    $
+    	\sigma_l&=\displaystyle{\sqrt{\frac{(0.6105-0.6120)^2+(0.6144-0.6120)^2+(0.6098-0.6120)^2+(0.6103-0.6120)^2+(0.6152-0.6120)^2}{5-1}}}\ \text{m}
+    $\\
+    \hspace*{6pt}$\quad =0.00228\ \text{m}$ \hfill{(1.9)}\\[4pt]
+    查表得，$n=5,P=0.997$时有
+    $$
+    	t_P=4.60,\quad k_P=3.00 \eqno{(1.10)}
+    $$
+		钢卷尺$\Delta_{\text{尺}=0.2\text{cm}=2\times 10^{-3}\text{m}}$，即$\Delta_{\text{B}}=2\times 10^{-3}\text{m}$，置信系数$C=3$，故摆长$l$展伸不确定度为\\[4pt]
+    $
+     \displaystyle{U_{l,0.997}=\sqrt{\left(t_{0.997} \frac{\sigma_{l}}{\sqrt{n}}\right)^{2}+\left(k_{0.997} \frac{\Delta_{\mathrm{B}}}{C}\right)^{2}}=\sqrt{\left(4.60 \times \frac{0.00228}{\sqrt{5}}\right)^{2}+\left(3.00 \times \frac{2\times 10^{-3}}{3}\right)^{2}} \ \text{m} }
+    $\\[4pt]
+    \hspace*{29pt}$=0.00510\ \text{m},\quad P=0.997 $\hfill{(1.11)}\\[4pt]
+    %周期
+    \kong \textbf{2.周期}\quad 周期$T$的平均值为
+    $$
+    	\bar{T}=\frac{1.577+1.568+1.566}{3}\ \text{s}=1.570\ \text{s} \eqno{(1.12)}
+    $$
+    标准差为\\[4pt]
+    $$
+    	\sigma_T&=\sqrt{\frac{(1.577-1.570)^2+(1.568-1.570)^2+(1.566-1.570)^2}{3-1}}=0.0059\ \text{s} \eqno{(1.13)}
+    $$\\
+    查表得，$n=3,P=0.997$时有
+    $$
+    	t_P=9.93,\quad k_P=3.00 \eqno{(1.14)}
+    $$
+		秒表$\Delta_{\text{表}}=0.01\ \text{s}$，人工测量时间允差$\Delta_{\text{人}}=0.2\ \text{s}$，由于测量时有一组数据为49个周期，其余两组为50个，故取$n=49$，有
+    $$\Delta_{\text{BT}}=\frac{1}{49}\sqrt{\Delta^2_{\text{表}}+\Delta^2_{\text{人}}}=0.004 \ \text{s}$$置信系数$C=3$，故周期$T$展伸不确定度为\\[4pt]
+    $
+     \displaystyle{U_{T,0.997}=\sqrt{\left(t_{0.997} \frac{\sigma_{T}}{\sqrt{n}}\right)^{2}+\left(k_{0.997} \frac{\Delta_{\text{B}}}{C}\right)^{2}}=\sqrt{\left(9.93 \times \frac{0.0059}{\sqrt{3}}\right)^{2}+\left(3.00 \times \frac{0.004}{3}\right)^{2}} \ \text{s}}
+    $\\[4pt]
+    \hspace*{31pt}$=0.034\ \text{s},\quad P=0.997 $ \hfill{(1.15)}\\[4pt]
+   %g
+   \kong \textbf{3.重力加速度}\quad 根据公式(1.6)，重力加速度
+
+    $$
+    	\bar{g}=\frac{4\pi^2\bar{l}}{\bar{T}^2}=\frac{4\pi^2\times 0.6120}{1.570^2}=9.802 \ \text{m}/\text{s}^2 \eqno{(1.16)}
+    $$
+
+    由不确定度传递公式，$g$的展伸不确定度为\\[12pt]
+    $
+     \displaystyle{\frac{U_{g, 0.997}}{\bar{g}}=\sqrt{\left(1\cdot \frac{U_{L, 0.997}}{\bar{L}}\right)^{2}+\left(2\cdot \frac{U_{T,0.997}}{\bar{T}}\right)^{2}}=\sqrt{\left(1\cdot \frac{0.00510}{0.6120}\right)^{2}+\left(2\cdot \frac{0.034}{1.570}\right)^{2}}=0.0441,\quad P=0.997}$\\
+    \kong \hfill{(1.17)}\\
+    $$
+    U_{g, 0.997}=0.0441\times 9.802 \ \text{m}/\text{s}^2=0.432\ \text{m}/\text{s}^2\eqno{(1.18)}
+    $$
+    最终测量结果为
+    $$
+    g=\bar{g}\pm U_{g, 0.997}=(9.802\pm 0.432)\ \text{m}/\text{s}^2 \eqno{(1.19)}
+    $$
+    参考值：$g_0=9.795$，合肥
+
+\section{分析与讨论}
+	\subsection{“自由落体法测重力加速度”实验的定性误差分析与改进}
+  	\kong 注意到，合肥重力加速度的参考值为$g_0=9.795$，实验测量$g=9.2992$与参考值相比偏小较多，有可能有如下原因：\\
+    \kong 1.由于空气阻力，导致钢球下落时加速度小于真实的重力加速度$g$；\\
+    \kong 2.放置钢球后的摆动对实验结果有影响；\\
+    \kong 3.小球通过光电门的时间在实验中不可忽略，光电门的测量模式未知，可能因此偏小；\\
+    \kong 4.上方电磁铁剩磁，对钢球仍有吸引，造成影响，导致偏小。\\
+    \kong 针对上述问题，提出解决方案：\\
+    \kong 1.改用密度更大的金属球，减小空气阻力的影响；\\
+    \kong 2.放置钢球后应等待一会，待其不再抖动再开始测量；\\
+    \kong 3.了解光电门的工作模式，进行相关修正；\\
+    \kong 4.适当增大$l_1$，减小剩磁影响，同时测量更多数据，注意实验操作的规范性。
+	\subsection{“单摆法测重力加速度”实验的定性误差分析与改进}
+  	\kong 实验测得的$\bar{g}=9.802\ \text{m}/\text{s}^2$与参考值略偏大，整体较为接近，但其展伸不确定度达$4.41\%$，下分析不确定度较大的原因：\\
+    \kong 1.注意到测量摆长$l$时有三组数据集中在$0.6100 \ \text{m}$附近，另两组集中在$0.6150 \ \text{m}$，是因为在测量时前三组钢卷尺上端固定，而后更改了位置再次测了两组，导致测得摆长差距较大，其展伸不确定度较大；\\
+    \kong 2.由于计数失误导致一组数据周期数为$49$，其周期与另两组相差较大，导致其展伸不确定度较大；\\
+    \kong 3.测量次数较少，使得展伸不确定度较大。\\
+    \kong 针对上述问题，提出改进方案：\\
+    \kong 1.固定一端不动，多次测量摆长，或者通过分别多次测量悬线顶端到悬线下端长$l_1$和悬线顶端到小球下端长$l_2$，而后平均，计算得摆长$l$，更加精确的同时可以有效减少其展伸不确定度；\\
+    \kong 2.计数失误的数据组直接放弃，重新测量，保证同周期；\\
+    \kong 3.多次测量$50$个周期的时常。\\
+    \kong 同时，仍存在的误差，在下方思考题中给出相关分析。\\
+\section{思考题}
+	\subsection{自由落体法}
+  	\kong \textbf{1.}在实际工作中，为什么利用(1.1)式很难精确测量重力加速度$g$？\\
+    \kong \textbf{答：}(1.1)式即初速度为$0$的自由落体下落，但是事实上电磁铁关闭后有剩磁，所以静止释放时小球受到剩磁力的
+作用，其并非做自由落体运动，且若从一开始就计时，对摆动等要求必须更小，故采用此公式误差较大。\\
+		\kong \textbf{2.}为了提高测量精度，光电门 1 和光电门 2 的位置应如何选取？\\
+    \kong \textbf{答：}根据不确定度分析，两门间距离可以较大，使的$\Delta L/L$和$\Delta T/T$都更小；同时上方的光电门1不宜太高，应和电磁铁相隔一定距离，以保证剩磁对其影响较小，确保小球在光电门1、2之间的真实加速度更接近重力加速度。\\
+    \kong \textbf{3.}利用本实验装置，你还能提出其他测量重力加速度$g$的实验方案吗？\\
+    \kong \textbf{答：}将装置倾斜放置，并加装导轨，拟合$a\ sin\theta$图像得到重力加速度$g$。
+  \subsection{单摆法}
+  	\kong \textbf{1.}分析基本误差的来源，提出进行改进的方法。\\
+    \kong \textbf{答：} 摆动角度较小时，可能导致各阻力影响较大；摆动角度较大，其一阶近似可能误差较大；故取摆动角度时应该恰当。同时应尽量保证其在单个平面内振动，防止维度振动的影响。同时还有系统误差，如钢卷尺的允差较大，摆长测量不准；人工计时允差较大等。可以使用更精密的仪器和摄像辅助等方法测量长度和计时。\\
+
+\end{document}

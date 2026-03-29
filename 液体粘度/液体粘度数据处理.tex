@@ -1,0 +1,149 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[UTF8]{ctex}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{geometry}
+\usepackage{ulem}
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+
+\title{\Huge{\textbf{\uuline{数\ 据\ 处\ 理}}}}
+\author{\uline{少年班学院} \quad 姓名: \uline{李大恕} \quad 学号: \uline{PB24000145} \quad 实验日期: \uline{2025--4--7}}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{实验题目}
+    落球法测定液体的粘度
+
+\section{实验环境数据}
+    液面高度$h$的平均值
+    \[
+    \overline{h}=\frac{1}{n}\sum_{i=1}^{n}h_i=\frac{40.75+40.74+40.76}{3}\,\mathrm{cm}=40.75\,\mathrm{cm}
+    \]
+
+    匀速下降区$l$的平均值
+    \[
+    \overline{l}=\frac{1}{n}\sum_{i=1}^{n}l_i=\frac{18.5+18.49+18.5}{3}\,\mathrm{cm}=18.497\,\mathrm{cm}
+    \]
+
+    量筒直径$D$的平均值
+    \[
+    \overline{D}=\frac{1}{n}\sum_{i=1}^{n}D_i=\frac{81.48+81.48+81.48}{3}\,\mathrm{mm}=81.48\,\mathrm{mm}
+    \]
+
+    蓖麻油密度$\rho_0$的平均值
+    \[
+    \overline{\rho_0}=\frac{1}{n}\sum_{i=1}^{n}\rho_{0_i}=\frac{0.955+0.955+0.955}{3}\,\mathrm{g/cm^3}=0.955\,\mathrm{g/cm^3}
+    \]
+
+    环境温度$T$的平均值
+    \[
+    \overline{T}=\frac{1}{n}\sum_{i=1}^{n}T_i=\frac{26.8+26.7+26.8}{3}\,\mathrm{^\circ C}=26.767\,\mathrm{^\circ C}
+    \]
+
+\section{小球测量结果}
+    小球直径d的平均值
+    \[
+    \overline{d}=\frac{1}{n}\sum_{i=1}^{n}d_i=\frac{3.005+2.996+2.995+2.996+2.999+2.998}{6}\,\mathrm{mm}=2.9982\,\mathrm{mm}
+    \]
+
+    下落时间t的平均值
+    \[
+    \overline{t}=\frac{1}{n}\sum_{i=1}^{n}t_i=\frac{3.63+3.55+3.65+3.55+3.54+3.62}{6}\,\mathrm{s}=3.59\,\mathrm{s}
+    \]
+
+    小球下落速度
+    \[
+    v=\frac{l}{t}=\frac{0.18497}{3.59}\,\mathrm{m/s}=0.051523\,\mathrm{m/s}
+    \]
+
+    粘度的零级近似值
+    \[
+    \eta_{0}=\frac{d^{2} g \left(\frac{\rho}{18} - \frac{\rho_{0}}{18}\right)}{v \left(1 + \frac{2.4 d}{D}\right) \left(\frac{1.65 d}{h} + 1\right)}=0.61266\,\mathrm{Pa·s}
+    \]
+
+    雷诺数
+    \[
+    Re=\frac{d \rho_{0} v}{\eta_{0}}=0.24084\,\mathrm{}
+    \]
+
+    $0.1<Re<0.5$，进行一级修正，得粘度：
+    \[
+    \eta_{1}=- \frac{3 d \rho_{0} v}{16} + \eta_{0}=0.585\,\mathrm{Pa·s}
+    \]
+
+\section{中球测量结果}
+    小球直径d的平均值
+    \[
+    \overline{d}=\frac{1}{n}\sum_{i=1}^{n}d_i=\frac{3.485+3.487+3.485+3.488+3.489+3.486}{6}\,\mathrm{mm}=3.4867\,\mathrm{mm}
+    \]
+
+    下落时间t的平均值
+    \[
+    \overline{t}=\frac{1}{n}\sum_{i=1}^{n}t_i=\frac{2.63+2.6+2.67+2.68+2.68+2.67}{6}\,\mathrm{s}=2.655\,\mathrm{s}
+    \]
+
+    小球下落速度
+    \[
+    v=\frac{l}{t}=\frac{0.18497}{2.655}\,\mathrm{m/s}=0.069667\,\mathrm{m/s}
+    \]
+
+    粘度的零级近似值
+    \[
+    \eta_{0}=\frac{d^{2} g \left(\frac{\rho}{18} - \frac{\rho_{0}}{18}\right)}{v \left(1 + \frac{2.4 d}{D}\right) \left(\frac{1.65 d}{h} + 1\right)}=0.60819\,\mathrm{Pa·s}
+    \]
+
+    雷诺数
+    \[
+    Re=\frac{d \rho_{0} v}{\eta_{0}}=0.3815\,\mathrm{}
+    \]
+
+    $0.1<Re<0.5$，进行一级修正，得粘度：
+    \[
+    \eta_{1}=- \frac{3 d \rho_{0} v}{16} + \eta_{0}=0.56469\,\mathrm{Pa·s}
+    \]
+
+\section{大球测量结果}
+    小球直径d的平均值
+    \[
+    \overline{d}=\frac{1}{n}\sum_{i=1}^{n}d_i=\frac{3.972+3.967+3.966+3.966+3.965+3.967}{6}\,\mathrm{mm}=3.9672\,\mathrm{mm}
+    \]
+
+    下落时间t的平均值
+    \[
+    \overline{t}=\frac{1}{n}\sum_{i=1}^{n}t_i=\frac{2.17+2.15+2.11+2.13+2.15+2.14}{6}\,\mathrm{s}=2.1417\,\mathrm{s}
+    \]
+
+    小球下落速度
+    \[
+    v=\frac{l}{t}=\frac{0.18497}{2.1417}\,\mathrm{m/s}=0.086366\,\mathrm{m/s}
+    \]
+
+    粘度的零级近似值
+    \[
+    \eta_{0}=\frac{d^{2} g \left(\frac{\rho}{18} - \frac{\rho_{0}}{18}\right)}{v \left(1 + \frac{2.4 d}{D}\right) \left(\frac{1.65 d}{h} + 1\right)}=0.60908\,\mathrm{Pa·s}
+    \]
+
+    雷诺数
+    \[
+    Re=\frac{d \rho_{0} v}{\eta_{0}}=0.53733\,\mathrm{}
+    \]
+
+    $Re>0.5$，进行二级修正：
+    \[
+    \eta_{1}=- \frac{3 d \rho_{0} v}{16} + \eta_{0}=0.54771\,\mathrm{Pa·s}
+    \]
+    粘度
+    \[
+    \eta_{2}=\frac{1}{2} \eta_{1} \left(\sqrt{\frac{19 d^{2} \rho_{0}^{2} v^{2}}{270 \eta_{1}^{2}} + 1} + 1\right)=0.55113\,\mathrm{Pa·s}
+    \]
+
+\appendix
+\section{老师签字的原始数据}
+    \begin{center}
+        \includegraphics[width=0.8\textwidth]{原始数据.jpg}
+    \end{center}
+
+\end{document}

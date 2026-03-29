@@ -1,0 +1,6 @@
+\contentsline {section}{\numberline {1}实验题目}{2}{}%
+\contentsline {section}{\numberline {2}实验环境数据}{2}{}%
+\contentsline {section}{\numberline {3}小球}{2}{}%
+\contentsline {section}{\numberline {4}中球}{3}{}%
+\contentsline {section}{\numberline {5}大球}{4}{}%
+\contentsline {section}{\numberline {A}老师签字的原始数据}{5}{}%

@@ -1,0 +1,206 @@
+\documentclass[twocolumn, a4paper, 10pt]{article}
+\usepackage{iftex}
+\ifPDFTeX
+  % pdfLaTeX fallback: use CJK package and auto-wrap document in CJK environment
+  \usepackage{CJKutf8}
+  \AtBeginDocument{\begin{CJK}{UTF8}{gbsn}}
+  \AtEndDocument{\end{CJK}}
+\else
+  \usepackage{fontspec}
+  \usepackage{xeCJK} % 中文支持
+\fi
+\usepackage{amsmath} % 数学公式
+\usepackage{graphicx} % 图片
+\usepackage{float} % 图片浮动
+\usepackage{geometry} % 页面设置
+\usepackage{algorithm} % 算法框图
+\usepackage{algorithmic}
+\usepackage{booktabs} % 表格
+\usepackage{hyperref}
+
+% 页面边距设置
+\geometry{left=2cm,right=2cm,top=2.5cm,bottom=2.5cm}
+
+% 字体设置 (only set when using XeTeX/LuaTeX; no-ops under pdfLaTeX)
+\ifPDFTeX
+  % Under pdfLaTeX the CJK environment started above will handle fonts;
+  % leave these as no-ops to avoid undefined-command errors.
+\else
+  \usepackage{subcaption}
+  \setCJKmainfont{SimSun} % 宋体
+  \setCJKsansfont{SimHei} % 黑体
+  \setCJKmonofont{FangSong} % 仿宋
+\fi
+
+\title{\textbf{基于 $r^2$ 域重采样与相位锁定技术的\\迈克尔逊干涉仪波长自动测量系统}}
+\author{你的姓名 \\ 物理实验中心}
+\date{\today}
+
+\begin{document}
+
+\twocolumn[
+    \begin{@twocolumnfalse}
+        \maketitle
+        \begin{abstract}
+            \textbf{摘要：} 针对迈克尔逊干涉实验中等倾干涉圆环条纹计数繁琐、人工测量精度低的问题，本文提出并实现了一种基于机器视觉的自动化测量方案。系统通过图像算法将非线性的同心干涉圆环转化为线性的频域信号。核心算法采用极坐标变换结合 $u=r^2$ 非线性重采样技术，将空间频率随半径变化的干涉信号线性化，进而通过快速傅里叶变换（FFT）与相位相关法提取亚像素级的相位变化。结合精密电动位移台的位置反馈与回程误差补偿逻辑，系统实现了激光波长的自动化高精度测量。实验表明，该方法能够有效克服机械回程间隙与环境振动的影响，显著提高了实验效率与测量精度。
+
+            \textbf{关键词：} 迈克尔逊干涉仪；$r^2$ 重采样；相位相关；机器视觉；自动波长测量
+            \vspace{1em}
+        \end{abstract}
+    \end{@twocolumnfalse}
+]
+
+\section{引言}
+迈克尔逊干涉仪通过分振幅法产生双光束干涉，是测量光波波长及微小位移的经典仪器。在标准实验教学中，通常观测点光源产生的等倾干涉条纹（Haidinger fringes），其表现为一组疏密变化的同心圆环。传统的“吞吐法”依赖人眼判读圆心处条纹的生灭，存在主观误差大、易疲劳、无法自动化记录等缺点。随着光电检测技术的发展，基于光强传感器的传统自动计数装置只能测量整数级条纹，无法辨识方向。而现代机器视觉方案虽能处理图像，但直接对原始干涉图样进行边缘检测容易受光照不均与噪声干扰。本文提出一种基于物理模型的信号线性化处理方法，从根本上解决了干涉圆环空间频率非线性的问题，实现了高精度的全自动测量。
+
+\section{原理推导}
+
+本系统的核心算法基于对等倾干涉条纹物理模型的数学变换，以下给出详细推导过程。
+
+\subsection{等倾干涉的光强分布模型}
+当迈克尔逊干涉仪的动镜 $M_2$ 与定镜 $M_1$ 的虚像 $M_1'$ 相互平行时，形成空气膜厚度为 $d$ 的等倾干涉。在透镜（或人眼）焦平面上，干涉条纹为同心圆环。对于单色光源（波长 $\lambda$），观测屏上半径为 $r$ 处的光强 $I(r)$ 可由干涉公式给出：
+\begin{equation}
+    I(r) = I_0 \left[ 1 + \gamma \cos(\Delta \varphi) \right]
+\end{equation}
+其中 $I_0$ 为背景光强，$\gamma$ 为条纹对比度。相位差 $\Delta \varphi$ 取决于光程差 $\delta$：
+\begin{equation}
+    \delta = 2d \cos \theta
+\end{equation}
+其中 $\theta$ 为折射角。在傍轴近似条件下（$\theta$ 极小），有 $\cos \theta \approx 1 - \theta^2 / 2$。若成像透镜焦距为 $f$，则 $\theta \approx r/f$。代入得：
+\begin{equation}
+    \delta \approx 2d \left( 1 - \frac{r^2}{2f^2} \right) = 2d - \frac{d}{f^2} r^2
+\end{equation}
+相位差表达式为：
+\begin{equation}
+    \Delta \varphi(r) = \frac{2\pi}{\lambda} \delta = \frac{4\pi d}{\lambda} - \frac{2\pi d}{\lambda f^2} r^2
+\end{equation}
+令中心相位 $\varphi_0 = \frac{4\pi d}{\lambda}$，空间频率系数 $k = \frac{2\pi d}{\lambda f^2}$，则：
+\begin{equation}
+    \Delta \varphi(r) = \varphi_0 - k r^2
+    \label{eq:phase_r}
+\end{equation}
+由公式 (\ref{eq:phase_r}) 可见，相位 $\Delta \varphi$ 与半径 $r$ 呈二次方关系。这意味着随着半径 $r$ 增大，条纹变得越来越密（空间频率线性增加），这种非平稳信号（Chirp Signal）难以直接通过固定窗口的傅里叶变换提取单一频率。
+
+\subsection{变量代换与信号线性化 ($r^2$ Resampling)}
+为了将非平稳信号转化为平稳信号（单频正弦波），我们引入变量代换：
+\begin{equation}
+    u = r^2
+\end{equation}
+将光强分布 $I$ 视为 $u$ 的函数 $I(u)$，则相位项变为：
+\begin{equation}
+    \Delta \varphi(u) = \varphi_0 - k u
+\end{equation}
+此时，相位 $\Delta \varphi$ 关于新变量 $u$ 呈严格线性关系。光强分布变为：
+\begin{equation}
+    I(u) \propto \cos(\varphi_0 - k u)
+\end{equation}
+这表示在 $u$ 域中，干涉图样变成了一个频率为 $k/2\pi$ 的标准余弦信号。
+
+\subsection{算法实现流程}
+基于上述理论，本文实现的算法（\texttt{fringe\_counter.py}）包含以下关键步骤：
+
+\begin{enumerate}
+    \item \textbf{极坐标展开 (Polar Unwrapping)}：
+          首先利用 \texttt{cv.warpPolar} 将笛卡尔坐标系的图像 $I(x,y)$ 变换为极坐标图像 $I_p(r, \theta)$。为了提高信噪比，沿角度 $\theta$ 方向取中值（或均值），得到一维径向光强分布 $S(r)$。
+
+    \item \textbf{非线性重采样 (Non-linear Resampling)}：
+          为了实现 $u=r^2$ 变换，我们构造均匀分布的 $u$ 序列：
+          \begin{equation}
+              u_{lin} = \{0, \Delta u, 2\Delta u, \dots, u_{max}\}
+          \end{equation}
+          对应的采样半径为 $r_{sample} = \sqrt{u_{lin}}$。利用线性插值（\texttt{np.interp}）将 $S(r)$ 映射为 $S(u)$：
+          \begin{equation}
+              S(u)[i] = S(r)\Big|_{r=\sqrt{u_i}}
+          \end{equation}
+          经过此步骤，原本外侧密集的条纹在 $u$ 轴上变得等间距排列。
+
+    \item \textbf{频域分析与相位锁定 (FFT \& Phase Locking)}：
+          为消除直流分量对主频的影响，首先对信号去偏置并施加 Hann 窗。
+          对处理后的信号进行 FFT 计算得到频谱 $\mathcal{F}(\xi)$，并搜索幅度最大处的频率峰值 $\xi_{peak}$：
+          \begin{equation}
+              Z_{peak} = \mathcal{F}(\xi_{peak}) = A e^{i \Phi}
+          \end{equation}
+          其中复数 $Z_{peak}$ 的辐角 $\Phi$ 即为当前帧条纹的瞬时相位。
+          通过比较连续两帧 ($t-1, t$) 之间的主峰相位，计算相位差 $\Delta \phi$：
+          \begin{equation}
+              \Delta \phi = \text{angle}(Z_t \cdot Z_{t-1}^*)
+          \end{equation}
+          结合相位解包裹（Unwrapping），最终得到累积总相位 $\Phi_{total}$。
+\end{enumerate}
+
+\section{实验仪器与光路图}
+实验系统硬件主要由光源、迈克尔逊干涉仪主体、成像系统与运动控制系统组成。
+
+\begin{enumerate}
+    \item \textbf{光源}：采用 He-Ne 激光器（中心波长 $\approx 632.8 nm$）作为标准光源校准系统。另备有低压钠灯，用于经典的双线波长差测量实验。
+    \item \textbf{干涉仪主体}：包含标准分光棱镜（BS）与两个高反射率平面镜。其中定镜 $M_1$ 固定，动镜 $M_2$ 安装于电动位移台上。
+    \item \textbf{运动控制系统}：采用 Thorlabs Kinesis 系列电动位移台。该平台具备微米级定位精度，并通过 USB 接口接收来自 PC 端 Python 程序的实时控制指令。
+    \item \textbf{成像采集}：采用 Hikrobot 高帧率工业相机（160 FPS），放置于干涉仪扩束透镜的后方。高帧率特性对捕捉快速移动条纹及消除高频环境振动带来的混叠至关重要。
+\end{enumerate}
+
+\section{实验过程}
+\subsection{系统初始化与标定}
+系统启动后，首先进行光路粗调，使背景光斑均匀且对比度良好。随后在软件界面进入“Setup Mode”，手动划定感兴趣区域（ROI）及大概圆心。此步骤可消除算法在初始阶段因圆心搜索波动带来的误差。
+
+\subsection{回程误差补偿 (Backlash Compensation)}
+由于机械丝杆传动系统存在公差，当电机换向或初始启动时，往往存在位移台丝杆转动但台面未产生有效位移的“死区”（Backlash）。在此期间，编码器读数发生变化，但干涉条纹静止，若直接计入会导致波长计算偏大（斜率偏小）。
+
+本系统设计了动态监测逻辑：在每次拟合开始的初始阶段（如前 $1 \mu m$ 行程），实时监测相位变化率 $m_{local} = \Delta \Phi / \Delta d$。只有当 $m_{local}$ 超过预设阈值时，系统才判定位移台已“咬合”并开始有效记录数据，否则自动复位数据缓冲区。
+
+\subsection{对测量数据的采集}
+设定从起始位置 $d_{start}$ 移动至 $d_{end}$。上位机记录每一时刻的：
+\begin{itemize}
+    \item 位移台位置读数 $P(t)$ (mm)
+    \item 累积相位吞吐量 $N(t) = \frac{\Phi_{total}(t)}{2\pi}$
+    \item 条纹视见度（Visibility）
+\end{itemize}
+支持在不同速度下（$0.01 - 0.1 mm/s$）进行多次重复测量。
+
+\section{数据分析}
+\subsection{线性拟合求波长}
+对于采集到的一组数据点 $(d_i, N_i)$，理论上满足线性关系：
+\begin{equation}
+    N = \frac{2}{\lambda} \cdot d + C
+\end{equation}
+利用最小二乘法（Least Squares）对数据进行线性拟合，得到斜率 $k_{fit}$。实验测得的激光波长 $\lambda_{meas}$ 为：
+\begin{equation}
+    \lambda_{meas} = \frac{2}{k_{fit}}
+\end{equation}
+并在软件界面实时绘制 $N-d$ 曲线及拟合方程。
+
+\subsection{误差分析}
+系统的主要误差来源包括：
+\begin{itemize}
+    \item \textbf{空气折射率}：实际测量的是光在空气中的波长 $\lambda_{air} = \lambda_{vac} / n_{air}$。
+    \item \textbf{导轨直线性}：动镜移动过程中的俯仰或偏摆（Pitch/Yaw）会导致条纹中心漂移，虽然算法具备如 $u=r^2$ 重采样的鲁棒性，但剧烈晃动仍引入相位噪声。
+    \item \textbf{余弦误差}：若激光入射方向与导轨移动方向不完全平行，测量值将偏大。
+\end{itemize}
+
+\section{应用与展望}
+\subsection{钠光双线波长差测量}
+本系统扩展支持钠光实验。由于钠黄光包含 $\lambda_1 = 589.0 nm$ 和 $\lambda_2 = 589.6 nm$ 两条谱线，随光程差增加，两者条纹发生“相长-相消”的拍频现象。
+系统实时记录视见度（Visibility）曲线，通过分析视见度包络的极小值间距 $\Delta d_{beat}$，可自动反演波长差：
+\begin{equation}
+    \Delta \lambda = \frac{\lambda_{avg}^2}{2 \Delta d_{beat}}
+\end{equation}
+
+\subsection{机器智能辅助}
+当前系统已集成基础的 AI 报告生成功能。未来展望引入深度卷积神经网络（CNN）直接对极低对比度的干涉图样进行端到端相位预测，以进一步提升在复杂环境光下的测量稳定性。
+
+\appendix
+\section{附录}
+附核心 $r^2$ 重采样代码片段：
+\begin{verbatim}
+# u = r^2 将非线性相位转为线性
+u_max = r_max ** 2
+u_indices = np.linspace(0, u_max, N_samples)
+r_indices = np.sqrt(u_indices)
+
+# 对径向光强 profile 进行插值
+profile_u = np.interp(r_indices, 
+                      np.arange(len(profile)), 
+                      profile)
+# 之后对 profile_u 进行 FFT
+\end{verbatim}
+
+\end{document}

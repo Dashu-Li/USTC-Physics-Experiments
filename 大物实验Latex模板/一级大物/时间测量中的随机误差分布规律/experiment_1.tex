@@ -1,0 +1,78 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[UTF8]{ctex} % 支持中文
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{subfigure}
+\usepackage{booktabs} % 表格美化
+\usepackage{cite}
+\usepackage{ulem}
+\usepackage{array}
+
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+
+% 设置页面边距
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+
+\title{\Huge{\textbf{\uuline{实\ 验\ 报\ 告}}}}
+\author{\uline{少年班}\ 学院 \quad 姓名:\ \uline{顾泓宇} \quad 学号:\ \uline{PB23000078} \quad 实验日期:\ \uline{2024-2-6} }
+\date{}
+
+\begin{document}
+	\maketitle
+	
+	\section{实验题目}
+	时间测量中的随机误差分布规律
+	
+	\section{实验目的}
+	同常规仪器测量时间间隔，通过对时间和频率测量的随机误差分布，学习用统计方法研究物理现象的过程和研究随机误差分布的规律。
+	
+	\section{实验仪器}
+	电子秒表、机械节拍器
+	
+	\section{实验原理}
+	\subsection{仪器原理}
+	机械节拍器能按一定频率发出有规律的声响，前者利用齿轮带动摆作周期运动，后者利用石英晶体的振荡完成周期运动；
+	电子秒表用石英晶体振荡器作时标测时，精度可达0.01s。
+	\subsection{统计分布规律原理}
+	在近似消除了系统误差的前提下，对时间t进行N次等精度测量，当N趋于无穷大时，各测量值出现的概率密度分布可用正态分布的概率密度函数表示：\\
+	\begin{center}
+		\large{f(x)=$\frac{1}{\sigma\sqrt{2\pi}}\mathrm{e}^{-\frac{(x-\overline{x})^{2}}{2\sigma^{2}}}$}
+	\end{center}
+	其中$\overline{x}=\frac{\sum\limits_{i=1}^{n}x_{i}}{n}$,为测量的算术平均值,\\
+	$\sigma=\sqrt{\frac{\sum\limits_{i=1}^{n}(x-\overline{x})^{2}}{n-1}}$,
+	\quad P(a)=$\int_{-a}^{a}f(x)dx$, \quad a=$\sigma$,2$\sigma$,3$\sigma$\\
+	利用统计直方图表示测量列的分布规律，简便易行、直观明了。在本实验中利用f(x)得到概率密度分布曲线，并将其与统计直方图进行比较，在一定误差范围内认为是拟合的，可认为概率密度分布基本符合正态分布，其中的误差是由于环境、仪器、人的判断误差、N的非无穷大等所决定的。
+	
+	
+	
+	\subsection{实验步骤}
+	\hangindent=1.3cm \hangafter=1
+	\quad 1.检查实验仪器是否能正常工作，秒表归零；\\
+	2.将机械节拍器上好发条使其摆动，用秒表测量节拍器四个周期所用时间，在等精度条件下重复测量150-200次（本实验中测量150次），记录每次的测量结果；\\
+	3.对数据进行处理（计算平均值、标准差、作出相应图表、误差分析等）；
+	
+	\subsection{数据分析}
+	实验所测量得到的结果如下：
+	\begin{center}
+		\begin{tabular}{|M{6em}|M{6em}|M{6em}|M{6em}|M{6em}|M{6em}|}\hline
+			区域起始/s & 区域末尾/s & 区域中点 & 频数 & 相对频数/\% & 累积频数/\% \\\hline
+			5.24 & 5.26 & 5.25 & 3 & 2.0 & 2.0 \\\hline
+			5.26 & 5.28 & 5.27 & 5 & 3.3 & 5.3 \\\hline
+			5.26 & 5.28 & 5.27 & 5 & 3.3 & 5.3 \\\hline
+			5.26 & 5.28 & 5.27 & 5 & 3.3 & 5.3 \\\hline
+			5.26 & 5.28 & 5.27 & 5 & 3.3 & 5.3 \\\hline
+			5.26 & 5.28 & 5.27 & 5 & 3.3 & 5.3 \\\hline
+			5.26 & 5.28 & 5.27 & 5 & 3.3 & 5.3 \\\hline
+		\end{tabular}
+	\end{center}
+	
+	\section{结论}
+	总结实验结果，分析实验可能存在的误差和不足。
+	
+	\section{参考文献}
+	\bibliographystyle{plain}
+	\bibliography{references} % 引用文件名为references.bib
+	
+\end{document}

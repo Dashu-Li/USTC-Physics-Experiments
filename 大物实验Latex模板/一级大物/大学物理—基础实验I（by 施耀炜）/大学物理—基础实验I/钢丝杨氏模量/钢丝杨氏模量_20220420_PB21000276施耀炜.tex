@@ -1,0 +1,261 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage[utf8]{ctex}
+\usepackage{amsmath}
+\usepackage[fontsize=10pt]{fontsize}
+\usepackage{geometry}
+\geometry{a4paper,left=0.75in,right=0.75in,top=1in,bottom=0.75in}
+\usepackage{setspace}
+\setlength{\parindent}{0em}
+\def\kong{\hspace*{2em}}
+\usepackage{amsfonts,amssymb}
+\usepackage{xcolor}
+\usepackage{fontspec}
+\usepackage{enumitem}
+\linespread{1.5}
+\usepackage{hyperref}
+\usepackage{hyperref}
+\hypersetup{hidelinks,
+	colorlinks=true,
+	allcolors=black,
+	pdfstartview=Fit,
+	breaklinks=true}
+
+\usepackage{listings}
+	\lstset{
+ columns=fixed,
+ numbers=left,
+ numberstyle=\tiny\color{gray},
+ frame=none,
+ backgroundcolor=\color[RGB]{245,245,244},
+ keywordstyle=\color[RGB]{40,40,255},
+ numberstyle=\footnotesize\color{darkgray},
+ commentstyle=\it\color[RGB]{0,96,96},
+ stringstyle=\rmfamily\slshape\color[RGB]{128,0,0},
+ showstringspaces=false,
+ language=c,
+ basicstyle=\ttfamily
+	}
+
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE,LO]{\kaishu PB21000276施耀炜}
+
+
+
+\date{2022年3月}
+
+\begin{document}
+
+\setcounter{page}{1}
+\thispagestyle{empty}
+\kong
+\\[10pt]
+\begin{center}
+	\textbf{\huge \heiti 实验报告四}\\[6pt]
+    \textbf{\huge \heiti 钢丝杨氏模量}\\[12pt]
+	\textbf{学号：}\underline{\kaishu PB21000276} \qquad 
+    \textbf{姓名：}\underline{\kaishu 施耀炜} \qquad 
+    \textbf{班级：}\underline{\kaishu 21级少院6班}\qquad 
+    \textbf{日期：}\underline{2022年4月20日}\\[24pt]
+\end{center}
+\section{实验名称}
+    \kong 用拉伸法测钢丝的杨氏模量
+\section{实验目的}
+    \kong 学会使用拉伸法测定钢丝杨氏模量，掌握利用光杠杆测定微小形变的方法。
+    在数据处理中，学会运用逐差法和作图法，用最小二乘法进行简单的线性拟合、杨氏模量计算与不确定度分析。
+\section{实验原理}
+    \kong 在材料弹性限度内，应力$F/S$（即法向力与力所作用的面积之比）
+    和应变$\Delta L/L$(即长度的变化与原来的长度)之比是一个常数，即
+    $$
+        E=\frac{F/S}{\Delta L/L} \eqno{(4.1)}
+    $$
+    式中$E$称为材料的杨氏模量。因为刚性材料在外力拉伸下一般伸长量$\Delta L$很小，
+    所以采用光学放大法，将其放大。\\
+    \kong 本实验采用光杠杆放大法测量$\Delta L$，
+    当金属丝受到向下拉力$F$作用时，杠杆支脚将随被测物下降微小距离$\Delta L$，
+    平面镜镜面的法线将转过一个$\theta$角，此时从望远镜中看到的标尺刻度是标尺经过平面镜反射所成的像，
+    从尺子发出的入射线和反射线的夹角为$2\theta$。\\
+    \kong 如图4.1、图4.2所示，当$\theta$很小时，有：
+    $$
+        \theta \approx \tan \theta =\frac{\Delta L}{l} \eqno{(4.2)}\\
+        \tan 2\theta \approx 2\theta =\frac{b}{D} \eqno{(4.3)}\\
+    $$
+    l为支脚尖到刀口的垂直距离即光杠杆的臂长，$D$ 为镜面到标尺的距离，$b$ 为在拉力 $F$ 作用下标尺读数的改变。\\
+    \kong 由(4.1)、(4.2)、(4.3)得：
+    $$
+        E=\frac{2DLF}{Slb}  \eqno{(4.4)}
+    $$
+    其中$S$可以通过测量金属丝直径$D$计算得。
+    \newpage
+    \begin{minipage}{0.49\linewidth}
+        \centering
+        \textbf{图\ 4.1}\quad 光杠杆结构图  \\[4pt]
+        \includegraphics[width=0.9\linewidth]{tp1.png}
+        \label{tp1.png} 
+    \end{minipage}
+    %\qquad
+    \begin{minipage}{0.49\linewidth}
+        \centering
+        \textbf{图\ 4.2}\quad 光杠杆原理图 \\[46pt]
+        \includegraphics[width=0.9\linewidth]{tp2.png}
+        \label{tp2.png}
+        \\[27pt]
+        \kong 
+    \end{minipage}
+%实验仪器
+\section{实验装置}
+    \begin{itemize}[noitemsep]
+        \item 金属丝及其支架等
+        \item 平面镜
+        \item 望远镜、标尺及其支架等
+        \item 螺旋测微仪
+        \item 钢卷尺
+    \end{itemize}
+    \begin{figure}[htp]
+        \centering
+        \textbf{图\ 4.3}\quad “钢丝杨氏模量”实验装置  \\[4pt]
+        \includegraphics[width=12cm]{tp3.png}
+    \end{figure}
+\newpage 
+%数据处理与分析
+\section{数据处理}
+\subsection{原始数据记录}
+    \begin{center}
+        \textbf{表\ 4.1}\quad 原始数据之一  \\[4pt]
+        \begin{tabular}{|c|c|c|c|c|}
+        \hline
+            待测量 & 第一次测量 & 第二次测量 & 第三次测量 & 平均值 \\ \hline
+            $d_\text{上}$/mm & 0.291 &  &  &  ~\\ \cline{1-4}
+            $d_\text{中}$/mm & 0.293 &  &  &  0.292\\ \cline{1-4}
+            $d_\text{下}$/mm & 0.291 &  &  &  ~\\  \hline
+            $L$/cm & 100.17 & 100.21 & 100.23 & 100.20 \\ \hline
+            $l$/cm & 7.14 & 7.13 & 7.14 & 7.14 \\ \hline
+            $D$/cm & 148.11 & 147.88 & 148.03 & 147.97 \\ \hline 
+        \end{tabular}\\[12pt]
+        \textbf{表\ 4.2}\quad 原始数据之二  \\[4pt]
+        \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+            砝码个数/个 & 砝码质量$m_0$/g & 上行刻度$r_i$/cm &下行刻度$r_i'$/cm & 刻度平均值$\bar{r_i}$/cm & 逐差法计算$b_i$/cm \\ \hline
+            0	& 0 &	    -0.08 &	-0.17 &	-0.13   & ~ \\ \hline
+            1	& 500 &	    1.37 &	1.39 &	1.38    & 1.51 \\ \hline
+            2	& 1000 &	2.83 &	2.77 &	2.80    & 2.93 \\ \hline
+            3	& 1500 &	4.38 &	4.32 &	4.35    & 4.48 \\ \hline
+            4	& 2000 &	5.74 &	5.78 &	5.76    & 5.89 \\ \hline
+            5	& 2500 &	7.29 &	7.35 &	7.32 	& 7.45 \\ \hline
+            6	& 3000 &	8.85 &	8.93 &	8.89    & 9.12 \\ \hline
+            7	& 3500 &	10.52 &	10.52 &	10.52   & 10.65 \\ \hline
+        \end{tabular}
+    \end{center}
+\subsection{数据处理}
+\subsubsection{表4.1中的数据处理}
+    \kong \textbf{1.}钢丝长度$L$：\\
+    $$
+     \sigma_{ L}=\sqrt{\frac{\sum_{i=1}^{3}\left(L_i-\overline{ L}\right)^2}{2}}=0.031cm
+    $$
+    有A类不确定度
+    $$
+        u_A=t_p\times\frac{\sigma_L}{\sqrt{3}}=0.077cm
+    $$
+    B类不确定度
+    $$
+        u_B=K_p\times \frac{\Delta_B}{C}=1.96\times \frac{0.12}{3}=0.0784cm
+    $$
+    伸展不确定度为
+    $$
+        u_L=\sqrt{u_A^2+u_B^2} =0.110cm
+    $$
+    \kong \textbf{2.}光杠杆到标尺距离$D$：\\
+    $$
+        \sigma_{ D}=\sqrt{\frac{\sum_{i=1}^{3}\left( D_i-\overline{ D}\right)^2}{2}}=0.133cm
+    $$
+    有A类不确定度
+    $$
+        u_A=t_p\times\frac{\sigma_D}{\sqrt{3}}=0.244cm
+    $$
+    有B类不确定度
+    $$
+        u_B=K_p\times \frac{\Delta_B}{C}=1.96\times \frac{0.12}{3}=0.0784cm 
+    $$
+    伸展不确定度为
+    $$
+        u_D=\sqrt{u_A^2+u_B^2} =0.256cm
+    $$
+    \kong \textbf{3.}光杠杆长度$l$：
+    $$
+        \sigma_{ l}=\sqrt{\frac{\sum_{i=1}^{3}\left( l_i-\overline{ l}\right)^2}{2}}=0.007cm
+    $$
+    有A类不确定度
+    $$
+        u_A=t_p\times\frac{\sigma_l}{\sqrt{3}}=0.013cm
+    $$
+    有B类不确定度
+    $$
+        u_B=K_p\times \frac{\Delta_B}{C}=1.96\times \frac{0.12}{3}=0.0784cm 
+    $$
+    伸展不确定度为
+    $$
+        u_D=\sqrt{u_A^2+u_B^2} =0.079cm
+    $$
+    \kong \textbf{4.}钢丝直径$d$：
+    $$
+        \sigma_{ d}=\sqrt{\frac{\sum_{i=1}^{3}\left( d_i-\overline{ d}\right)^2}{2}}=0.012mm
+    $$
+    有A类不确定度
+    $$
+        u_A=t_p\times\frac{\sigma_d}{\sqrt{3}}=0.022mm
+    $$
+    有B类不确定度
+    $$
+        u_B=K_p\times \frac{\Delta_B}{C}=1.96\times \frac{0.004}{3}=0.0026mm 
+    $$
+    伸展不确定度为
+    $$
+        u_D=\sqrt{u_A^2+u_B^2} =0.034mm=0.0034cm
+    $$
+\newpage
+\subsubsection{表4.2及上述处理后数据的处理}
+    \kong 查阅资料，得合肥当地的重力加速度$g=9.795m/s^2$，得拟合曲线如下：
+    \begin{figure}[htp]
+        \centering
+        \textbf{图\ 4.4}\quad 最小二乘法拟合得到的$b/F$曲线 \\[4pt]
+        \includegraphics[width=15cm]{tp4.png}
+    \end{figure}\\
+    斜率$k=0.310095cm/N=3.10095\times 10^{-3}m/N$，相关系数$R$为0.99978，故
+    $$
+    E=\frac{FL}{S\Delta L}=\frac{2DF}{SlM}=1.9999\times10^{11}N/m^2
+    $$
+    斜率的不确定度为：
+    $$
+        \sigma_{k}=M\times\sqrt{\frac{1/R^2-1}{n-2}}=0.00310095\times\sqrt{\frac{1/0.99978^2-1}{7-2}}=2.909\times10^{-5}m/N
+    $$
+    因此相对不确定度为：
+    $$
+      \begin{aligned}
+          U&=\sqrt{4\left(\frac{U_d}{d}\right)^2+\left(\frac{U_L}{L}\right)^2+\left(\frac{U_l}{l}\right)^2+\left(\frac{U_D}{D}\right)^2+\left(\frac{t_p S_M}{M}\right)^2}\\ 
+          &=\sqrt{4\left(\frac{0.0034}{0.292}\right)^2+\left(\frac{0.110}{100.20}\right)^2+\left(\frac{0.079}{7.14}\right)^2+\left(\frac{0.256}{147.97}\right)^2+\left(\frac{2.909\times10^{-5}}{0.00310095}\right)^2}\\
+          &=0.0280
+      \end{aligned}
+    $$
+    
+\section{分析与讨论}
+    \subsection{定性不确定度分析}
+        \kong 本次实验不确定度较大，达$2.80\%$，可能有如下原因：\\
+        \kong \textbf{1.}测量标尺到平面镜距离和钢丝长度时，钢卷尺难以保持平行，导致每次测量误差较大；\\
+        \kong \textbf{2.}测量光臂长的时候在纸上戳洞绘图作出的中垂线只能近似垂直。对与结果影响较大；\\
+        \kong \textbf{3.}实验用的砝码本身质量不一。\\
+\section{思考题}
+    \kong \textbf{1.利用光杠杆把测微小长度$\Delta L$ 变成测 $b$，光杠杆的放大率为 $2D/L$，根据此式能否以增加 $D$ 减小$l$
+	来提高放大率，这样做有无好处？有无限度？应怎样考虑这个问题？}\\
+    \kong \textbf{答：}有好处，可以减小结果误差。通过放大$b_i$可以减少标尺的读数误差对结果的影响。同时减少了$\Delta D/D$的误差；
+    有限度。如果放大倍数过大，在测量过程中标尺度数易超出标尺量程。此外，$l$太小了会导致光杠杆不稳定。\\
+    \kong \textbf{2.实验中，各个长度量用不同的仪器来测量是怎样考虑的，为什么？}\\
+    \kong \textbf{答：}主要考虑了待测物品的长度与仪器的精度：
+    钢丝长度$L$和标尺到平面镜距离$D$由钢卷尺测量。因为长度超出了螺旋测微器、游标卡尺、钢尺的量程，且卷尺的允差除以被测量后对实验结果影响小；
+    是测钢丝的直径$d$就用螺旋测微器，因为其本身线度小，无法使用游标卡尺、钢尺、钢卷尺测量。同时被测量较小，对于精度的要求高。
+      
+\end{document}
+

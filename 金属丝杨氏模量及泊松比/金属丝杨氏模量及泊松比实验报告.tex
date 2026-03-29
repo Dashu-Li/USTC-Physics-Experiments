@@ -1,0 +1,217 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[UTF8]{ctex}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{geometry}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepackage{ulem}
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+
+\title{\Huge{\textbf{\uuline{实\ 验\ 报\ 告}}}}
+% 按照“衍射实验报告.tex”的格式样式设置作者栏；如需修改请直接编辑下行信息。
+\author{\uline{少年班学院} \quad 姓名: \uline{李大恕} \quad 学号: \uline{PB24000145} \quad 实验日期: \uline{2025--11--4}}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{实验题目}
+金属丝杨氏模量及泊松比实验
+
+\section{实验目的}
+\begin{enumerate}
+    \item 利用读数显微镜测量伸长量并线性拟合求杨氏模量 $E$；
+    \item 利用非平衡电桥测量金属丝电阻随伸长的微小变化并线性拟合求泊松比 $\mu$；
+    \item 观察焊点哈气对桥电压 $U_g$ 的变化并给出定性解释；
+    \item 完成数据记录与线性拟合，分析主要误差来源。 
+\end{enumerate}
+
+\section{实验原理}
+\subsection{杨氏模量测量}
+金属丝原长 $L$、横截面积 $A$，加载总质量 $m$（重力 $mg$）产生伸长 $\Delta L$，弹性范围内：
+\[ m = \frac{E A}{g L}\,\Delta L. \]
+对 $m$ 与 $\Delta L$ 拟合斜率 $k_1$，得 $E = k_1 g L/A$。
+\subsection{泊松比测量}
+非平衡电桥输出满足（含长度因子）：
+\[ \Delta U_g = \frac{(1+2\mu) R_s U}{4(R_4+R_s) L}\,\Delta L. \]
+对 $U_g$ 与 $\Delta L$ 拟合斜率 $k_2$，令 $C=\dfrac{R_s U}{4(R_4+R_s) L}$，得：
+\[ \mu = \frac{1}{2}\left(\frac{k_2}{C}-1\right). \]
+
+\section{实验器材}
+\begin{itemize}
+    \item 金属丝与支架、焊接导线、电位器、电桥接线；
+    \item 读数显微镜及垫块，卷尺/卡尺/千分尺；
+    \item 直流电阻箱 ZX38A/10、ITECH IT6123B 直流电源（设定 $U=0.5\,\mathrm{V}$）、KEITHLEY 万用表；
+    \item 砝码托盘与标准砝码组。
+\end{itemize}
+
+\section{实验步骤与方法}
+\begin{enumerate}
+    \item 测量有效长度 $L$；直径给定 $d=0.3\,\mathrm{mm}$，计算 $A=\pi d^2/4$；
+    \item 设定电源电压 $U=0.5\,\mathrm{V}$，调整电桥至平衡（$|U_g|<40\,\mu$V），记录 $R_s, R_4$；
+    \item 分级加载砝码，记录 $m$ 与显微镜读数 $\Delta L$，记录在数据表中；
+    \item 在同一加载序列中记录 $\Delta U_g$ 值；
+    \item 对焊点哈气，观察 $U_g$ 的瞬时变化并记录标注；
+    \item 整理数据，进行两次线性拟合并给出拟合图/结果。 
+\end{enumerate}
+
+\section{原始数据}
+\subsection*{几何与电参数}
+\begin{center}
+\begin{tabular}{cccccc}
+	\toprule
+    $L$ (m) & $d$ (mm) & $A$ (mm$^2$) & $R_s$ ($\Omega$) & $R_4$ ($\Omega$) & $U$ (V) \\
+    \midrule
+	1.1085 & 0.3 & 0.0707 & 6.29 & 3.71 & 0.5 \\
+    \bottomrule
+\end{tabular}
+\end{center}
+\subsection*{原始数据表}
+\begin{center}
+\begin{tabular}{cccc}
+\toprule
+序号 & $m$ (g) & $\Delta L$ (mm) & $\Delta U_g$ (mV) \\
+\midrule
+1  & 100  & 0.000 & 0.000 \\
+2  & 200  & 0.300 & 0.006 \\
+3  & 300  & 0.456 & 0.015 \\
+4  & 400  & 0.643 & 0.024 \\
+5  & 500  & 0.815 & 0.039 \\
+6  & 600  & 0.953 & 0.048 \\
+7  & 700  & 1.091 & 0.067 \\
+8  & 800  & 1.256 & 0.084 \\
+9  & 900  & 1.372 & 0.100 \\
+10 & 1000 & 1.542 & 0.118 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{数据处理与计算}
+\subsection*{拟合一：求 $E$}
+舍弃 100 g 数据点后保留 200--1000 g 数据：
+\[
+ m = k_1\,\Delta L + b_1, \qquad k_1 = 6.4942\times10^{2}\;\text{g/mm},\; b_1 = -8.142\;\text{g},\; R^2\approx 0.9989.
+\]
+换算：$k_1=6.4942\times10^{2}\;\text{kg/m}$，代入 $g=9.79\,\text{m/s}^2,\;L=1.1085\,\text{m},\;A=7.07\times10^{-8}\,\text{m}^2$ 得
+\[
+ E = k_1\frac{gL}{A} \approx 99.7\;\text{GPa}.
+\]
+数据点舍弃原因：放上首个砝码使金属丝完全绷直并消除悬挂与夹持间隙，此状态定义为零伸长；其读数不代表弹性区内有效增量。
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+width={0.75\textwidth}, height={0.48\textwidth},
+xlabel={$\Delta L$ / mm}, ylabel={$m$ / g},
+grid=both, minor tick num=1,
+legend style={font=\small,at={(0.02,0.98)},anchor=north west},
+]
+\addplot[only marks,mark=*,mark size=2.5pt] coordinates {
+(0.300,200) (0.456,300) (0.643,400) (0.815,500) (0.953,600) (1.091,700) (1.256,800) (1.372,900) (1.542,1000)
+};
+\addplot[only marks,mark=triangle*,mark options={fill=white},mark size=3pt] coordinates {(0.000,100)};
+\addplot[domain=0.25:1.60,samples=100,thick,color=red] {649.4155*x - 8.1415};
+\legend{采纳数据,舍弃数据,$m=649.42\,\Delta L-8.14$}
+\end{axis}
+\end{tikzpicture}
+\caption{$m$ 与 $\Delta L$ 的线性拟合}\label{fig:fit_E}
+\end{figure}
+
+\subsection*{拟合二：求 $\mu$}
+对应同一保留点集合（舍弃基准 $(100,0,0)$），桥压拟合：
+\[
+ U_g = k_2\,\Delta L + b_2, \qquad k_2 = 9.1726\times10^{-2}\;\text{mV/mm},\; b_2 = -3.0230\times10^{-2}\;\text{mV},\; R^2\approx 0.9877.
+\]
+设 $C=\dfrac{R_s U}{4(R_4+R_s) L}=\dfrac{6.29\times0.5}{4(3.71+6.29)\times1.1085}\approx7.09\times10^{-2}\;\text{V/m}$，则
+\[
+ \mu = \tfrac{1}{2}\left(\frac{k_2}{C}-1\right) \approx 0.147.
+\]
+单位校核：$k_2$ 为 mV/mm = $10^{-3}\text{V}/10^{-3}\text{m}=\text{V/m}$；$C$ 亦为 V/m，故比值无量纲。泊松比偏低可能原因：细丝硬拉加工导致横向收缩率减小；实际有效直径略大于标称值；桥路中接触电阻与温度漂移使斜率减弱；最高载荷阶段稳定过程引入附加延迟。
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+width={0.75\textwidth}, height={0.48\textwidth},
+xlabel={$\Delta L$ / mm}, ylabel={$U_g$ / mV},
+grid=both, minor tick num=1,
+legend style={font=\small,at={(0.02,0.98)},anchor=north west},
+]
+\addplot[only marks,mark=*,mark size=2.5pt] coordinates {
+(0.300,0.006) (0.456,0.015) (0.643,0.024) (0.815,0.039) (0.953,0.048) (1.091,0.067) (1.256,0.084) (1.372,0.100) (1.542,0.118)
+};
+\addplot[only marks,mark=triangle*,mark options={fill=white},mark size=3pt] coordinates {(0.000,0.000)};
+\addplot[domain=0.25:1.60,samples=100,thick,color=red] {0.0917265*x - 0.0302301};
+\legend{采纳数据,舍弃数据,$\Delta U_g=0.09173\,\Delta L -0.03023$}
+\end{axis}
+\end{tikzpicture}
+\caption{桥电压 $\Delta U_g$ 与 $\Delta L$ 的线性拟合}\label{fig:fit_mu}
+\end{figure}
+\section{结果与讨论}
+\subsection*{主要结果汇总}
+\begin{itemize}
+    \item 杨氏模量：$E \approx 99.7\,\text{GPa}$（采用 $d=0.30\,\text{mm}\Rightarrow A=7.0\times10^{-8}\,\text{m}^2$）。
+        \item 泊松比：$\mu \approx 0.147$。
+    \item 线性拟合优度：$R^2_{m-\Delta L}\approx 0.9989$，$R^2_{U_g-\Delta L}\approx 0.9877$。
+\end{itemize}
+
+\subsection*{对比与分析}
+与常见材料参考值比较：钢 $E\sim2.0\text{--}2.1\times10^{11}\,\text{Pa}$、铜 $E\sim1.1\times10^{11}\,\text{Pa}$、铝 $E\sim0.70\times10^{11}\,\text{Pa}$；泊松比多在 $0.27\text{--}0.35$。本实验 $E$ 更接近铜（相对差约 $\sim9\%$），明显低于钢；$\mu$ 低于常见金属（相对典型 0.30 约偏低 $\sim51\%$）。综合判断：样品材质、直径标称与实际偏差、初期松弛/迟滞与电桥零漂均可造成这种偏差。
+
+\subsection*{泊松比偏低的可能原因}
+\begin{enumerate}
+    \item 接触电阻与温度漂移降低斜率 $k_2$；
+    \item 几何参数偏差：实际直径若大于标称，$A$ 增大使 $E$ 低估；
+    
+\end{enumerate}
+\section{提升实验：等厚干涉法测细丝直径}
+\subsection*{原理与方法}
+将待测细丝夹在两块光学平板间形成劈尖空气层。平板间倾角很小，气膜厚度近似为 $t(x)=\alpha x$。反射等厚干涉相邻同类（暗或亮）条纹之间的距离 $\Delta x$ 与波长、倾角满足
+\[\Delta x = \frac{\lambda}{2\alpha}.\]
+若显微镜沿劈尖方向移动总距离 $l_n$ 时条纹移动 $n$ 个间隔，则 $\Delta x = l_n/n$，故
+\[\alpha = \frac{\lambda}{2\Delta x} = \frac{n\lambda}{2 l_n}.\]
+劈尖长度为 $l$ 时末端厚度 $t(l)=\alpha l$ 即细丝直径近似 $d\approx \alpha l$（假设劈尖起点厚度可忽略）。
+
+\subsection*{原始数据}
+\begin{center}
+\begin{tabular}{ccccc}
+\toprule
+劈尖长度 $l$ (cm) & 条纹数 $n$ & 显微镜移动 $l_n$ (mm) & 波长 $\lambda$ (nm) & 光源 \\
+\midrule
+3.30 & 10 & 1.451 & 589.3 & 钠黄光 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection*{计算过程}
+条纹间距：$\Delta x = l_n/n = 1.451\,\text{mm}/10 = 0.1451\,\text{mm}$。\par
+倾角：
+\[\alpha = \frac{\lambda}{2\Delta x} = \frac{589.3\,\text{nm}}{2\times 0.1451\,\text{mm}} = \frac{589.3\times10^{-6}\,\text{mm}}{0.2902\,\text{mm}} \approx 2.03\times10^{-3}.\]
+劈尖长度：$l=3.30\,\text{cm}=33.0\,\text{mm}$，故
+\[ d = \alpha l \approx 2.03\times10^{-3}\times 33.0\,\text{mm} = 0.0670\,\text{mm} = 67.0\,\mu\text{m}. \]
+
+\subsection*{结果}
+细丝直径（等厚干涉法）：$d \approx 67.0\,\mu\text{m}$。
+\section{误差分析}
+\subsection{测量误差}
+读数显微镜刻度分辨率、砝码质量允差、万用表与电阻箱分辨率；直径为给定值 $d=0.3\,\mathrm{mm}$，一般作为常量处理。
+\subsection{仪器与环境}
+温度与焊点湿度导致的接触电阻变化、电源稳定度、机械松弛与蠕变。 
+\subsection{模型与近似}
+弹性线性假设、忽略热胀、忽略电阻率随应变二阶变化、忽略横截面非圆度。 
+
+\section{思考题}
+\textbf{在两个焊点分别哈气时桥电压 $U_g$ 如何变化？该现象由什么效应产生？}\\
+观察：向其中一个焊点哈气时，桥电压 $U_g$ 在该侧出现增大；对另一焊点哈气时，$U_g$ 反向变化（减小）。\textbf{即两个焊点分别哈气呈相反方向的瞬时电压偏移。}\\
+解释：主要来源于\textbf{温差电动势（塞贝克效应）}。焊点处存在不同金属/焊料与导线材料的接触——形成若干微型热电偶。哈气使局部温度暂时下降（蒸发带走热量）或升高（暖湿气体），在桥路的两个不同节点产生温度差 $\Delta T$，进而生成附加热电势
+\[U_{\text{th}} = S\,\Delta T,\]
+其中 $S$ 为等效塞贝克系数（由材料组合与接触状况决定），其符号在两个焊点可能相反或等效电路中进入相反极性，导致 $U_g$ 一增一减。待温度均衡、哈气水汽散去后，$\Delta T \to 0$，附加项衰减，$U_g$ 回到原基线。\\
+
+\appendix
+\section{老师签字的原始数据}
+\includegraphics[width=0.8\textwidth]{原始数据.jpg}
+
+\end{document}
