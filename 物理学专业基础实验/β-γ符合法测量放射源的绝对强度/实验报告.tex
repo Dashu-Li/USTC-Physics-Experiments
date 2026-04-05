@@ -49,12 +49,24 @@ A = \frac{\left[n_{\beta}(\beta+\gamma+b)-n_{\beta}(\gamma+b)\right]\left[n_{\ga
 
 真实符合曲线采用高斯模型拟合：
 \begin{equation}
-    N(t)=N_0+N_p\exp\!\left[-\frac{(t-\mu)^2}{2\sigma^2}\right],
+    N(t)=N_0+N_p\exp\!\left[-\frac{{(t-\mu)}^2}{2\sigma^2}\right],
 \end{equation}
 其半高全宽
 \begin{equation}
     \mathrm{FWHM}=2\sqrt{2\ln 2}\,\sigma.
 \end{equation}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.35\textwidth]{assets/page2_img1.png}
+    \caption{$^{60}\mathrm{Co}$ 衰变纲图（实验文档）}\label{fig:decay-scheme}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.82\textwidth]{assets/page3_img1.png}
+    \caption{$\beta$-$\gamma$ 符合测量装置框图（实验文档）}\label{fig:setup-scheme}
+\end{figure}
 
 \section{实验条件与原始数据}
 \subsection{测量条件}
@@ -123,6 +135,33 @@ I（$\gamma$） & 116597 & 120312 & 51469 \\
 \subsection{第一组数据用途说明}
 第一组采用标准脉冲信号，记录在较宽延迟范围内近似平台输出，用于确定系统延迟粗调工作区间。该组不用于最终 $\tau$ 拟合，仅用于辅助定位真实符合曲线扫描范围。
 
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    width=0.84\textwidth,
+    height=0.36\textwidth,
+    xlabel={绝对延迟时间 $t$ (\si{\micro\second})},
+    ylabel={计数 $N$（10 s）},
+    xmin=3.35, xmax=5.35,
+    ymin=89736.7, ymax=89738.3,
+    grid=both,
+    minor tick num=1,
+    mark size=1.8pt
+]
+\addplot[only marks, color=blue] coordinates {
+(3.4,89738) (3.5,89738) (3.6,89738) (3.7,89738) (3.8,89738)
+(3.9,89738) (4.0,89737) (4.1,89737) (4.2,89737) (4.3,89737)
+(4.4,89737) (4.5,89737) (4.6,89737) (4.7,89737) (4.8,89737)
+(4.9,89737) (5.0,89738) (5.1,89737) (5.2,89737) (5.3,89737)
+};
+\addplot[domain=3.35:5.35, samples=2, color=red, dashed] {89737.35};
+\legend{实测点, 平台平均线}
+\end{axis}
+\end{tikzpicture}
+\caption{第一组标准信号粗调延迟平台图}\label{fig:group1-platform}
+\end{figure}
+
 \subsection{第二组高斯拟合与符合时间分辨}
 将第二组计数 $N(t)$ 按高斯模型拟合，得到
 \begin{align}
@@ -139,6 +178,36 @@ I（$\gamma$） & 116597 & 120312 & 51469 \\
 \begin{equation}
     \tau_{\mathrm{FWHM}} \approx \SI{1.93}{\micro\second}.
 \end{equation}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    width=0.84\textwidth,
+    height=0.40\textwidth,
+    xlabel={绝对延迟时间 $t$ (\si{\micro\second})},
+    ylabel={计数 $N$（60 s）},
+    xmin=2.75, xmax=5.85,
+    ymin=0, ymax=100,
+    grid=both,
+    minor tick num=1,
+    legend pos=north west,
+    mark size=1.7pt
+]
+\addplot[only marks, color=blue] coordinates {
+(2.8,6) (2.9,4) (3.0,10) (3.1,3) (3.2,14) (3.3,15) (3.4,22)
+(3.5,23) (3.6,26) (3.7,36) (3.8,40) (3.9,56) (4.0,40) (4.1,48)
+(4.2,63) (4.3,82) (4.4,68) (4.5,84) (4.6,78) (4.7,79) (4.8,91)
+(4.9,67) (5.0,83) (5.1,75) (5.2,77) (5.3,71) (5.4,62) (5.5,63)
+(5.6,46) (5.7,42) (5.8,39)
+};
+\addplot[red, thick, domain=2.8:5.8, samples=300]
+{-0.195966 + 82.764138*exp(-((x-4.794615)^2)/(2*0.817592^2))};
+\legend{实测点, 高斯拟合}
+\end{axis}
+\end{tikzpicture}
+\caption{第二组真实符合曲线及高斯拟合}\label{fig:group2-gauss}
+\end{figure}
 
 \subsection{第三组绝对强度计算}
 先将第三组计数换算为计数率（单位：\si{\per\second}）：
@@ -159,7 +228,7 @@ I（$\gamma$） & 116597 & 120312 & 51469 \\
     =229.4767.
 \end{align}
 
-按实验要求固定延迟 $t=\SI{4.3}{\micro\second}$，并采用实验记录给出的分辨时间修正 $\tau=\SI{13}{\nano\second}$ 代入式 \eqref{eq:A}：
+按实验要求固定延迟 $t=\SI{4.3}{\micro\second}$，并采用实验记录给出的分辨时间修正 $\tau=\SI{13}{\nano\second}$ 代入式~\eqref{eq:A}：
 \begin{align}
     n_{\beta\gamma}^{\mathrm{(true)}}
     &=1.2933-0.4467-2\times 13\times10^{-9}\times 20.7400\times 401.0400 \\
@@ -178,6 +247,31 @@ I（$\gamma$） & 116597 & 120312 & 51469 \\
 \begin{equation}
     u_r(A)\approx\sqrt{\frac{1}{N_{\beta}}+\frac{1}{N_{\gamma}}+\frac{1}{N_{\beta\gamma}}}\approx 6.35\%.
 \end{equation}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    ybar,
+    bar width=10pt,
+    width=0.84\textwidth,
+    height=0.42\textwidth,
+    ylabel={计数率 (\si{\per\second})},
+    symbolic x coords={III符合,IIbeta,Igamma},
+    xtick=data,
+    ymin=0,
+    grid=both,
+    minor tick num=1,
+    legend style={at={(0.02,0.98)},anchor=north west}
+]
+\addplot coordinates {(III符合,1.2933) (IIbeta,29.5067) (Igamma,388.6567)};
+\addplot coordinates {(III符合,0.4467) (IIbeta,8.7667) (Igamma,401.0400)};
+\addplot coordinates {(III符合,0.0267) (IIbeta,4.9333) (Igamma,171.5633)};
+\legend{正常, 用铝盖住, 移除放射源}
+\end{axis}
+\end{tikzpicture}
+\caption{第三组三工况计数率对比图（300 s 归一化）}\label{fig:group3-bars}
+\end{figure}
 
 \section{结果与讨论}
 \begin{enumerate}
