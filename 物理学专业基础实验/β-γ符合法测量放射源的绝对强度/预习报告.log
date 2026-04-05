@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (MiKTeX 24.4) (preloaded format=xelatex 2025.4.3)  29 MAR 2026 15:41
+This is XeTeX, Version 3.141592653-2.6-0.999996 (MiKTeX 24.4) (preloaded format=xelatex 2025.4.3)  30 MAR 2026 00:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -919,11 +919,6 @@ nslations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
 or `english'. on input line 17.
-
-Missing character: There is no Ⅰ in font [lmroman12-regular]:mapping=tex-text;!
-Missing character: There is no Ⅱ in font [lmroman12-regular]:mapping=tex-text;!
-Missing character: There is no Ⅰ in font [lmroman12-regular]:mapping=tex-text;!
-Missing character: There is no Ⅱ in font [lmroman12-regular]:mapping=tex-text;!
 
 
 [1

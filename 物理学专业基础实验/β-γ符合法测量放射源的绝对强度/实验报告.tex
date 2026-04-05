@@ -1,0 +1,210 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[UTF8]{ctex}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{geometry}
+\usepackage{siunitx}
+\usepackage{pgfplots}
+\usepackage{ulem}
+\pgfplotsset{compat=1.17}
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+\sisetup{per-mode=symbol}
+
+\title{\Huge{\textbf{\uuline{实\ 验\ 报\ 告}}}}
+\author{\uline{少年班学院} \quad 姓名: \uline{李大恕} \quad 学号: \uline{PB24000145}}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{实验题目}
+$\beta$-$\gamma$符合法测量放射源绝对强度
+
+\section{实验目的}
+\begin{enumerate}
+    \item 掌握符合测量系统的延迟调整方法，理解符合曲线与时间分辨的物理意义。
+    \item 通过真实符合曲线的高斯拟合，估计系统符合时间分辨宽度。
+    \item 用 $\beta$-$\gamma$ 符合法测定 $^{60}\mathrm{Co}$ 放射源的绝对强度（活度）。
+\end{enumerate}
+
+\section{实验原理}
+对于 $^{60}\mathrm{Co}$ 源，若源活度为 $A$，$\beta$、$\gamma$ 道探测效率分别为 $p_{\beta}$、$p_{\gamma}$，则有
+\begin{align}
+    n_{\beta} &= A p_{\beta}, \\
+    n_{\gamma} &= A p_{\gamma}, \\
+    n_{\beta\gamma} &= A p_{\beta} p_{\gamma}.
+\end{align}
+故理想情形下
+\begin{equation}
+    A = \frac{n_{\beta} n_{\gamma}}{n_{\beta\gamma}}.
+\end{equation}
+
+考虑本底、$\gamma$ 射线串入 $\beta$ 道以及偶然符合修正后，按实验讲义数据处理关系可写为
+\begin{equation}
+A = \frac{\left[n_{\beta}(\beta+\gamma+b)-n_{\beta}(\gamma+b)\right]\left[n_{\gamma}(\gamma+b)-n_{\gamma}(b)\right]}{n_{\beta\gamma}(\beta+\gamma+b)-n_{\beta\gamma}(\gamma+b)-2\tau\left[n_{\beta}(\beta+\gamma+b)-n_{\beta}(\gamma+b)\right]n_{\gamma}(\gamma+b)}.
+\label{eq:A}
+\end{equation}
+其中 $\tau$ 为符合分辨时间（以秒计）。
+
+真实符合曲线采用高斯模型拟合：
+\begin{equation}
+    N(t)=N_0+N_p\exp\!\left[-\frac{(t-\mu)^2}{2\sigma^2}\right],
+\end{equation}
+其半高全宽
+\begin{equation}
+    \mathrm{FWHM}=2\sqrt{2\ln 2}\,\sigma.
+\end{equation}
+
+\section{实验条件与原始数据}
+\subsection{测量条件}
+\begin{itemize}
+    \item 第一组（标准信号发生器粗调延迟）：每点测量时长 \SI{10}{\second}。
+    \item 第二组（真实符合曲线）：每点测量时长 \SI{60}{\second}。
+    \item 第三组（绝对强度测量）：固定延迟 $t=\SI{4.3}{\micro\second}$，每组测量时长 \SI{300}{\second}。
+\end{itemize}
+
+\subsection{第一组：标准信号发生器粗定延迟（绝对时间）}
+第一组横坐标由 $4+\Delta t$ 统一换算为绝对延迟时间 $t=4+\Delta t$（单位：\si{\micro\second}）。
+
+\begin{center}
+\begin{tabular}{cccccccc}
+\toprule
+$t$ & 3.4 & 3.5 & 3.6 & 3.7 & 3.8 & 3.9 & 4.0 \\
+$N$ (10 s) & 89738 & 89738 & 89738 & 89738 & 89738 & 89738 & 89737 \\
+\midrule
+$t$ & 4.1 & 4.2 & 4.3 & 4.4 & 4.5 & 4.6 & 4.7 \\
+$N$ (10 s) & 89737 & 89737 & 89737 & 89737 & 89737 & 89737 & 89737 \\
+\midrule
+$t$ & 4.8 & 4.9 & 5.0 & 5.1 & 5.2 & 5.3 &  \\
+$N$ (10 s) & 89737 & 89737 & 89738 & 89737 & 89737 & 89737 &  \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+注：原记录中 $\Delta t=-0.7$（即 $t=3.3\,\si{\micro\second}$）处记为 0，视为无效点，不参与统计。
+
+\subsection{第二组：真实符合曲线数据（绝对时间）}
+\begin{center}
+\begin{tabular}{cccccccc}
+\toprule
+$t$ & 2.8 & 2.9 & 3.0 & 3.1 & 3.2 & 3.3 & 3.4 \\
+$N$ (60 s) & 6 & 4 & 10 & 3 & 14 & 15 & 22 \\
+\midrule
+$t$ & 3.5 & 3.6 & 3.7 & 3.8 & 3.9 & 4.0 & 4.1 \\
+$N$ (60 s) & 23 & 26 & 36 & 40 & 56 & 40 & 48 \\
+\midrule
+$t$ & 4.2 & 4.3 & 4.4 & 4.5 & 4.6 & 4.7 & 4.8 \\
+$N$ (60 s) & 63 & 82 & 68 & 84 & 78 & 79 & 91 \\
+\midrule
+$t$ & 4.9 & 5.0 & 5.1 & 5.2 & 5.3 & 5.4 & 5.5 \\
+$N$ (60 s) & 67 & 83 & 75 & 77 & 71 & 62 & 63 \\
+\midrule
+$t$ & 5.6 & 5.7 & 5.8 &  &  &  &  \\
+$N$ (60 s) & 46 & 42 & 39 &  &  &  &  \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{第三组：绝对强度测量原始计数（300 s）}
+\begin{center}
+\begin{tabular}{cccc}
+\toprule
+通道/工况 & 正常 & 用铝盖住 & 移除放射源 \\
+\midrule
+III（符合） & 388 & 134 & 8 \\
+II（$\beta$） & 8852 & 2630 & 1480 \\
+I（$\gamma$） & 116597 & 120312 & 51469 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{数据处理}
+\subsection{第一组数据用途说明}
+第一组采用标准脉冲信号，记录在较宽延迟范围内近似平台输出，用于确定系统延迟粗调工作区间。该组不用于最终 $\tau$ 拟合，仅用于辅助定位真实符合曲线扫描范围。
+
+\subsection{第二组高斯拟合与符合时间分辨}
+将第二组计数 $N(t)$ 按高斯模型拟合，得到
+\begin{align}
+    N_p &= 82.76, \\
+    \mu &= \SI{4.795}{\micro\second}, \\
+    \sigma &= \SI{0.818}{\micro\second}, \\
+    N_0 &= -0.20 \approx 0.
+\end{align}
+由此
+\begin{equation}
+    \mathrm{FWHM}=2\sqrt{2\ln2}\,\sigma=\SI{1.925}{\micro\second}.
+\end{equation}
+故按瞬时符合曲线法，系统符合时间分辨宽度取
+\begin{equation}
+    \tau_{\mathrm{FWHM}} \approx \SI{1.93}{\micro\second}.
+\end{equation}
+
+\subsection{第三组绝对强度计算}
+先将第三组计数换算为计数率（单位：\si{\per\second}）：
+\begin{align}
+    n_{\beta}(\beta+\gamma+b) &= \frac{8852}{300}=29.5067, \\
+    n_{\beta}(\gamma+b) &= \frac{2630}{300}=8.7667, \\
+    n_{\gamma}(\gamma+b) &= \frac{120312}{300}=401.0400, \\
+    n_{\gamma}(b) &= \frac{51469}{300}=171.5633, \\
+    n_{\beta\gamma}(\beta+\gamma+b) &= \frac{388}{300}=1.2933, \\
+    n_{\beta\gamma}(\gamma+b) &= \frac{134}{300}=0.4467.
+\end{align}
+
+于是
+\begin{align}
+    n_{\beta} &= n_{\beta}(\beta+\gamma+b)-n_{\beta}(\gamma+b)
+    =20.7400, \\
+    n_{\gamma} &= n_{\gamma}(\gamma+b)-n_{\gamma}(b)
+    =229.4767.
+\end{align}
+
+按实验要求固定延迟 $t=\SI{4.3}{\micro\second}$，并采用实验记录给出的分辨时间修正 $\tau=\SI{13}{\nano\second}$ 代入式 \eqref{eq:A}：
+\begin{align}
+    n_{\beta\gamma}^{\mathrm{(true)}}
+    &=1.2933-0.4467-2\times 13\times10^{-9}\times 20.7400\times 401.0400 \\
+    &=0.84654, \\
+    A
+    &=\frac{20.7400\times229.4767}{0.84654}
+    =\SI{5.62e3}{\becquerel}.
+\end{align}
+
+故本次测得 $^{60}\mathrm{Co}$ 源活度约为
+\begin{equation}
+    A\approx \SI{5.62}{\kilo\becquerel}.
+\end{equation}
+
+若仅按泊松统计并忽略系统误差，近似相对标准不确定度可估算为
+\begin{equation}
+    u_r(A)\approx\sqrt{\frac{1}{N_{\beta}}+\frac{1}{N_{\gamma}}+\frac{1}{N_{\beta\gamma}}}\approx 6.35\%.
+\end{equation}
+
+\section{结果与讨论}
+\begin{enumerate}
+    \item 第一组标准信号数据在选定范围内近似平台，已成功用于粗定延迟扫描区域。
+    \item 第二组真实符合曲线高斯拟合峰位在 $\mu\approx\SI{4.80}{\micro\second}$，半高全宽约 \SI{1.93}{\micro\second}。
+    \item 在固定延迟 \SI{4.3}{\micro\second} 的测量条件下，按修正式得到 $^{60}\mathrm{Co}$ 源绝对强度约 \SI{5.62}{\kilo\becquerel}。
+    \item 误差主要来自：统计涨落（尤其符合道计数较低）、阈值与增益漂移、延迟设置偏离峰位、以及本底修正与偶然符合修正模型近似。
+\end{enumerate}
+
+\appendix
+\section{补充图片与原始记录}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.62\textwidth]{IMG20260330192921.jpg}
+    \caption{实验原始手写记录（含三组数据）}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.62\textwidth]{IMG20260330192927.jpg}
+    \caption{实验讲义补充页（符合曲线与修正公式）}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.62\textwidth]{IMG20260330202930.jpg}
+    \caption{实验操作补充与仪器参数记录}
+\end{figure}
+
+\end{document}
