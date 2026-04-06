@@ -147,14 +147,15 @@ $N$ (60 s) & 46 & 42 & 39 &  &  &  &  \\
 \begin{center}
 \begin{tabular}{cccc}
 \toprule
-通道/工况 & 正常 & 用铝盖住 & 移除放射源 \\
+信号类型/工况 & 正常 & 用铝盖住 & 移除放射源 \\
 \midrule
-III（符合） & 388 & 134 & 8 \\
-II（$\beta$） & 8852 & 2630 & 1480 \\
-I（$\gamma$） & 116597 & 120312 & 51469 \\
+符合道计数 $N_{\beta\gamma}$ & 388 & 134 & 8 \\
+$\beta$ 道计数 $N_{\beta,\mathrm{raw}}$（塑闪） & 8852 & 2630 & 1480 \\
+$\gamma$ 道计数 $N_{\gamma,\mathrm{raw}}$（NaI） & 116597 & 120312 & 51469 \\
 \bottomrule
 \end{tabular}
 \end{center}
+注：手写记录中的 III、II、I 分别对应符合道、$\beta$ 道（塑闪）和 $\gamma$ 道（NaI）。
 
 \section{数据处理}
 \subsection{第一组数据用途说明}
@@ -170,6 +171,7 @@ I（$\gamma$） & 116597 & 120312 & 51469 \\
     ylabel={计数 $N$（10 s）},
     xmin=3.25, xmax=5.35,
     ymin=-2000, ymax=92000,
+    scaled y ticks=false,
     grid=both,
     minor tick num=1,
     mark size=1.8pt
@@ -186,10 +188,10 @@ I（$\gamma$） & 116597 & 120312 & 51469 \\
 (4.4,89737) (4.5,89737) (4.6,89737) (4.7,89737) (4.8,89737)
 (4.9,89737) (5.0,89738) (5.1,89737) (5.2,89737) (5.3,0)
 };
-\legend{方形波包连线, 实测点}
+\legend{连线, 实测点}
 \end{axis}
 \end{tikzpicture}
-\caption{第一组标准信号测量结果（方形波包）}\label{fig:group1-platform}
+\caption{第一组标准信号测量结果}\label{fig:group1-platform}
 \end{figure}
 
 \subsection{第二组高斯拟合与符合时间分辨}
@@ -287,16 +289,16 @@ I（$\gamma$） & 116597 & 120312 & 51469 \\
     width=0.84\textwidth,
     height=0.42\textwidth,
     ylabel={计数率 (\si{\per\second})},
-    symbolic x coords={III符合,IIbeta,Igamma},
+    symbolic x coords={符合道,beta道,gamma道},
     xtick=data,
     ymin=0,
     grid=both,
     minor tick num=1,
     legend style={at={(0.02,0.98)},anchor=north west}
 ]
-\addplot coordinates {(III符合,1.2933) (IIbeta,29.5067) (Igamma,388.6567)};
-\addplot coordinates {(III符合,0.4467) (IIbeta,8.7667) (Igamma,401.0400)};
-\addplot coordinates {(III符合,0.0267) (IIbeta,4.9333) (Igamma,171.5633)};
+\addplot coordinates {(符合道,1.2933) (beta道,29.5067) (gamma道,388.6567)};
+\addplot coordinates {(符合道,0.4467) (beta道,8.7667) (gamma道,401.0400)};
+\addplot coordinates {(符合道,0.0267) (beta道,4.9333) (gamma道,171.5633)};
 \legend{正常, 用铝盖住, 移除放射源}
 \end{axis}
 \end{tikzpicture}
