@@ -61,7 +61,7 @@ $\beta$-$\gamma$符合法测量放射源绝对强度
 
 考虑本底、$\gamma$ 射线串入 $\beta$ 道以及偶然符合修正后，按实验讲义数据处理关系可写为
 \begin{equation}
-A = \frac{\left[n_{\beta}(\beta+\gamma+b)-n_{\beta}(\gamma+b)\right]\left[n_{\gamma}(\gamma+b)-n_{\gamma}(b)\right]}{n_{\beta\gamma}(\beta+\gamma+b)-n_{\beta\gamma}(\gamma+b)-2\tau\left[n_{\beta}(\beta+\gamma+b)-n_{\beta}(\gamma+b)\right]n_{\gamma}(\gamma+b)}.
+A = \frac{\left[n_{\beta}(\beta+\gamma+b)-n_{\beta}(\gamma+b)\right]\left[n_{\gamma}(\gamma+b)-n_{\gamma}(b)\right]}{n_{\beta\gamma}(\beta+\gamma+b)-n_{\beta\gamma}(\gamma+b)-n_{\beta\gamma}(b)-2\tau\left[n_{\beta}(\beta+\gamma+b)-n_{\beta}(\gamma+b)\right]n_{\gamma}(\gamma+b)}.
 \label{eq:A}
 \end{equation}
 其中 $\tau$ 为符合分辨时间（以秒计）。
@@ -249,7 +249,8 @@ $\gamma$ 道计数 $N_{\gamma,\mathrm{raw}}$（NaI） & 116597 & 120312 & 51469 
     n_{\gamma}(\gamma+b) &= \frac{120312}{300}=401.0400, \\
     n_{\gamma}(b) &= \frac{51469}{300}=171.5633, \\
     n_{\beta\gamma}(\beta+\gamma+b) &= \frac{388}{300}=1.2933, \\
-    n_{\beta\gamma}(\gamma+b) &= \frac{134}{300}=0.4467.
+    n_{\beta\gamma}(\gamma+b) &= \frac{134}{300}=0.4467, \\
+    n_{\beta\gamma}(b) &= \frac{8}{300}=0.0267.
 \end{align}
 
 于是
@@ -263,16 +264,16 @@ $\gamma$ 道计数 $N_{\gamma,\mathrm{raw}}$（NaI） & 116597 & 120312 & 51469 
 按实验要求固定延迟 $t=\SI{4.3}{\micro\second}$，并采用实验记录给出的分辨时间修正 $\tau=\SI{13}{\nano\second}$ 代入式~\eqref{eq:A}：
 \begin{align}
     n_{\beta\gamma}^{\mathrm{(true)}}
-    &=1.2933-0.4467-2\times 13\times10^{-9}\times 20.7400\times 401.0400 \\
-    &=0.84654, \\
+    &=1.2933-0.4467-0.0267-2\times 13\times10^{-9}\times 20.7400\times 401.0400 \\
+    &=0.81988, \\
     A
-    &=\frac{20.7400\times229.4767}{0.84654}
-    =\SI{5.62e3}{\becquerel}.
+    &=\frac{20.7400\times229.4767}{0.81988}
+    =\SI{5.81e3}{\becquerel}.
 \end{align}
 
 故本次测得 $^{60}\mathrm{Co}$ 源活度约为
 \begin{equation}
-    A\approx \SI{5.62}{\kilo\becquerel}.
+    A\approx \SI{5.81}{\kilo\becquerel}.
 \end{equation}
 
 若仅按泊松统计并忽略系统误差，近似相对标准不确定度可估算为
@@ -289,16 +290,16 @@ $\gamma$ 道计数 $N_{\gamma,\mathrm{raw}}$（NaI） & 116597 & 120312 & 51469 
     width=0.84\textwidth,
     height=0.42\textwidth,
     ylabel={计数率 (\si{\per\second})},
-    symbolic x coords={符合道,beta道,gamma道},
+    symbolic x coords={符合道,$\beta$道,$\gamma$道},
     xtick=data,
     ymin=0,
     grid=both,
     minor tick num=1,
     legend style={at={(0.02,0.98)},anchor=north west}
 ]
-\addplot coordinates {(符合道,1.2933) (beta道,29.5067) (gamma道,388.6567)};
-\addplot coordinates {(符合道,0.4467) (beta道,8.7667) (gamma道,401.0400)};
-\addplot coordinates {(符合道,0.0267) (beta道,4.9333) (gamma道,171.5633)};
+\addplot coordinates {(符合道,1.2933) ($\beta$道,29.5067) ($\gamma$道,388.6567)};
+\addplot coordinates {(符合道,0.4467) ($\beta$道,8.7667) ($\gamma$道,401.0400)};
+\addplot coordinates {(符合道,0.0267) ($\beta$道,4.9333) ($\gamma$道,171.5633)};
 \legend{正常, 用铝盖住, 移除放射源}
 \end{axis}
 \end{tikzpicture}
@@ -309,7 +310,7 @@ $\gamma$ 道计数 $N_{\gamma,\mathrm{raw}}$（NaI） & 116597 & 120312 & 51469 
 \begin{enumerate}
     \item 第一组标准信号数据给出了符合输出的延迟平台特征，与实验过程中“观察符合输出并选点测量”的步骤一致。
     \item 第二组真实符合曲线高斯拟合峰位在 $\mu\approx\SI{4.80}{\micro\second}$，半高全宽约 \SI{1.93}{\micro\second}。
-    \item 在固定延迟 \SI{4.3}{\micro\second} 的测量条件下，按修正式得到 $^{60}\mathrm{Co}$ 源绝对强度约 \SI{5.62}{\kilo\becquerel}。
+    \item 在固定延迟 \SI{4.3}{\micro\second} 的测量条件下，按修正式（含移除放射源工况的符合本底项）得到 $^{60}\mathrm{Co}$ 源绝对强度约 \SI{5.81}{\kilo\becquerel}。
     \item 误差主要来自：统计涨落（尤其符合道计数较低）、阈值与增益漂移、延迟设置偏离峰位、以及本底修正与偶然符合修正模型近似。
 \end{enumerate}
 
