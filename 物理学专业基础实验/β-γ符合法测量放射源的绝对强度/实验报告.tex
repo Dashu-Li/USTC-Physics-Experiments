@@ -89,9 +89,9 @@ A = \frac{\left[n_{\beta}(\beta+\gamma+b)-n_{\beta}(\gamma+b)\right]\left[n_{\ga
 
 \section{实验过程}
 \begin{enumerate}
-    \item 按实验文档的 $\beta$-$\gamma$ 符合装置框图连接系统（见图~\ref{fig:setup-scheme}）。
+    \item 按 $\beta$-$\gamma$ 符合装置框图连接系统（见图~\ref{fig:setup-scheme}）。
     \item 用精密脉冲发生器作为输入，调节放大器增益、成形时间、单道阈值和符合延迟，使符合通道稳定输出。
-    \item 固定一路延迟，连续扫描另一路延迟，在示波器上观察符合输出波形并粗调工作区间。
+    \item 固定一路延迟，连续调节另一路延迟，在示波器上观察符合输出波形，并在有符合输出的延迟范围内选取若干点测量符合计数。
     \item 以探测器真实信号替代标准脉冲，按 \qty{0.1}{\micro\second} 步进扫描，测量瞬时符合曲线各点计数。
     \item 将延迟固定在符合曲线中部附近，按三种工况（正常、用铝盖住、移除放射源）分别测量 $\beta$ 道、$\gamma$ 道与符合道计数，并按修正式计算活度。
 \end{enumerate}
@@ -99,29 +99,27 @@ A = \frac{\left[n_{\beta}(\beta+\gamma+b)-n_{\beta}(\gamma+b)\right]\left[n_{\ga
 \section{实验条件与原始数据}
 \subsection{测量条件}
 \begin{itemize}
-    \item 第一组（标准信号发生器粗调延迟）：每点测量时长 \SI{10}{\second}。
+    \item 第一组（标准信号发生器）：每点测量时长 \SI{10}{\second}。
     \item 第二组（真实符合曲线）：每点测量时长 \SI{60}{\second}。
     \item 第三组（绝对强度测量）：固定延迟 $t=\SI{4.3}{\micro\second}$，每组测量时长 \SI{300}{\second}。
 \end{itemize}
 
-\subsection{第一组：标准信号发生器粗定延迟}
+\subsection{第一组：标准信号发生器测量数据}
 
 \begin{center}
 \begin{tabular}{cccccccc}
 \toprule
-$t$ & 3.4 & 3.5 & 3.6 & 3.7 & 3.8 & 3.9 & 4.0 \\
-$N$ (10 s) & 89738 & 89738 & 89738 & 89738 & 89738 & 89738 & 89737 \\
+$t$ & 3.3 & 3.4 & 3.5 & 3.6 & 3.7 & 3.8 & 3.9 \\
+$N$ (10 s) & 0 & 89738 & 89738 & 89738 & 89738 & 89738 & 89738 \\
 \midrule
-$t$ & 4.1 & 4.2 & 4.3 & 4.4 & 4.5 & 4.6 & 4.7 \\
+$t$ & 4.0 & 4.1 & 4.2 & 4.3 & 4.4 & 4.5 & 4.6 \\
 $N$ (10 s) & 89737 & 89737 & 89737 & 89737 & 89737 & 89737 & 89737 \\
 \midrule
-$t$ & 4.8 & 4.9 & 5.0 & 5.1 & 5.2 & 5.3 &  \\
-$N$ (10 s) & 89737 & 89737 & 89738 & 89737 & 89737 & 89737 &  \\
+$t$ & 4.7 & 4.8 & 4.9 & 5.0 & 5.1 & 5.2 & 5.3 \\
+$N$ (10 s) & 89737 & 89737 & 89737 & 89738 & 89737 & 89737 & 89737 \\
 \bottomrule
 \end{tabular}
 \end{center}
-
-注：原记录中 $t=\SI{3.3}{\micro\second}$ 处记为 0，视为无效点，不参与统计。
 
 \subsection{第二组：真实符合曲线数据}
 \begin{center}
@@ -160,7 +158,7 @@ I（$\gamma$） & 116597 & 120312 & 51469 \\
 
 \section{数据处理}
 \subsection{第一组数据用途说明}
-第一组由标准脉冲发生器输入测得，用于在实验中确定符合电路延迟旋钮的粗调区间，并保证后续真实信号扫描覆盖有效符合区域。
+第一组由标准脉冲发生器输入测得，对应实验过程中“固定一路、调另一路并观察符合输出”的步骤，用于确认符合输出随延迟变化的区间与平台特征，并据此开展后续真实探测信号的细测。
 
 \begin{figure}[htbp]
 \centering
@@ -168,7 +166,7 @@ I（$\gamma$） & 116597 & 120312 & 51469 \\
 \begin{axis}[
     width=0.84\textwidth,
     height=0.36\textwidth,
-    xlabel={绝对延迟时间 $t$ (\si{\micro\second})},
+    xlabel={延迟时间 $t$ (\si{\micro\second})},
     ylabel={计数 $N$（10 s）},
     xmin=3.35, xmax=5.35,
     ymin=89736.7, ymax=89738.3,
@@ -186,8 +184,10 @@ I（$\gamma$） & 116597 & 120312 & 51469 \\
 \legend{实测点, 平台平均线}
 \end{axis}
 \end{tikzpicture}
-\caption{第一组标准信号粗调延迟平台图}\label{fig:group1-platform}
+\caption{第一组标准信号测量结果（平台区示意）}\label{fig:group1-platform}
 \end{figure}
+
+说明：原始表格中的 $t=\SI{3.3}{\micro\second},\,N=0$ 已完整保留；由于该点与平台区计数量级差异过大，图~\ref{fig:group1-platform} 仅展示平台区数据以便观察细节。
 
 \subsection{第二组高斯拟合与符合时间分辨}
 将第二组计数 $N(t)$ 按高斯模型拟合，得到
@@ -212,7 +212,7 @@ I（$\gamma$） & 116597 & 120312 & 51469 \\
 \begin{axis}[
     width=0.84\textwidth,
     height=0.40\textwidth,
-    xlabel={绝对延迟时间 $t$ (\si{\micro\second})},
+    xlabel={延迟时间 $t$ (\si{\micro\second})},
     ylabel={计数 $N$（60 s）},
     xmin=2.75, xmax=5.85,
     ymin=0, ymax=100,
@@ -302,7 +302,7 @@ I（$\gamma$） & 116597 & 120312 & 51469 \\
 
 \section{结果与讨论}
 \begin{enumerate}
-    \item 第一组标准信号数据在选定范围内近似平台，已成功用于粗定延迟扫描区域。
+    \item 第一组标准信号数据给出了符合输出的延迟平台特征，与实验过程中“观察符合输出并选点测量”的步骤一致。
     \item 第二组真实符合曲线高斯拟合峰位在 $\mu\approx\SI{4.80}{\micro\second}$，半高全宽约 \SI{1.93}{\micro\second}。
     \item 在固定延迟 \SI{4.3}{\micro\second} 的测量条件下，按修正式得到 $^{60}\mathrm{Co}$ 源绝对强度约 \SI{5.62}{\kilo\becquerel}。
     \item 误差主要来自：统计涨落（尤其符合道计数较低）、阈值与增益漂移、延迟设置偏离峰位、以及本底修正与偶然符合修正模型近似。
