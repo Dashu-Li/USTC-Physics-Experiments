@@ -29,6 +29,25 @@ $\beta$-$\gamma$符合法测量放射源绝对强度
 \end{enumerate}
 
 \section{实验原理}
+\subsection{符合分辨时间}
+符合电路存在一定分辨时间。若两路脉冲到达时间差小于该时间窗口，系统将其判作“同时到达”，并产生符合输出。该最小可分辨时间间隔记为 $\tau$。
+
+\subsection{符合分辨时间的测量方法}
+\subsubsection{偶然符合法}
+设两道平均计数率分别为 $n_1$、$n_2$，当两道输出脉冲宽度均为 $\tau$ 时，偶然符合计数率为
+\begin{equation}
+    n_{\mathrm{rc}} = 2\tau n_1 n_2.
+\end{equation}
+考虑本底符合计数率 $n_{\mathrm{b}12}$ 后，有
+\begin{equation}
+    n'_{\mathrm{rc}} = 2\tau n_1 n_2 + n_{\mathrm{b}12}.
+\end{equation}
+因此作图 $n'_{\mathrm{rc}}-n_1n_2$ 可由斜率求得 $\tau$。
+
+\subsubsection{瞬时符合曲线法}
+在符合系统中改变两路相对延迟时间 $t$，符合计数率将随 $t$ 形成一条峰形分布曲线。若使用探测器真实信号，由于脉冲前沿存在统计涨落，曲线近似钟形，其半高全宽可表征系统时间分辨能力。
+
+\subsection{$\beta$-$\gamma$符合法测放射源活度}
 对于 $^{60}\mathrm{Co}$ 源，若源活度为 $A$，$\beta$、$\gamma$ 道探测效率分别为 $p_{\beta}$、$p_{\gamma}$，则有
 \begin{align}
     n_{\beta} &= A p_{\beta}, \\
@@ -68,6 +87,15 @@ A = \frac{\left[n_{\beta}(\beta+\gamma+b)-n_{\beta}(\gamma+b)\right]\left[n_{\ga
     \caption{$\beta$-$\gamma$ 符合测量装置框图（实验文档）}\label{fig:setup-scheme}
 \end{figure}
 
+\section{实验过程}
+\begin{enumerate}
+    \item 按实验文档的 $\beta$-$\gamma$ 符合装置框图连接系统（见图~\ref{fig:setup-scheme}）。
+    \item 用精密脉冲发生器作为输入，调节放大器增益、成形时间、单道阈值和符合延迟，使符合通道稳定输出。
+    \item 固定一路延迟，连续扫描另一路延迟，在示波器上观察符合输出波形并粗调工作区间。
+    \item 以探测器真实信号替代标准脉冲，按 \qty{0.1}{\micro\second} 步进扫描，测量瞬时符合曲线各点计数。
+    \item 将延迟固定在符合曲线中部附近，按三种工况（正常、用铝盖住、移除放射源）分别测量 $\beta$ 道、$\gamma$ 道与符合道计数，并按修正式计算活度。
+\end{enumerate}
+
 \section{实验条件与原始数据}
 \subsection{测量条件}
 \begin{itemize}
@@ -76,8 +104,7 @@ A = \frac{\left[n_{\beta}(\beta+\gamma+b)-n_{\beta}(\gamma+b)\right]\left[n_{\ga
     \item 第三组（绝对强度测量）：固定延迟 $t=\SI{4.3}{\micro\second}$，每组测量时长 \SI{300}{\second}。
 \end{itemize}
 
-\subsection{第一组：标准信号发生器粗定延迟（绝对时间）}
-第一组横坐标由 $4+\Delta t$ 统一换算为绝对延迟时间 $t=4+\Delta t$（单位：\si{\micro\second}）。
+\subsection{第一组：标准信号发生器粗定延迟}
 
 \begin{center}
 \begin{tabular}{cccccccc}
@@ -94,9 +121,9 @@ $N$ (10 s) & 89737 & 89737 & 89738 & 89737 & 89737 & 89737 &  \\
 \end{tabular}
 \end{center}
 
-注：原记录中 $\Delta t=-0.7$（即 $t=3.3\,\si{\micro\second}$）处记为 0，视为无效点，不参与统计。
+注：原记录中 $t=\SI{3.3}{\micro\second}$ 处记为 0，视为无效点，不参与统计。
 
-\subsection{第二组：真实符合曲线数据（绝对时间）}
+\subsection{第二组：真实符合曲线数据}
 \begin{center}
 \begin{tabular}{cccccccc}
 \toprule
@@ -133,7 +160,7 @@ I（$\gamma$） & 116597 & 120312 & 51469 \\
 
 \section{数据处理}
 \subsection{第一组数据用途说明}
-第一组采用标准脉冲信号，记录在较宽延迟范围内近似平台输出，用于确定系统延迟粗调工作区间。该组不用于最终 $\tau$ 拟合，仅用于辅助定位真实符合曲线扫描范围。
+第一组由标准脉冲发生器输入测得，用于在实验中确定符合电路延迟旋钮的粗调区间，并保证后续真实信号扫描覆盖有效符合区域。
 
 \begin{figure}[htbp]
 \centering
