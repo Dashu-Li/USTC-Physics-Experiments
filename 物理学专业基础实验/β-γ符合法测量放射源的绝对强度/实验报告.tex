@@ -253,16 +253,17 @@ $\gamma$ 道计数 $N_{\gamma,\mathrm{raw}}$（NaI） & 116597 & 120312 & 51469 
 （1）正常情况（测得 $\beta$ 道、$\gamma$ 道与符合计数）：
 \begin{align}
     n_{\beta}(\beta+\gamma+b) &= \frac{8632}{300}=28.7733, \\
-    n_{\gamma}(\gamma+b) &= \frac{116597}{300}=388.6567, \\
     n_{\beta\gamma}(\beta+\gamma+b) &= \frac{388}{300}=1.2933.
 \end{align}
+注：讲义最终推导公式未直接使用正常测量的 $\gamma$ 计数，而是以后述铝板工况下的 $n_\gamma(\gamma+b)$ 统代，因此该项测量数值未在后续公式流中出现。
 
-（2）放置铝板挡住 $\beta$（测得 $\beta$ 道与符合道计数串扰）：
+（2）放置铝板挡住 $\beta$（测得 $\beta$ 道、$\gamma$ 道与符合道计数）：
+由讲义手写批注“和测得 $n_\gamma(\gamma+b)$”可知，此工况须记录 $\gamma$ 道计数（即便理论上由于其装在铝盒中被屏蔽 $\beta$，计数与正常情况相近，但此工况实测数据即被原版讲义定为基准的 $\gamma$ 背景场）。
 \begin{align}
+    n_{\gamma}(\gamma+b) &= \frac{120312}{300}=401.0400, \\
     n_{\beta}(\gamma+b) &= \frac{2630}{300}=8.7667, \\
     n_{\beta\gamma}(\gamma+b) &= \frac{134}{300}=0.4467.
 \end{align}
-注：此工况下 $\gamma$ 道由于不受铝板影响因此理论上读数多余，讲义中也划去了该处 $n_{\gamma}$ 的重复读取。加上铝板后散射会使计数偏高（$120312$），所以我们选用正常测量的 $116597$。
 
 （3）去掉放射源测本底（测得各道与符合计数本底）：
 \begin{align}
@@ -274,37 +275,37 @@ $\gamma$ 道计数 $N_{\gamma,\mathrm{raw}}$（NaI） & 116597 & 120312 & 51469 
 按讲义公式，真实 $\beta$ 和真 $\gamma$ 的独立计数率为：
 \begin{align}
     n_{\beta}(\beta) &= n_{\beta}(\beta+\gamma+b)-n_{\beta}(\gamma+b)=28.7733-8.7667=20.0067, \\
-    n_{\gamma}(\gamma) &= n_{\gamma}(\gamma+b)-n_{\gamma}(b)=388.6567-171.5633=217.0934.
+    n_{\gamma}(\gamma) &= n_{\gamma}(\gamma+b)-n_{\gamma}(b)=401.0400-171.5633=229.4767.
 \end{align}
-在总活度计算中 $n_{\beta}(b)$ 会被自身抵消（其作用是检验本底水平或拆解 $\gamma$ 串入率 $n_{\beta}(\gamma) = n_{\beta}(\gamma+b)-n_{\beta}(b)$），这也是它未在最终简式里留存的原因。
+在总活度计算中 $n_{\beta}(b)$ 会被自身抵消（其作用是分离 $n_{\beta}(\gamma)=n_{\beta}(\gamma+b)-n_{\beta}(b)$ 等精细项），故未在最后总式中被引用。
 
-按要求固定延迟 $t=\SI{4.3}{\micro\second}$，并按上式取 $\tau=\SI{0.9632}{\micro\second}$ 代入各项计算偶然与真符合：
+按要求固定延迟 $t=\SI{4.3}{\micro\second}$，并取 $\tau=\SI{0.9632}{\micro\second}$ 代入各项计算偶然与真符合：
 
 进入两道的本底和 $\gamma$ 引起的真符合计数：
 \begin{align}
     n_{\beta\gamma}(\gamma,\gamma)
     &=n_{\beta\gamma}(\gamma+b)-n_{\beta\gamma}(b)-2\tau n_{\beta}(\gamma+b)n_{\gamma}(\gamma+b) \\
-    &=0.4467-0.0267-2\times 0.9632\times10^{-6}\times 8.7667\times 388.6567 \\
-    &=0.4134,
+    &=0.4467-0.0267-2\times 0.9632\times10^{-6}\times 8.7667\times 401.0400 \\
+    &=0.4132,
 \end{align}
 真正的 $\beta$-$\gamma$ 符合计数：
 \begin{align}
     n_{\beta\gamma}(\beta,\gamma)
     &=n_{\beta\gamma}(\beta+\gamma+b)-2\tau n_{\beta}(\beta+\gamma+b)n_{\gamma}(\gamma+b)-n_{\beta\gamma}(b)-n_{\beta\gamma}(\gamma,\gamma) \\
-    &=1.2933-2\times 0.9632\times10^{-6}\times 28.7733\times 388.6567-0.0267-0.4134 \\
-    &=0.8317,
+    &=1.2933-2\times 0.9632\times10^{-6}\times 28.7733\times 401.0400-0.0267-0.4132 \\
+    &=0.8312,
 \end{align}
 最终活度计算：
 \begin{align}
     A
     &=\frac{n_{\beta}(\beta)n_{\gamma}(\gamma)}{n_{\beta\gamma}(\beta,\gamma)}
-    =\frac{20.0067\times217.0934}{0.8317}
-    =\SI{5222}{\becquerel}.
+    =\frac{20.0067\times229.4767}{0.8312}
+    =\SI{5523}{\becquerel}.
 \end{align}
 
 故本次测得 $^{60}\mathrm{Co}$ 源活度约为
 \begin{equation}
-    A\approx \SI{5.22}{\kilo\becquerel}.
+    A\approx \SI{5.52}{\kilo\becquerel}.
 \end{equation}
 
 若仅按泊松统计并忽略系统误差，近似相对标准不确定度可估算为
@@ -341,9 +342,9 @@ $\gamma$ 道计数 $N_{\gamma,\mathrm{raw}}$（NaI） & 116597 & 120312 & 51469 
 \begin{enumerate}
     \item 第一组标准信号数据给出了符合输出的延迟平台特征，与实验过程中“观察符合输出并选点测量”的步骤一致。
     \item 第二组真实符合曲线高斯拟合峰位在 $\mu\approx\SI{4.79}{\micro\second}$，半高全宽约 \SI{1.93}{\micro\second}。
-    \item 在固定延迟 \SI{4.3}{\micro\second} 的测量条件下，按讲义图示 $2\tau$ 定义并显式计算 $n_{\beta\gamma}(\gamma,\gamma)$、$n_{\beta\gamma}(b)$ 后，得到 $^{60}\mathrm{Co}$ 源绝对强度约 \SI{5.22}{\kilo\becquerel}。
+    \item 在固定延迟 \SI{4.3}{\micro\second} 的测量条件下，按讲义图示 $2\tau$ 定义并显式计算 $n_{\beta\gamma}(\gamma,\gamma)$、$n_{\beta\gamma}(b)$ 后，得到 $^{60}\mathrm{Co}$ 源绝对强度约 \SI{5.52}{\kilo\becquerel}。
     \item 误差主要来自：统计涨落（尤其符合道计数较低）、阈值与增益漂移、延迟设置偏离峰位、以及本底修正与偶然符合修正模型近似。
-    \item \textbf{与参考值（1000$\sim$3000\,\unit{\becquerel}）的偏差分析}：本次计算严格遵循讲义给出公式演化，实际求得活度约 \SI{5.22}{\kilo\becquerel}。偏高原因可能为：一是放射源的新旧更替，$^{60}\mathrm{Co}$ 半衰期为 5.27 年，新购入的源活度自然远超老旧源的参考值；二是 $^{60}\mathrm{Co}$ 各发生一次 $\beta$ 衰变会产生 2 个级联 $\gamma$ 光子，若部分讲义参考数据是按引入 $\frac{1}{2}$ 修正因子的公式计算得出的，则本次结果折半后约为 \SI{2.61}{\kilo\becquerel}，恰好落于参考区间内。
+    \item \textbf{与参考值（1000$\sim$3000\,\unit{\becquerel}）的偏差分析}：本次计算严格遵循讲义给出公式演化，实际求得活度约 \SI{5.52}{\kilo\becquerel}。偏高原因可能为：一是放射源的新旧更替，$^{60}\mathrm{Co}$ 半衰期为 5.27 年，新购入的源活度自然远超老旧源的参考值；二是 $^{60}\mathrm{Co}$ 各发生一次 $\beta$ 衰变会产生 2 个级联 $\gamma$ 光子，若部分讲义参考数据是按引入 $\frac{1}{2}$ 修正因子的公式计算得出的，则本次结果折半后约为 \SI{2.76}{\kilo\becquerel}，恰好落于参考区间内。
 \end{enumerate}
 
 \newpage
