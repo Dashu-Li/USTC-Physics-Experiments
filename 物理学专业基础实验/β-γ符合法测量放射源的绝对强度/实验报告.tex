@@ -201,19 +201,19 @@ $\gamma$ 道计数 $N_{\gamma,\mathrm{raw}}$（NaI） & 116597 & 120312 & 51469 
 \subsection{第二组高斯拟合与符合时间分辨}
 将第二组计数 $N(t)$ 按高斯模型拟合，得到
 \begin{align}
-    N_p &= 82.76, \\
-    \mu &= \SI{4.795}{\micro\second}, \\
+    N_p &= 83.90, \\
+    \mu &= \SI{4.786}{\micro\second}, \\
     \sigma &= \SI{0.818}{\micro\second}, \\
-    N_0 &= -0.20 \approx 0.
+    N_0 &= -0.66 \approx 0.
 \end{align}
 由此
 \begin{equation}
-    \mathrm{FWHM}=2\sqrt{2\ln2}\,\sigma=\SI{1.925}{\micro\second}.
+    \mathrm{FWHM}=2\sqrt{2\ln2}\,\sigma=\SI{1.926}{\micro\second}.
 \end{equation}
 按讲义图示定义（半高宽标为 $2\tau$），有
 \begin{equation}
     2\tau = \mathrm{FWHM},\qquad
-    \tau = \frac{\mathrm{FWHM}}{2}=\SI{0.9625}{\micro\second}.
+    \tau = \frac{\mathrm{FWHM}}{2}=\SI{0.9632}{\micro\second}.
 \end{equation}
 下文偶然符合修正项按该定义使用 $\tau=\SI{0.9625}{\micro\second}$。
 
@@ -235,12 +235,12 @@ $\gamma$ 道计数 $N_{\gamma,\mathrm{raw}}$（NaI） & 116597 & 120312 & 51469 
 \addplot[only marks, color=blue] coordinates {
 (2.8,6) (2.9,4) (3.0,10) (3.1,3) (3.2,14) (3.3,15) (3.4,22)
 (3.5,23) (3.6,26) (3.7,36) (3.8,40) (3.9,56) (4.0,40) (4.1,48)
-(4.2,63) (4.3,82) (4.4,68) (4.5,84) (4.6,78) (4.7,79) (4.8,91)
+(4.2,63) (4.3,92) (4.4,68) (4.5,84) (4.6,78) (4.7,79) (4.8,91)
 (4.9,67) (5.0,83) (5.1,75) (5.2,77) (5.3,71) (5.4,62) (5.5,63)
 (5.6,46) (5.7,42) (5.8,39)
 };
 \addplot[red, thick, domain=2.8:5.8, samples=300]
-{-0.195966 + 82.764138*exp(-((x-4.794615)^2)/(2*0.817592^2))};
+{-0.664434 + 83.903166*exp(-((x-4.785564)^2)/(2*0.818104^2))};
 \legend{实测点, 高斯拟合}
 \end{axis}
 \end{tikzpicture}
@@ -250,7 +250,7 @@ $\gamma$ 道计数 $N_{\gamma,\mathrm{raw}}$（NaI） & 116597 & 120312 & 51469 
 \subsection{第三组绝对强度计算}
 先将第三组计数换算为计数率（单位：\si{\per\second}）：
 \begin{align}
-    n_{\beta}(\beta+\gamma+b) &= \frac{8852}{300}=29.5067, \\
+    n_{\beta}(\beta+\gamma+b) &= \frac{8632}{300}=28.7733, \\
     n_{\beta}(\gamma+b) &= \frac{2630}{300}=8.7667, \\
     n_{\gamma}(\gamma+b) &= \frac{120312}{300}=401.0400, \\
     n_{\gamma}(b) &= \frac{51469}{300}=171.5633, \\
@@ -262,33 +262,33 @@ $\gamma$ 道计数 $N_{\gamma,\mathrm{raw}}$（NaI） & 116597 & 120312 & 51469 
 于是
 \begin{align}
     n_{\beta} &= n_{\beta}(\beta+\gamma+b)-n_{\beta}(\gamma+b)
-    =20.7400, \\
+    =20.0067, \\
     n_{\gamma} &= n_{\gamma}(\gamma+b)-n_{\gamma}(b)
     =229.4767.
 \end{align}
 其中 $n_{\beta}(\gamma+b)$ 为本底与 $\gamma$ 串入 $\beta$ 道的合量，按本实验测量条件不再拆分为 $n_{\beta}(b)$ 与 $n_{\beta}(\gamma)$ 两项。
 
-按实验要求固定延迟 $t=\SI{4.3}{\micro\second}$，并按上式取 $\tau=\SI{0.9625}{\micro\second}$ 代入式~\eqref{eq:A}：
+按实验要求固定延迟 $t=\SI{4.3}{\micro\second}$，并按上式取 $\tau=\SI{0.9632}{\micro\second}$ 代入式~\eqref{eq:A}：
 \begin{align}
     n_{\beta\gamma}(\gamma,\gamma)
-    &=0.4467-0.0267-2\times 0.9625\times10^{-6}\times 8.7667\times 401.0400 \\
+    &=0.4467-0.0267-2\times 0.9632\times10^{-6}\times 8.7667\times 401.0400 \\
     &=0.41323, \\
     n_{\beta\gamma}(\beta,\gamma)
-    &=1.2933-2\times 0.9625\times10^{-6}\times 29.5067\times 401.0400-0.0267-0.41323 \\
-    &=0.83066, \\
+    &=1.2933-2\times 0.9632\times10^{-6}\times 28.7733\times 401.0400-0.0267-0.41323 \\
+    &=0.83121, \\
     A
-    &=\frac{20.7400\times229.4767}{0.83066}
-    =\SI{5.73e3}{\becquerel}.
+    &=\frac{20.0067\times229.4767}{0.83121}
+    =\SI{5.52e3}{\becquerel}.
 \end{align}
 
 故本次测得 $^{60}\mathrm{Co}$ 源活度约为
 \begin{equation}
-    A\approx \SI{5.73}{\kilo\becquerel}.
+    A\approx \SI{5.52}{\kilo\becquerel}.
 \end{equation}
 
 若仅按泊松统计并忽略系统误差，近似相对标准不确定度可估算为
 \begin{equation}
-    u_r(A)\approx\sqrt{\frac{1}{N_{\beta}}+\frac{1}{N_{\gamma}}+\frac{1}{N_{\beta\gamma}}}\approx 6.35\%.
+    u_r(A)\approx\sqrt{\frac{1}{N_{\beta}}+\frac{1}{N_{\gamma}}+\frac{1}{N_{\beta\gamma}}}\approx 6.52\%.
 \end{equation}
 
 \begin{figure}[htbp]
@@ -319,8 +319,8 @@ $\gamma$ 道计数 $N_{\gamma,\mathrm{raw}}$（NaI） & 116597 & 120312 & 51469 
 \section{结果与讨论}
 \begin{enumerate}
     \item 第一组标准信号数据给出了符合输出的延迟平台特征，与实验过程中“观察符合输出并选点测量”的步骤一致。
-    \item 第二组真实符合曲线高斯拟合峰位在 $\mu\approx\SI{4.80}{\micro\second}$，半高全宽约 \SI{1.93}{\micro\second}。
-    \item 在固定延迟 \SI{4.3}{\micro\second} 的测量条件下，按讲义图示 $2\tau$ 定义并显式计算 $n_{\beta\gamma}(\gamma,\gamma)$、$n_{\beta\gamma}(b)$ 后，得到 $^{60}\mathrm{Co}$ 源绝对强度约 \SI{5.73}{\kilo\becquerel}。
+    \item 第二组真实符合曲线高斯拟合峰位在 $\mu\approx\SI{4.79}{\micro\second}$，半高全宽约 \SI{1.93}{\micro\second}。
+    \item 在固定延迟 \SI{4.3}{\micro\second} 的测量条件下，按讲义图示 $2\tau$ 定义并显式计算 $n_{\beta\gamma}(\gamma,\gamma)$、$n_{\beta\gamma}(b)$ 后，得到 $^{60}\mathrm{Co}$ 源绝对强度约 \SI{5.52}{\kilo\becquerel}。
     \item 误差主要来自：统计涨落（尤其符合道计数较低）、阈值与增益漂移、延迟设置偏离峰位、以及本底修正与偶然符合修正模型近似。
 \end{enumerate}
 
