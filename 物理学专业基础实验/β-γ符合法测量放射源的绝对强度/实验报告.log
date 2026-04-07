@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (MiKTeX 24.4) (preloaded format=xelatex 2025.4.3)  7 APR 2026 21:56
+This is XeTeX, Version 3.141592653-2.6-0.999996 (MiKTeX 24.4) (preloaded format=xelatex 2025.4.3)  7 APR 2026 22:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -925,6 +925,10 @@ enefit from \pgfplotsset{compat=1.18} (current compat level: 1.17).
 [1
 
 ]
+Overfull \hbox (35.17546pt too wide) detected at line 70
+[][][]
+ []
+
 File: assets/page2_img1.png Graphic file (type bmp)
 <assets/page2_img1.png>
 File: assets/page3_img1.png Graphic file (type bmp)
