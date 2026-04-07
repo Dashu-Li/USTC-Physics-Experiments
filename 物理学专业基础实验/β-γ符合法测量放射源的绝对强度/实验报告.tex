@@ -62,13 +62,13 @@ $\beta$-$\gamma$符合法测量放射源绝对强度
 考虑本底、$\gamma$ 射线串入 $\beta$ 道以及偶然符合修正后，按实验讲义数据处理关系可写为
 \begin{equation}
 \begin{aligned}
-n_{\beta\gamma}(\gamma,\gamma) &= n_{\beta\gamma}(\gamma+b)-n_{\beta\gamma}(b)-2\tau n_{\beta}(\gamma+b)n_{\gamma}(\gamma+b), \\
-n_{\beta\gamma}(\beta,\gamma) &= n_{\beta\gamma}(\beta+\gamma+b)-2\tau n_{\beta}(\beta+\gamma+b)n_{\gamma}(\gamma+b)-n_{\beta\gamma}(b)-n_{\beta\gamma}(\gamma,\gamma), \\
+n_{\beta\gamma}(\gamma,\gamma) &= n_{\beta\gamma}(\gamma+b)-n_{\beta\gamma}(b)-2\tau_{\mathrm{e}} n_{\beta}(\gamma+b)n_{\gamma}(\gamma+b), \\
+n_{\beta\gamma}(\beta,\gamma) &= n_{\beta\gamma}(\beta+\gamma+b)-2\tau_{\mathrm{e}} n_{\beta}(\beta+\gamma+b)n_{\gamma}(\gamma+b)-n_{\beta\gamma}(b)-n_{\beta\gamma}(\gamma,\gamma), \\
 A &= \frac{\left[n_{\beta}(\beta+\gamma+b)-n_{\beta}(\gamma+b)\right]\left[n_{\gamma}(\gamma+b)-n_{\gamma}(b)\right]}{n_{\beta\gamma}(\beta,\gamma)}.
 \end{aligned}
 \label{eq:A}
 \end{equation}
-其中 $\tau$ 为符合分辨时间（以秒计）。
+其中 $\tau_{\mathrm{e}}$ 为电子学符合分辨时间（用于偶然符合修正，单位为秒）。
 
 真实符合曲线采用高斯模型拟合：
 \begin{equation}
@@ -136,7 +136,7 @@ $t/\si{\micro\second}$ & 3.5 & 3.6 & 3.7 & 3.8 & 3.9 & 4.0 & 4.1 \\
 $N$ (60 s) & 23 & 26 & 36 & 40 & 56 & 40 & 48 \\
 \midrule
 $t/\si{\micro\second}$ & 4.2 & 4.3 & 4.4 & 4.5 & 4.6 & 4.7 & 4.8 \\
-$N$ (60 s) & 63 & 82 & 68 & 84 & 78 & 79 & 91 \\
+$N$ (60 s) & 63 & 92 & 68 & 84 & 78 & 79 & 91 \\
 \midrule
 $t/\si{\micro\second}$ & 4.9 & 5.0 & 5.1 & 5.2 & 5.3 & 5.4 & 5.5 \\
 $N$ (60 s) & 67 & 83 & 75 & 77 & 71 & 62 & 63 \\
@@ -154,7 +154,7 @@ $N$ (60 s) & 46 & 42 & 39 &  &  &  &  \\
 信号类型/工况 & 正常 & 用铝盖住 & 移除放射源 \\
 \midrule
 符合道计数 $N_{\beta\gamma}$ & 388 & 134 & 8 \\
-$\beta$ 道计数 $N_{\beta,\mathrm{raw}}$（塑闪） & 8852 & 2630 & 1480 \\
+$\beta$ 道计数 $N_{\beta,\mathrm{raw}}$（塑闪） & 8632 & 2630 & 1480 \\
 $\gamma$ 道计数 $N_{\gamma,\mathrm{raw}}$（NaI） & 116597 & 120312 & 51469 \\
 \bottomrule
 \end{tabular}
@@ -214,6 +214,7 @@ $\gamma$ 道计数 $N_{\gamma,\mathrm{raw}}$（NaI） & 116597 & 120312 & 51469 
 \begin{equation}
     \tau_{\mathrm{FWHM}} \approx \SI{1.93}{\micro\second}.
 \end{equation}
+该量为瞬时符合曲线半高宽（物理分辨时间），不直接代入活度修正中的偶然符合项。
 
 \begin{figure}[htbp]
 \centering
@@ -266,7 +267,7 @@ $\gamma$ 道计数 $N_{\gamma,\mathrm{raw}}$（NaI） & 116597 & 120312 & 51469 
 \end{align}
 其中 $n_{\beta}(\gamma+b)$ 为本底与 $\gamma$ 串入 $\beta$ 道的合量，按本实验测量条件不再拆分为 $n_{\beta}(b)$ 与 $n_{\beta}(\gamma)$ 两项。
 
-按实验要求固定延迟 $t=\SI{4.3}{\micro\second}$，并采用实验记录给出的分辨时间修正 $\tau=\SI{13}{\nano\second}$ 代入式~\eqref{eq:A}：
+按实验要求固定延迟 $t=\SI{4.3}{\micro\second}$，并采用实验记录给出的电子学符合分辨时间 $\tau_{\mathrm{e}}=\SI{13}{\nano\second}$ 代入式~\eqref{eq:A}：
 \begin{align}
     n_{\beta\gamma}(\gamma,\gamma)
     &=0.4467-0.0267-2\times 13\times10^{-9}\times 8.7667\times 401.0400 \\
@@ -329,7 +330,7 @@ $\gamma$ 道计数 $N_{\gamma,\mathrm{raw}}$（NaI） & 116597 & 120312 & 51469 
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.62\textwidth]{IMG20260330202930.jpg}
+    \includegraphics[width=0.7\textwidth]{原始数据.jpg}
     \caption{实验原始手写记录（含三组数据）}
 \end{figure}
 
