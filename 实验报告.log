@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.9.19)  7 APR 2026 22:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.9.19)  7 APR 2026 22:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -995,7 +995,82 @@ coord trafo unsupported.
 
 
 [7]
-Overfull \hbox (14.78532pt too wide) in paragraph at lines 354--355
+! Undefined control sequence.
+<argument> \micro \curie 
+                         
+l.349 ...��见标定约合 \qty{0.1}{\micro\curie}
+                                                   至 \qty{0.2}{\micro\curi...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> \micro \curie 
+                         
+l.349 ...��见标定约合 \qty{0.1}{\micro\curie}
+                                                   至 \qty{0.2}{\micro\curi...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! Package siunitx Error: Found prefix part with no unit.
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.349 ...��见标定约合 \qty{0.1}{\micro\curie}
+                                                   至 \qty{0.2}{\micro\curi...
+
+
+Each prefix part must be associated with a unit: a prefix part was found but
+no following unit was given.
+
+
+! Undefined control sequence.
+<argument> \micro \curie 
+                         
+l.349 ...\micro\curie} 至 \qty{0.2}{\micro\curie}
+                                                   即 \qty{3700}{\becquerel...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> \micro \curie 
+                         
+l.349 ...\micro\curie} 至 \qty{0.2}{\micro\curie}
+                                                   即 \qty{3700}{\becquerel...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! Package siunitx Error: Found prefix part with no unit.
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.349 ...\micro\curie} 至 \qty{0.2}{\micro\curie}
+                                                   即 \qty{3700}{\becquerel...
+
+
+Each prefix part must be associated with a unit: a prefix part was found but
+no following unit was given.
+
+
+
+
+[8]
+Overfull \hbox (14.78532pt too wide) in paragraph at lines 358--359
 []\C70/rm/m/n/12/4e ; \C70/rm/m/n/12/89 � \C70/rm/m/n/12/4e ^^M \C70/rm/m/n/12/
 54 ^^L \C70/rm/m/n/12/70 � \C70/rm/m/n/12/57 ( \C70/rm/m/n/12/4e �|\C70/rm/m/n/
 12/ff ^^Z| \OT1/cmr/m/n/12 (1) \C70/rm/bx/n/12/63 � \C70/rm/bx/n/12/6d K \C70/r
@@ -1008,15 +1083,10 @@ m/m/n/12/ff ^^H|\C70/rm/m/n/12/59 � \OT1/cmr/m/n/12 NaI(Tl)|\C70/rm/m/n/12/ff
 ||^^L|
  []
 
-
-
-[8]
-
-[9]
 ! Missing endcsname inserted.
 <to be read again> 
                    �
-l.372 ...cs[width=0.7\textwidth]{原始数据.jpg}
+l.374 ...cs[width=0.7\textwidth]{原始数据.jpg}
                                                   
 The control sequence marked <to be read again> should
 not appear between \csname and \endcsname.
@@ -1024,7 +1094,7 @@ not appear between \csname and \endcsname.
 ! Use of ??? doesn't match its definition.
 <argument> ???  
                 ! LaTeX Error: � invalid in file name. Lost: fi ��始数据....
-l.372 ...cs[width=0.7\textwidth]{原始数据.jpg}
+l.374 ...cs[width=0.7\textwidth]{原始数据.jpg}
                                                   
 If you say, e.g., `\def\a1{...}', then you must always
 put `1' after `\a', since control sequence names are
@@ -1034,7 +1104,7 @@ followed by the required stuff, so I'm ignoring it.
 ! Missing endcsname inserted.
 <to be read again> 
                    �
-l.372 ...cs[width=0.7\textwidth]{原始数据.jpg}
+l.374 ...cs[width=0.7\textwidth]{原始数据.jpg}
                                                   
 The control sequence marked <to be read again> should
 not appear between \csname and \endcsname.
@@ -1042,7 +1112,7 @@ not appear between \csname and \endcsname.
 ! Use of ??? doesn't match its definition.
 <argument> ???  
                 ! LaTeX Error: � invalid in file name. Lost: fi ��始数据....
-l.372 ...cs[width=0.7\textwidth]{原始数据.jpg}
+l.374 ...cs[width=0.7\textwidth]{原始数据.jpg}
                                                   
 If you say, e.g., `\def\a1{...}', then you must always
 put `1' after `\a', since control sequence names are
@@ -1052,7 +1122,7 @@ followed by the required stuff, so I'm ignoring it.
 ! Missing endcsname inserted.
 <to be read again> 
                    �
-l.372 ...cs[width=0.7\textwidth]{原始数据.jpg}
+l.374 ...cs[width=0.7\textwidth]{原始数据.jpg}
                                                   
 The control sequence marked <to be read again> should
 not appear between \csname and \endcsname.
@@ -1060,7 +1130,7 @@ not appear between \csname and \endcsname.
 ! Use of ??? doesn't match its definition.
 <argument> ???  
                 ! LaTeX Error: � invalid in file name. Lost: fi fi ��始数�...
-l.372 ...cs[width=0.7\textwidth]{原始数据.jpg}
+l.374 ...cs[width=0.7\textwidth]{原始数据.jpg}
                                                   
 If you say, e.g., `\def\a1{...}', then you must always
 put `1' after `\a', since control sequence names are
@@ -1074,7 +1144,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.372 ...cs[width=0.7\textwidth]{原始数据.jpg}
+l.374 ...cs[width=0.7\textwidth]{原始数据.jpg}
                                                   
 I could not locate the file with any of these extensions:
 .pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps
@@ -1083,54 +1153,56 @@ If that doesn't work, type  X <return>  to quit.
 
 
 
+[9]
+
 [10] (实验报告.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2022/07/14>
  ***********
  )
-(\end occurred when \ifx on line 372 was incomplete)
-(\end occurred when \ifx on line 372 was incomplete)
-(\end occurred when \ifx on line 372 was incomplete)
-(\end occurred when \ifx on line 372 was incomplete) 
+(\end occurred when \ifx on line 374 was incomplete)
+(\end occurred when \ifx on line 374 was incomplete)
+(\end occurred when \ifx on line 374 was incomplete)
+(\end occurred when \ifx on line 374 was incomplete) 
 Here is how much of TeX's memory you used:
- 32859 strings out of 473899
- 835150 string characters out of 5740633
+ 32921 strings out of 473899
+ 836242 string characters out of 5740633
  1961960 words of memory out of 5000000
- 54946 multiletter control sequences out of 15000+600000
- 618938 words of font info for 242 fonts, out of 8000000 for 9000
+ 54998 multiletter control sequences out of 15000+600000
+ 621010 words of font info for 249 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 103i,19n,107p,853b,2318s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 103i,19n,107p,910b,2318s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/WINDOWS/Fonts/simsun.tt
 c><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/s
 imhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS
-/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:
+/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:
 /WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei
 .ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Font
-s/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WIND
-OWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf>
-<C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/sim
+s/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simsun.ttc><C:/WIND
+OWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc>
+<C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/sim
 hei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/F
-onts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf> <D:\CTEX\UserData\fonts/pk/ljfour
-/jknappen/ec/dpi600\tcrm1200.pk><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/
-simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOW
-S/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C
-:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simhe
-i.ttf><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fon
-ts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WIN
-DOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc
-><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/si
-mhei.ttf><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/
-Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/
-WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.
-ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts
-/simhei.ttf><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDO
-WS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><
+onts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/W
+INDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf> <D:\CTEX\UserData\fonts/p
+k/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOW
+S/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C
+:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsu
+n.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fon
+ts/simhei.ttf><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WIN
+DOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf
+><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/si
+msun.ttc><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/
+Fonts/simhei.ttf><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/
+WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.
+ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts
+/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDO
+WS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><
 C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/sims
-un.ttc><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fo
-nts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WI
-NDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simsun.tt
-c><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/s
+un.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fo
+nts/simsun.ttc><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WI
+NDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.tt
+f><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/s
 imsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS
 /Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:
 /WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun
@@ -1140,23 +1212,24 @@ OWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc>
 <C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/sim
 sun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/F
 onts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/W
-INDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.t
-tf><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/
-simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOW
+INDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.t
+tc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/
+simhei.ttf><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOW
 S/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C
 :/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsu
-n.ttc><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fon
-ts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><D:/CTEX/MiKTeX/fonts/type1/public/a
-msfonts/cm/cmbx12.pfb><D:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb
-><D:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><D:/CTEX/MiKTeX/font
-s/type1/public/amsfonts/cm/cmmi8.pfb><D:/CTEX/MiKTeX/fonts/type1/public/amsfont
-s/cm/cmr12.pfb><D:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><D:/CTEX
-/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/CTEX/MiKTeX/fonts/type1/p
-ublic/amsfonts/cm/cmsy8.pfb><D:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt
-12.pfb>
-Output written on 实验报告.pdf (10 pages, 741250 bytes).
+n.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fon
+ts/simsun.ttc><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WIN
+DOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><D:/CTEX/MiKTeX/fonts/type1/
+public/amsfonts/cm/cmbx12.pfb><D:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cm
+ex10.pfb><D:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><D:/CTEX/MiK
+TeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><D:/CTEX/MiKTeX/fonts/type1/public
+/amsfonts/cm/cmr12.pfb><D:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb>
+<D:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/CTEX/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmsy8.pfb><D:/CTEX/MiKTeX/fonts/type1/public/amsfonts
+/cm/cmtt12.pfb>
+Output written on 实验报告.pdf (10 pages, 759994 bytes).
 PDF statistics:
- 640 PDF objects out of 1000 (max. 8388607)
+ 652 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  301 words of extra memory for PDF output out of 10000 (max. 10000000)
 

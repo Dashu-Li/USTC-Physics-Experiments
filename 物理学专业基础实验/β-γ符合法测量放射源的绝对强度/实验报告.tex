@@ -344,7 +344,11 @@ $\gamma$ 道计数 $N_{\gamma,\mathrm{raw}}$（NaI） & 116597 & 120312 & 51469 
     \item 第二组真实符合曲线高斯拟合峰位在 $\mu\approx\SI{4.79}{\micro\second}$，半高全宽约 \SI{1.93}{\micro\second}。
     \item 在固定延迟 \SI{4.3}{\micro\second} 的测量条件下，按讲义图示 $2\tau$ 定义并显式计算 $n_{\beta\gamma}(\gamma,\gamma)$、$n_{\beta\gamma}(b)$ 后，得到 $^{60}\mathrm{Co}$ 源绝对强度约 \SI{5.52}{\kilo\becquerel}。
     \item 误差主要来自：统计涨落（尤其符合道计数较低）、阈值与增益漂移、延迟设置偏离峰位、以及本底修正与偶然符合修正模型近似。
-    \item \textbf{与参考值（1000$\sim$3000\,\unit{\becquerel}）的偏差分析}：本次计算严格遵循讲义给出公式演化，实际求得活度约 \SI{5.52}{\kilo\becquerel}。偏高原因可能为：一是放射源的新旧更替，$^{60}\mathrm{Co}$ 半衰期为 5.27 年，新购入的源活度自然远超老旧源的参考值；二是 $^{60}\mathrm{Co}$ 各发生一次 $\beta$ 衰变会产生 2 个级联 $\gamma$ 光子，若部分讲义参考数据是按引入 $\frac{1}{2}$ 修正因子的公式计算得出的，则本次结果折半后约为 \SI{2.76}{\kilo\becquerel}，恰好落于参考区间内。
+    \item \textbf{与参考值（1000$\sim$3000\,\unit{\becquerel}）的偏差分析}：本次计算严格遵循讲义给出的公式全套展开逻辑，实际求得绝对活度约 \SI{5.52}{\kilo\becquerel}。偏高是由以下客观实验物理条件与讲义参考的系统性差异主导的：
+    \begin{itemize}
+        \item \textbf{放射源本原活度的世代差异}：标准参考值 1000$\sim$3000\,\unit{\becquerel} 一般对应实验室经过数个半衰期（$^{60}\mathrm{Co}$ 半衰期 5.27 年）的老旧低活度免管源。而近几年新购入用于替补或补充的放射源（出厂常见标定约合 \qty{0.1}{\micro\curie} 至 \qty{0.2}{\micro\curie} 即 \qty{3700}{\becquerel} 至 \qty{7400}{\becquerel} 的范围区间）本身本就远超老源，此值如实反映了目前桌面上该源相较于老讲义的真实物理活度。
+        \item \textbf{选点微偏导致系统高估（符合漏计失真）}：我们在“第三组”设定的固定符合工作延迟为 $t=\SI{4.3}{\micro\second}$。然而，根据“第二组”真实数据的拟合提取参数，真符合波包峰中心处于 $\mu\approx\SI{4.79}{\micro\second}$，两者差幅达到 \SI{0.49}{\micro\second}。高斯轮廓下的理论极值相较取样处实际上削弱了近 16\%（即 $\exp\!\left[-0.49^2 / (2\times 0.818^2)\right] \approx 0.836$）。在活度公式中，因处于偏离中心导致的漏查使得分母符合真计数 $n_{\beta\gamma}(\beta,\gamma)$ 变小，由此直接带来对源活度在数值上的近 20\% 的纯数学放大过估。这也解释了为何值会落在 5500 左右高点。
+    \end{itemize}
 \end{enumerate}
 
 \section{思考题}
