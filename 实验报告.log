@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.9.19)  7 APR 2026 22:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.9.19)  7 APR 2026 22:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -995,79 +995,6 @@ coord trafo unsupported.
 
 
 [7]
-! Undefined control sequence.
-<argument> \micro \curie 
-                         
-l.349 ...��见标定约合 \qty{0.1}{\micro\curie}
-                                                   至 \qty{0.2}{\micro\curi...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<argument> \micro \curie 
-                         
-l.349 ...��见标定约合 \qty{0.1}{\micro\curie}
-                                                   至 \qty{0.2}{\micro\curi...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-! Package siunitx Error: Found prefix part with no unit.
-
-For immediate help type H <return>.
- ...                                              
-                                                  
-l.349 ...��见标定约合 \qty{0.1}{\micro\curie}
-                                                   至 \qty{0.2}{\micro\curi...
-
-
-Each prefix part must be associated with a unit: a prefix part was found but
-no following unit was given.
-
-
-! Undefined control sequence.
-<argument> \micro \curie 
-                         
-l.349 ...\micro\curie} 至 \qty{0.2}{\micro\curie}
-                                                   即 \qty{3700}{\becquerel...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<argument> \micro \curie 
-                         
-l.349 ...\micro\curie} 至 \qty{0.2}{\micro\curie}
-                                                   即 \qty{3700}{\becquerel...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-! Package siunitx Error: Found prefix part with no unit.
-
-For immediate help type H <return>.
- ...                                              
-                                                  
-l.349 ...\micro\curie} 至 \qty{0.2}{\micro\curie}
-                                                   即 \qty{3700}{\becquerel...
-
-
-Each prefix part must be associated with a unit: a prefix part was found but
-no following unit was given.
-
-
-
 
 [8]
 Overfull \hbox (14.78532pt too wide) in paragraph at lines 358--359
@@ -1083,10 +1010,13 @@ m/m/n/12/ff ^^H|\C70/rm/m/n/12/59 � \OT1/cmr/m/n/12 NaI(Tl)|\C70/rm/m/n/12/ff
 ||^^L|
  []
 
+
+
+[9]
 ! Missing endcsname inserted.
 <to be read again> 
                    �
-l.374 ...cs[width=0.7\textwidth]{原始数据.jpg}
+l.376 ...cs[width=0.7\textwidth]{原始数据.jpg}
                                                   
 The control sequence marked <to be read again> should
 not appear between \csname and \endcsname.
@@ -1094,7 +1024,7 @@ not appear between \csname and \endcsname.
 ! Use of ??? doesn't match its definition.
 <argument> ???  
                 ! LaTeX Error: � invalid in file name. Lost: fi ��始数据....
-l.374 ...cs[width=0.7\textwidth]{原始数据.jpg}
+l.376 ...cs[width=0.7\textwidth]{原始数据.jpg}
                                                   
 If you say, e.g., `\def\a1{...}', then you must always
 put `1' after `\a', since control sequence names are
@@ -1104,7 +1034,7 @@ followed by the required stuff, so I'm ignoring it.
 ! Missing endcsname inserted.
 <to be read again> 
                    �
-l.374 ...cs[width=0.7\textwidth]{原始数据.jpg}
+l.376 ...cs[width=0.7\textwidth]{原始数据.jpg}
                                                   
 The control sequence marked <to be read again> should
 not appear between \csname and \endcsname.
@@ -1112,7 +1042,7 @@ not appear between \csname and \endcsname.
 ! Use of ??? doesn't match its definition.
 <argument> ???  
                 ! LaTeX Error: � invalid in file name. Lost: fi ��始数据....
-l.374 ...cs[width=0.7\textwidth]{原始数据.jpg}
+l.376 ...cs[width=0.7\textwidth]{原始数据.jpg}
                                                   
 If you say, e.g., `\def\a1{...}', then you must always
 put `1' after `\a', since control sequence names are
@@ -1122,7 +1052,7 @@ followed by the required stuff, so I'm ignoring it.
 ! Missing endcsname inserted.
 <to be read again> 
                    �
-l.374 ...cs[width=0.7\textwidth]{原始数据.jpg}
+l.376 ...cs[width=0.7\textwidth]{原始数据.jpg}
                                                   
 The control sequence marked <to be read again> should
 not appear between \csname and \endcsname.
@@ -1130,7 +1060,7 @@ not appear between \csname and \endcsname.
 ! Use of ??? doesn't match its definition.
 <argument> ???  
                 ! LaTeX Error: � invalid in file name. Lost: fi fi ��始数�...
-l.374 ...cs[width=0.7\textwidth]{原始数据.jpg}
+l.376 ...cs[width=0.7\textwidth]{原始数据.jpg}
                                                   
 If you say, e.g., `\def\a1{...}', then you must always
 put `1' after `\a', since control sequence names are
@@ -1144,7 +1074,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.374 ...cs[width=0.7\textwidth]{原始数据.jpg}
+l.376 ...cs[width=0.7\textwidth]{原始数据.jpg}
                                                   
 I could not locate the file with any of these extensions:
 .pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps
@@ -1153,26 +1083,24 @@ If that doesn't work, type  X <return>  to quit.
 
 
 
-[9]
-
 [10] (实验报告.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2022/07/14>
  ***********
  )
-(\end occurred when \ifx on line 374 was incomplete)
-(\end occurred when \ifx on line 374 was incomplete)
-(\end occurred when \ifx on line 374 was incomplete)
-(\end occurred when \ifx on line 374 was incomplete) 
+(\end occurred when \ifx on line 376 was incomplete)
+(\end occurred when \ifx on line 376 was incomplete)
+(\end occurred when \ifx on line 376 was incomplete)
+(\end occurred when \ifx on line 376 was incomplete) 
 Here is how much of TeX's memory you used:
  32921 strings out of 473899
- 836242 string characters out of 5740633
+ 836256 string characters out of 5740633
  1961960 words of memory out of 5000000
  54998 multiletter control sequences out of 15000+600000
  621010 words of font info for 249 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 103i,19n,107p,910b,2318s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 103i,19n,107p,919b,2318s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/WINDOWS/Fonts/simsun.tt
 c><C:/WINDOWS/Fonts/simsun.ttc><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/s
 imhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS/Fonts/simhei.ttf><C:/WINDOWS
@@ -1227,7 +1155,7 @@ TeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><D:/CTEX/MiKTeX/fonts/type1/public
 <D:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/CTEX/MiKTeX/fonts
 /type1/public/amsfonts/cm/cmsy8.pfb><D:/CTEX/MiKTeX/fonts/type1/public/amsfonts
 /cm/cmtt12.pfb>
-Output written on 实验报告.pdf (10 pages, 759994 bytes).
+Output written on 实验报告.pdf (10 pages, 760405 bytes).
 PDF statistics:
  652 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
