@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (MiKTeX 24.4) (preloaded format=xelatex 2025.4.3)  7 APR 2026 21:44
+This is XeTeX, Version 3.141592653-2.6-0.999996 (MiKTeX 24.4) (preloaded format=xelatex 2025.4.3)  7 APR 2026 21:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -940,18 +940,16 @@ File: assets/page3_img1.png Graphic file (type bmp)
 [5]
 
 [6]
-Package pgfplots info on input line 309: Using 'lua backend=false' for axis: x 
+Package pgfplots info on input line 330: Using 'lua backend=false' for axis: x 
 coord trafo unsupported.
 
 
 [7]
-
-[8]
 File: 原始数据.jpg Graphic file (type bmp)
 <原始数据.jpg>
 
 
-[9] (实验报告.aux)
+[8] (实验报告.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2022/07/14>
@@ -960,10 +958,10 @@ L3 programming layer <2022/07/14>
 Here is how much of TeX's memory you used:
  33359 strings out of 409029
  914835 string characters out of 5762832
- 1951612 words of memory out of 5000000
+ 1956612 words of memory out of 5000000
  55586 multiletter control sequences out of 15000+600000
  564815 words of font info for 84 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  103i,17n,111p,719b,2292s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on 实验报告.pdf (9 pages).
+Output written on 实验报告.pdf (8 pages).
