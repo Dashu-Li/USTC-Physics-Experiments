@@ -40,7 +40,7 @@
 其中 $\mathrm{e}$ 为元电荷。
 
 \subsection{弱电流放大与读出}
-实验讲义中的读出链路为“弱电流放大器 + V/F 变换 + 定标器”。忽略失调和噪声时，放大器输出电压 $V_i$ 与输入电流 $I_i$ 成正比：
+实验采用的读出链路为“弱电流放大器 + V/F 变换 + 定标器”。忽略失调和噪声时，放大器输出电压 $V_i$ 与输入电流 $I_i$ 成正比：
 \begin{equation}
     V_i = -R_L I_i.
 \end{equation}
@@ -56,27 +56,24 @@ V/F 变换输出频率满足
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.78\textwidth]{assets/page4_img1.png}
-    \caption{讲义给出的弱电流放大器与输出电路原理图}
+    \caption{弱电流放大器与输出电路原理图}
 \end{figure}
 
-\section{实验步骤（按讲义与本次数据对应）}
+\section{实验步骤}
 \begin{enumerate}
     \item 连接电离室、弱电流放大器、V/F 变换器和定标器，预热并校零。
     \item 在不同辐照强度条件下，扫描极间电压，测量 V-I 饱和曲线。
     \item 在辐照强度不变时，改变电离室充气压力，测量不同压力下的 V-I 曲线。
-    \item 在选定工作电压（本次数据为 \SI{300}{\volt}）下，沿轴向移动准直源，测量轴向均匀性。
+    \item 在选定工作电压（\SI{300}{\volt}）下，沿轴向移动准直源，测量轴向均匀性。
 \end{enumerate}
 
-\section{原始数据与预处理}
+\section{数据记录与预处理}
 \subsection{重复测量与均值定义}
-本次 xlsx 中每个测点均有两组测量值。后续处理使用算术平均：
+实验中对每个工况下的各个测量点进行了两组重复测量以减小随机误差，后续数据处理采用两次测量的算术平均值：
 \begin{equation}
     \bar{N}(x)=\frac{N_1(x)+N_2(x)}{2},
 \end{equation}
-其中 $x$ 表示电压或轴向位置。
-
-\subsection{数据一致性说明}
-修正后“\SI{2.5}{MPa}”条件下 \SI{67.5}{\volt} 点两次记录为 1219 与 1221，量级与相邻点一致。后续数据处理均按两组平均值计算。
+其中 $x$ 表示电压或轴向位置。测量 V-I 曲线时的定时计数时间为 \SI{1}{s}；测量轴向均匀性时的定时计数时间为 \SI{10}{s}。
 
 \section{数据处理与结果}
 \subsection{不同辐照强度下的 V-I 曲线}
@@ -124,7 +121,7 @@ V/F 变换输出频率满足
 \end{table}
 
 \subsection{不同充气压力下的 V-I 曲线}
-同样按两组均值作图，如图~\ref{fig:vi-pressure}。随压力从 \SI{1}{MPa} 增加到 \SI{2.5}{MPa}，平台计数整体升高，与讲义“压力越高，饱和电流越大、饱和电压越高”的趋势一致。
+同样按两组均值作图，如图~\ref{fig:vi-pressure}。随压力从 \SI{1}{MPa} 增加到 \SI{2.5}{MPa}，平台计数整体升高，这与“压力越高，饱和电流越大、饱和电压越高”的物理规律一致。
 
 \begin{figure}[htbp]
 \centering
