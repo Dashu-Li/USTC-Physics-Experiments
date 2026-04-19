@@ -86,7 +86,21 @@ $x$ / \unit{\centi\meter} & $V_T$ / \unit{\volt} & $N$ & $N_b$ & $N-N_b$ \\
 \end{tabular}
 \end{table}
 
-为了求得衰减长度，对每一组距离 $x$ 与甄别阈值 $V_T$ 进行坐标变换，计算 $\ln V_T$。
+为了求得衰减长度，根据~\eqref{eq:lnV} 式按最小二乘法原理，对 $\ln V_T$ 与 $x$ 的线性关系进行回归拟合：
+\begin{equation}
+    \ln V = -\mu x + \ln V_0
+\end{equation}
+具体计算为：
+\begin{align*}
+    \mu &= -\frac{\sum (x_i - \bar{x})(\ln V_i - \overline{\ln V})}{\sum (x_i - \bar{x})^2} \approx 0.009704 \ \unit{\centi\meter^{-1}}, \\
+    \ln V_0 &= \overline{\ln V} + \mu \bar{x} \approx 1.602, \quad V_0 \approx \SI{4.963}{\volt}.
+\end{align*}
+其对应的有效技术衰减长度定为 $\lambda = 1/\mu$。可得：
+\begin{equation}
+    \lambda \approx 103.0 \ \unit{\centi\meter}.
+\end{equation}
+
+将各测量点直接与其对应的指数衰减拟合曲线 $V_T = 4.963\,\mathrm{e}^{-0.009704 x}$ 绘于同一图中（即直接拟合出 $V\text{-}x$ 曲线），如图~\ref{fig:vx_curve} 所示。
 
 \begin{figure}[htbp]
 \centering
@@ -95,41 +109,48 @@ $x$ / \unit{\centi\meter} & $V_T$ / \unit{\volt} & $N$ & $N_b$ & $N-N_b$ \\
     width=0.88\textwidth,
     height=0.55\textwidth,
     xlabel={距离 $x$ (\unit{\centi\meter})},
-    ylabel={$\ln V_T$},
+    ylabel={甄别阈值 $V_T$ (\unit{\volt})},
     xmin=10, xmax=120,
-    ymin=0.4, ymax=1.6,
+    ymin=1.0, ymax=4.8,
     grid=both,
     legend pos=north east
 ]
 \addplot[blue, mark=*, only marks] coordinates {
-    (20, 1.4586)
-    (30, 1.3083)
-    (40, 1.1939)
-    (50, 1.0986)
-    (60, 0.9933)
-    (70, 0.8961)
-    (80, 0.7885)
-    (90, 0.7178)
-    (100, 0.6419)
-    (110, 0.5766)
+    (20, 4.30)
+    (30, 3.70)
+    (40, 3.30)
+    (50, 3.00)
+    (60, 2.70)
+    (70, 2.45)
+    (80, 2.20)
+    (90, 2.05)
+    (100, 1.90)
+    (110, 1.78)
 };
-\addplot[red, thick, domain=10:120] {-0.00976*x + 1.602};
-\legend{实验数据点, 线性拟合}
+\addplot[red, thick, domain=10:120, samples=100] {4.963*exp(-0.009704*x)};
+\legend{实验数据点, 指数拟合 $V_T=V_0\mathrm{e}^{-\mu x}$}
 \end{axis}
 \end{tikzpicture}
-\caption{$\ln V_T$ 随 $x$ 变化的线性关系拟合}
+\caption{光传输性能 $V_T\text{-}x$ 曲线拟合图}
+\label{fig:vx_curve}
 \end{figure}
 
-依公式~\eqref{eq:lnV}，将 $x$ 和对应的 $\ln V_T$ 进行最小二乘法线性回归拟合得到斜率 $-\mu$。具体计算为：
-\begin{align*}
-    \mu &= -\frac{\sum (x_i - \bar{x})(\ln V_i - \overline{\ln V})}{\sum (x_i - \bar{x})^2} \approx 0.009704 \ \unit{\centi\meter^{-1}},
-\end{align*}
-其对应的有效技术衰减长度定为 $\lambda = 1/\mu$。可得：
-\begin{equation}
-    \lambda \approx 103.0 \ \unit{\centi\meter}.
-\end{equation}
+通过上述拟合与测量过程，我们观察到了光传输强度与距离的指数规律，并得到了塑料闪烁体的有效衰减参量。
 
-通过测量，我们得到了塑料闪烁体的有效衰减特性。
+\section{思考题}
+\begin{enumerate}
+    \item \textbf{如何改善闪烁体的有效技术衰减长度？}\\
+    答：要改善有效技术衰减长度（即让光在其中衰减得更慢），可以从以下几个方面着手：
+    (1) 提高塑料闪烁体表面的抛光程度，使光在全反射传输时更为理想，减少界面散射等损耗；
+    (2) 优化表面的反射包覆物（如使用高反射率的特氟龙带、铝箔或涂抹漫反射层材料），减少逸出的光子并重新导回光路；
+    (3) 提升塑料聚合工艺质量，减少材料内部的杂质晶界、气泡等散射和吸收中心，从而降低介质吸收。
+    \item \textbf{如果在塑料闪烁体与光电倍增管之间插入光导，对闪烁体的技术衰减长度有没有影响？若有影响又是使它如何变化？}\\
+    答：纯粹闪烁体材料介质的“本征”物理衰减长度不因测量方式而改变。但在实际测试系统中，这会导致测得表现出的“技术衰减长度”改变：插入一段光导后，荧光光子由发生端到达光敏阴极的总传输光程加长，在经过光导与其耦合界面时（如空气层或光胶耦合端），大出射角度的光子经过界面全反射更易逃逸或折损；这会使得距探测侧较近和较远的产生点信号幅度对比下降更加凌厉，即测量出的透射曲线衰减更容易，表现出的等效技术衰减长度可能会变短。
+    \item \textbf{用不同的放射源（如 $\beta$ 和 $\alpha$ 源）测量闪烁体技术衰减长度时，结果如何？为什么？}\\
+    答：使用 $\alpha$ 源测得的有效技术衰减长度可能比用高能 $\beta$ 源测出的偏短。因为 $\alpha$ 粒子电离损能极大、穿透力极小，射程多在几十微米层级以内。能量极度集中沉积在闪烁体的表面浅层处，局部较高的电离密度加剧了局部的荧光猝灭效应从而降低发光效率；同时由于发光点全位于临侧表面附近，发射的荧光光子平均必须经历更多的界面非理想全反射才能向内到达探头或被吸收，因此由端面几何散射丢失的光子占比大大增多，表现出比体发光更强烈的距离衰减规律。
+    \item \textbf{与 G-M 计数管和 NaI(Tl) 闪烁计数器比较输出的电压脉冲前沿大小并说明原因。}\\
+    答：塑料闪烁体测量输出脉冲的前沿最陡（上升时间极小，约在 \qty{1}{\nano\second} 量级），因为其发光机制是有机分子内的能级强激发跃迁、以及第一溶质向波长转换的第二溶质间的快传能，能级退激与荧光弛豫过程极短；NaI(Tl) 等无机晶体次之，因为依赖电子-空穴激子在微量掺杂晶格缺陷处的复合发光中心跃迁，导致其上升前沿需耗 \qty{250}{\nano\second} 量级甚至更久起伏；而 G-M 计数管最慢，因为其探测完全依赖内部惰性气体的剧烈级联雪崩电离及放电后产生的海量大质量的正离子向周边电极漫长的空间漂移，导致其电脉冲构建前沿在极长的微秒至百微秒级别以上。
+\end{enumerate}
 
 \newpage
 
@@ -138,7 +159,7 @@ $x$ / \unit{\centi\meter} & $V_T$ / \unit{\volt} & $N$ & $N_b$ & $N-N_b$ \\
 下面为包含本组实验原始手动数据记录和教师电子手写签名的扫描件。
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.7\textwidth]{assets_data/page1_render.png}
+    \includegraphics[width=0.7\textwidth]{true_data_render.png}
     \caption{附带教师电子手写签名的原始扫描数据}
 \end{figure}
 

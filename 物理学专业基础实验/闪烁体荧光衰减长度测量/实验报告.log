@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (MiKTeX 24.4) (preloaded format=xelatex 2025.4.3)  19 APR 2026 20:48
+This is XeTeX, Version 3.141592653-2.6-0.999996 (MiKTeX 24.4) (preloaded format=xelatex 2025.4.3)  19 APR 2026 22:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -815,8 +815,7 @@ Package caption Info: Standard document class detected.
 )
 Package translations Info: No language package found. I am going to use `englis
 h' as default language. on input line 19.
-
-No file 实验报告.aux.
+ (实验报告.aux)
 \openout1 = `实验报告.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
@@ -892,6 +891,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
 (Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 19.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 19.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
 *geometry* verbose mode - [ preamble ] result:
@@ -946,15 +946,20 @@ Package caption Info: End \AtBeginDocument code.
 
 ]
 
-LaTeX Warning: Reference `eq:lnV' on page 2 undefined on input line 123.
+LaTeX Warning: Reference `fig:vx_curve' on page 2 undefined on input line 103.
 
-File: assets_data/page1_img1.png Graphic file (type bmp)
-<assets_data/page1_img1.png>
 
 
 [2]
 
-[3] (实验报告.aux)
+[3]
+
+[4]
+File: true_data_render.png Graphic file (type bmp)
+<true_data_render.png>
+
+
+[5] (实验报告.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2022/07/14>
@@ -968,12 +973,12 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 34429 strings out of 409029
- 929609 string characters out of 5762832
+ 34538 strings out of 409029
+ 935697 string characters out of 5762832
  1949612 words of memory out of 5000000
- 56659 multiletter control sequences out of 15000+600000
- 564791 words of font info for 81 fonts, out of 8000000 for 9000
+ 56766 multiletter control sequences out of 15000+600000
+ 564799 words of font info for 82 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  103i,17n,111p,719b,2245s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on 实验报告.pdf (3 pages).
+Output written on 实验报告.pdf (5 pages).
