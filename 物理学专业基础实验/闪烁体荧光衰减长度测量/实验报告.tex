@@ -109,11 +109,17 @@ $\ln V_T$ & 1.459 & 1.308 & 1.194 & 1.099 & 0.993 & 0.896 & 0.788 & 0.718 & 0.64
 经基本统计得，均值 $\bar{x} = 65\,\unit{\centi\meter}$，$\overline{\ln V_T} \approx 0.9674$。具体计算最小二乘法斜率和截距为：
 \begin{align*}
     \mu &= -\frac{\sum_{i=1}^{10} (x_i - \bar{x})(\ln V_i - \overline{\ln V})}{\sum_{i=1}^{10} (x_i - \bar{x})^2} \approx -\frac{-80.057}{8250} \approx 0.009704 \ \unit{\centi\meter^{-1}}, \\
-    \ln V_0 &= \overline{\ln V} + \mu \bar{x} = 0.9674 + 0.009704 \times 65 \approx 1.598, \quad V_0 \approx \SI{4.944}{\volt}.
+    \ln V_0 &= \overline{\ln V_T} + \mu \bar{x} = 0.9674 + 0.009704 \times 65 \approx 1.598, \quad V_0 \approx \SI{4.944}{\volt}.
 \end{align*}
-其对应的有效技术衰减长度定为 $\lambda = 1/\mu$。可得：
+其拟合精度分析：
+相关系数的平方 $R^2$、斜率的不确定度 $u(\mu)$ 分别为：
+\begin{align*}
+    R^2 &= \frac{[\sum (x_i - \bar{x})(\ln V_i - \overline{\ln V_T})]^2}{\sum (x_i - \bar{x})^2 \sum (\ln V_i - \overline{\ln V_T})^2} \approx 0.9899, \\
+    u(\mu) &= \frac{1}{\sqrt{\sum (x_i - \bar{x})^2}} \sqrt{\frac{\sum (\ln V_i - (-\mu x_i + \ln V_0))^2}{n - 2}} \approx 0.000347 \ \unit{\centi\meter^{-1}}.
+\end{align*}
+其对应的有效技术衰减长度定为 $\lambda = 1/\mu$。可估得：
 \begin{equation}
-    \lambda \approx 103.0 \ \unit{\centi\meter}.
+    \lambda \approx 103.0 \pm 3.7 \ \unit{\centi\meter}.
 \end{equation}
 
 将各测量点直接与其对应的指数衰减拟合曲线 $V_T = 4.944\,\mathrm{e}^{-0.009704 x}$ 绘于同一图中（即直接拟合出 $V\text{-}x$ 曲线），如图~\ref{fig:vx_curve} 所示。
@@ -172,11 +178,11 @@ $\ln V_T$ & 1.459 & 1.308 & 1.194 & 1.099 & 0.993 & 0.896 & 0.788 & 0.718 & 0.64
 
 \appendix
 \section{原始数据记录}
-下面为包含本组实验原始手动数据记录和教师电子手写签名的扫描件。
+下面为实验原始手动记录表格和教师电子手写签名的扫描裁剪片段。
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.7\textwidth]{true_data_render.png}
-    \caption{附带教师电子手写签名的原始扫描数据}
+    \includegraphics[width=0.8\textwidth]{cropped_data.png}
+    \caption{附带教师电子手写签名的原始数据记录表}
 \end{figure}
 
 \end{document}
