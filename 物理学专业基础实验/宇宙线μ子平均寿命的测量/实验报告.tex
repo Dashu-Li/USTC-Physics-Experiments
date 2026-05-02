@@ -66,11 +66,19 @@
     \item 按 $0\sim20000$、步长 $\SI{1000}{\nano\second}$ 对时间差数据进行频数统计，并用指数函数拟合寿命曲线。
 \end{enumerate}
 
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.9\textwidth]{老师签字的数据.jpg}
-    \caption{正式测量前的阈值扫描记录，仅用于辅助确定工作点}
-\end{figure}
+\begin{table}[htbp]
+\centering
+\caption{正式测量前的阈值扫描数据}
+\begin{tabular}{ccccccc}
+\toprule
+$V$ / V & 0.0600 & 0.1200 & 0.1738 & 0.2249 & 0.2738 & 0.3255 \\
+$N$ & 14568 & 4923 & 1739 & 16306 & 16243 & 4436 \\
+\midrule
+$V$ / V & 0.3706 & 0.3900 & 0.4170 & 0.4349 &  &  \\
+$N$ & 991 & 4814 & 4421 & 505 &  &  \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \section{数据处理与结果}
 \subsection{长时长数据的分布与拟合}
@@ -205,5 +213,13 @@
     \item 短时长数据给出的平均寿命为 $\SI{1.765\pm0.073}{\micro\second}$，偏差明显增大，说明事例数不足时统计涨落会显著影响拟合结果。
     \item 正式测量前的阈值扫描数据波动较大，但可用于辅助确定工作点；正式结果主要应以长时长统计为准。
 \end{enumerate}
+
+\appendix
+\section{老师签字原图}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.95\textwidth]{老师签字的数据.jpg}
+    \caption{老师签字的阈值扫描原图}
+\end{figure}
 
 \end{document}
