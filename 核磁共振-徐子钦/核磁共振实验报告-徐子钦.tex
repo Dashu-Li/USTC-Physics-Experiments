@@ -1,0 +1,139 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[UTF8]{ctex}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{geometry}
+\usepackage{siunitx}
+\usepackage{ulem}
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+
+\title{\Huge{\textbf{\uuline{核\ 磁\ 共\ 振\ 实\ 验\ 报\ 告}}}}
+\author{\uline{24级少院} \quad 姓名: \uline{徐子钦} \quad 学号: \uline{PB24000224}}
+\date{2026.5.1}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+本实验以核磁共振(NMR)原理为基础，通过在恒定磁场中施加射频脉冲，观测样品的自由感应衰减(FID)与自旋回波信号，测定核磁共振频率及弛豫时间 $T_1$ 与 $T_2$。本报告依据实验手册（核磁共振.pdf）整理实验原理与方法，数据部分留空，待实验测量后填入并完成数据处理与讨论。
+\end{abstract}
+
+\section{实验题目}
+核磁共振（NMR）实验
+
+\section{实验目的}
+\begin{enumerate}
+    \item 理解核磁共振的基本物理机制与共振条件。
+    \item 掌握使用脉冲射频激发与检测自由感应信号（FID）和回波信号的方法。
+    \item 测定样品的共振频率及弛豫时间 $T_1$、$T_2$，并进行误差分析。
+\end{enumerate}
+
+\section{实验原理}
+\subsection{自旋与磁矩}
+原子核具有自旋角动量 $\mathbf{I}$ 与磁矩 $\boldsymbol{\mu}=\gamma \mathbf{I}$，其中 $\gamma$ 为回旋比。置于外加静磁场 $\mathbf{B}_0$ 中，核自旋能级发生塞曼分裂。
+
+\subsection{拉莫尔进动与共振条件}
+核磁矩在 $\mathbf{B}_0$ 中发生拉莫尔进动，角频率为
+$$\omega_0 = \gamma B_0,$$
+对应频率 $f_0 = \omega_0/2\pi$。当施加频率为 $f_0$ 的横向射频场 $B_1$ 时发生能量吸收，产生可检测的电磁信号。
+
+\subsection{弛豫过程}
+横纵弛豫分别用时间常数 $T_2$（横向）与 $T_1$（纵向）描述。弛豫动力学可用布洛赫方程描述，自由感应衰减（FID）与回波信号的幅度随时间按指数规律衰减，典型形式为
+$$M_x(t)\propto e^{-t/T_2},\qquad M_z(t)\propto 1-2e^{-t/T_1}\ \ (\text{视具体脉冲序列而定}).$$
+
+\subsection{测量方法概述}
+常用测量 $T_1$ 的方法为反转恢复（inversion-recovery）；测量 $T_2$ 的常用方法为自旋回波（spin-echo）或Carr–Purcell–Meiboom–Gill (CPMG) 序列。实验室通过调整脉冲角度（90°/180°）、脉间延时 $\tau$ 并拟合回波幅度或纵向恢复曲线获得弛豫时间。
+
+\section{实验器材}
+\begin{itemize}
+    \item 样品与样品架（注明样品种类）；
+    \item 恒定磁场主磁体（标明 $B_0$ 值或测量方法）；
+    \item 脉冲发射与接收系统（功率放大器、射频线圈）；
+    \item 示波器或数字接收器用于记录 FID/回波波形；
+    \item 计算机及数据处理软件。
+\end{itemize}
+
+\section{实验步骤（概括）}
+\begin{enumerate}
+    \item 将样品安装到射频线圈中心，固定位置。
+    \item 打开磁体、调节匀场（必要时做shimming），记录主磁场 $B_0$。
+    \item 设置射频频率在预计共振附近，扫描频率以确定共振峰 $f_0$。
+    \item 确定 90° 与 180° 脉冲宽度（通过脉冲归一化或方位调谐）。
+    \item 采用 FID、反转恢复与自旋回波序列分别测量共振信号与弛豫过程，记录原始波形数据。
+    \item 将测得的时域信号进行指数拟合或逆变换以求取 $T_1$, $T_2$ 及谱线宽度等参数。
+\end{enumerate}
+
+\section{原始数据（待填写）}
+\subsection*{实验参数}
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+项目 & 值 \\
+\midrule
+主磁场 $B_0$ &  \\
+共振频率 $f_0$ &  \\
+样品名称/编号 &  \\
+采样率/带宽 &  \\
+脉冲宽度（90°/180°） &  \\
+测量温度 &  \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection*{共振频率扫描数据}
+（在此处粘贴或附上扫描数据表格或图像，占位：\includegraphics[width=0.8\textwidth]{resonance_scan.png}）
+
+\subsection*{FID 与回波测量原始数据}
+\begin{itemize}
+    \item FID 原始波形：占位 \includegraphics[width=0.8\textwidth]{FID_placeholder.png}
+    \item 回波序列原始波形：占位 \includegraphics[width=0.8\textwidth]{echo_placeholder.png}
+\end{itemize}
+
+\subsection*{弛豫时间测量表（空）}
+\begin{center}
+\begin{tabular}{cccc}
+\toprule
+序号 & 延时 $\tau$ (s) & 回波幅度 (V) & 备注 \\
+\midrule
+ & & & \\
+ & & & \\
+ & & & \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{数据处理与计算（方法与公式）}
+\subsection{共振频率与回旋比}
+由测得共振频率 $f_0$ 与主场 $B_0$ 可求回旋比
+$$\gamma = \frac{2\pi f_0}{B_0}.$$ 
+若样品为已知核种（如质子），可用此公式检验 $B_0$ 的标定。
+
+\subsection{弛豫时间拟合}
+\paragraph{T_2:} 自旋回波幅度 $A(\tau)$ 随延时衰减，一般按指数拟合
+$$A(\tau)=A_0\,e^{-2\tau/T_2},$$
+或根据所用序列的具体时间因子调整拟合公式。
+\paragraph{T_1:} 反转恢复序列的纵向磁化强度 $M_z(t)$ 可按
+$$M_z(t)=M_0\left(1-2e^{-t/T_1}\right)$$
+或相应的补正规则拟合以求 $T_1$。
+
+\subsection{不确定度估计（示例）}
+对拟合参数的不确定度可由最小二乘拟合的协方差矩阵给出；以 $T_2$ 为例，若拟合得 $\hat{T}_2$ 与标准误差 $u(T_2)$，则给出不确定度表达为 $T_2=\hat{T}_2\pm u(T_2)$（适当时给出置信区间，如 $k=2$）。
+
+\section{结果与讨论（占位）}
+在完成测量并填写原始数据后，按上节所述方法计算 $f_0$, $\gamma$, $T_1$, $T_2$ 并在此处给出数值结果、不确定度及讨论。讨论要点建议包括：谱线宽度与 $T_2$ 的关系、样品成分或杂质对 $T_1,T_2$ 的影响、系统噪声与测量精度、磁场不均匀性对结果的影响、以及与文献值或手册预期值的比较。
+
+\section{结论（占位）}
+在填写并处理完数据后，在此处给出实验的主要结论，例如测得的 $T_1,T_2$ 值、共振频率与理论/标定值的一致性评价，以及实验局限与改进建议。
+
+\section{参考文献}
+（请在此处列出实验手册与参考文献）
+
+\section*{附录：原始数据文件清单}
+\begin{itemize}
+    \item resonance_scan.csv（共振扫描原始数据）
+    \item FID_waveforms/（原始时域波形文件）
+    \item echo_waveforms/（回波序列原始文件）
+\end{itemize}
+
+\end{document}
