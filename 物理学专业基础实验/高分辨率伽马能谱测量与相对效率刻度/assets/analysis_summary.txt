@@ -1,0 +1,13 @@
+calib k MeV/ch=0.000389497754, b MeV=-0.00409943586
+Co peaks:
+E=1.17323 MeV channel=3022.686 FWHM_ch=24.876 area=3327.8 max=148.0
+E=1.33249 MeV channel=3431.572 FWHM_ch=24.409 area=3083.8 max=119.0
+FWHM_1332_keV=9.507 keV resolution=0.7135% peak_compton=5.44
+Eu peaks:
+E=1.40801 Br=20.57 approx=3625.46 channel=3626.916 range=3587-3663 area=2434.7 norm=118.36 rel_eff=0.45334
+E=1.11212 Br=13.35 approx=2865.79 channel=2864.881 range=2836-2896 area=1526.2 norm=114.32 rel_eff=0.43787
+E=0.96401 Br=13.20 approx=2485.53 channel=2484.981 range=2458-2514 area=1758.7 norm=133.23 rel_eff=0.51030
+E=0.77887 Br=12.70 approx=2010.20 channel=2007.866 range=1985-2035 area=1721.3 norm=135.53 rel_eff=0.51911
+E=0.34428 Br=26.20 approx=894.43 channel=889.521 range=876-912 area=4889.2 norm=186.61 rel_eff=0.71474
+E=0.12178 Br=28.00 approx=323.18 channel=318.364 range=309-337 area=7310.4 norm=261.09 rel_eff=1.00000
+eff ln p = -0.719187 + -0.332851 lnE + 0.005563 (lnE)^2, R2log=0.98251

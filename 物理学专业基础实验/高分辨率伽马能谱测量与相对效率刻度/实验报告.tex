@@ -1,15 +1,13 @@
 \documentclass[12pt,a4paper]{article}
 \usepackage[UTF8]{ctex}
 \usepackage{amsmath}
-\usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{geometry}
 \usepackage{siunitx}
-\usepackage{pgfplots}
 \usepackage{ulem}
-\usepackage{listings}
-\pgfplotsset{compat=1.17}
+\usepackage{caption}
+\usepackage{subcaption}
 \geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
 \sisetup{per-mode=symbol}
 
@@ -25,273 +23,202 @@
 
 \section{实验目的}
 \begin{enumerate}
-    \item 了解高纯锗探测器的工作原理和基本性能。
-    \item 掌握高纯锗探测器基本性能的测量方法，包括能量分辨率和峰康比。
-    \item 了解伽马射线探测效率与光子能量之间的对应关系，学习相对效率刻度的方法。
-    \item 通过实际的能谱测量，学会数据处理和参数提取的技能。
+    \item 了解高纯锗探测器的工作原理。
+    \item 掌握高纯锗探测器基本性能的测量方法。
+    \item 了解高纯锗探测效率与 $\gamma$ 光子能量之间的对应关系。
 \end{enumerate}
 
 \section{实验原理}
-
-\subsection{高纯锗探测器的基本工作原理}
-高纯锗（HPGe）探测器是一种重要的能量分辨率最高的伽马射线探测装置。如图~\ref{fig:hpge_structure}~所示，它采用P-I-N型结构，其中I区是探测器的本征区，作为探测器记录粒子的灵敏区。
-
-当伽马光子进入I区时，与介质原子发生相互作用，产生次级电子。通过电离效应生成大量的电子-空穴对。在强电场作用下，电子、空穴分别向正、负极漂移。漂移过程中，在探测器输出回路中形成信号。收集的电荷累积在电极上，当电子-空穴全部被收集时，收集电极上累积的电荷量等于$N \cdot e$，其中$N$为次级电子产生的电子-空穴对总数，$e$为电子电荷量。与探测器连结的电荷灵敏前置放大器将收集的电荷转变为电压信号，其幅度正比于$N \cdot e$。
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.40\textwidth]{assets_manual/page1_img1.png}
-    \caption{高纯锗探测器的原理图}
-    \label{fig:hpge_structure}
-\end{figure}
-
-\subsection{高纯锗谱仪系统组成}
-高纯锗$\gamma$谱仪由探头系统和电子学系统组成。探头系统包括高纯锗探测器、冷却装置、液氮容器及前置放大器。电子学系统包括线性放大器及多道分析仪等。系统方框图如图~\ref{fig:system}~所示。
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.55\textwidth]{assets_manual/page2_img1.png}
-    \caption{高纯锗$\gamma$谱仪方框图}
-    \label{fig:system}
-\end{figure}
-
-\subsection{基本性能指标}
-
-高纯锗$\gamma$谱仪的基本性能包括以下几个方面：
-
-\subsubsection{能量分辨率}
-通常以$^{60}$Co的\SI{1.33}{\mega\electronvolt}伽马射线全能峰的半高宽（FWHM）来表示。导致全能峰谱线变宽的主要原因有：
-\begin{enumerate}
-    \item 电离过程中产生的电子-空穴对数目的统计涨落；
-    \item 放大器噪声；
-    \item 探测器漏电流和载流子收集不完全产生的信号幅度涨落。
-\end{enumerate}
-
-\subsubsection{峰康比}
-一般以全能峰最大计数与康普顿坪区部分的平均计数的比值表示。由高纯锗探测器的能量分辨率好，全能峰非常尖锐，能获得很高的峰康比。
-
-\subsubsection{探测效率}
-高纯锗探测器对伽马射线的探测效率与伽马射线能量有关。在$\SI{100}{\kilo\electronvolt}$到$\SI{1.5}{\mega\electronvolt}$能量范围内，探测效率可用下列函数形式拟合：
+\subsection{高纯锗探测器的探测机制}
+高纯锗探测器主要用于测定 $\gamma$ 射线能谱，具有能量分辨率高、能量线性好的特点。探测器通常为 P--I--N 型结构，其中 I 区为本征灵敏区。当 $\gamma$ 光子进入灵敏区后，与介质原子发生光电效应、康普顿散射或电子对效应等相互作用，产生次级电子；次级电子通过电离效应产生大量电子--空穴对。在强电场作用下，电子和空穴分别向对应电极漂移，并在输出回路中感应电荷信号。若产生的电子--空穴对数为 $N$，则被收集的电荷量为
 \begin{equation}
-    \ln(p) = c_1 + c_2\ln(E) + c_3(\ln E)^2
-    \label{eq:efficiency}
+    Q=N\mathrm{e},
 \end{equation}
-其中$p$为相对效率，$E$为能量（单位：MeV）。
+其中 $\mathrm{e}$ 为元电荷。电荷灵敏前置放大器将收集电荷转换为电压脉冲，其脉冲幅度与入射 $\gamma$ 光子在探测器中沉积的能量近似成正比。
 
-\section{实验仪器与设备}
-\begin{itemize}
-    \item $^{60}$Co放射源，1个
-    \item $^{152}$Eu放射源，1个
-    \item NIM机箱，1个
-    \item 高压电源，1个
-    \item 线性放大器，1个
-    \item 多道脉冲幅度分析器（多道分析仪），1个
-    \item 高纯锗探测器，1个
-    \item 液氮罐（杜瓦罐），1个
-    \item 计算机与数据采集系统，1台
-\end{itemize}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.62\textwidth]{manual_extract/page1_img1.png}
+    \caption{高纯锗探测器原理示意图}
+\end{figure}
 
-\section{实验过程与方法}
+\subsection{能量刻度、能量分辨率与峰康比}
+在多道分析器中，脉冲幅度被转换为道址。若谱仪在线性工作区内，则 $\gamma$ 射线能量 $E$ 与全能峰峰位道址 $C$ 可用线性关系表示：
+\begin{equation}
+    E=kC+b.
+    \label{eq:calib}
+\end{equation}
+利用 $^{60}\mathrm{Co}$ 的两个已知全能峰 $E_1=\SI{1.17323}{MeV}$ 和 $E_2=\SI{1.33249}{MeV}$ 可确定 $k$ 与 $b$，进而对整个能谱进行能量刻度。
 
-\subsection{仪器调试与准备}
+能量分辨率通常用全能峰半高宽（FWHM）与峰能量之比表示：
+\begin{equation}
+    R=\frac{\Delta E}{E}\times 100\%,
+    \label{eq:resolution}
+\end{equation}
+其中 $\Delta E$ 为全能峰半高宽对应的能量宽度。本实验取 $^{60}\mathrm{Co}$ 的 \SI{1.33249}{MeV} 全能峰计算能量分辨率。
+
+峰康比定义为全能峰最大计数与康普顿坪区平均计数之比。对于 $^{60}\mathrm{Co}$ 的 \SI{1.33249}{MeV} $\gamma$ 射线，康普顿坪区取 \SIrange{1040}{1096}{keV}。
+
+\subsection{全能峰净面积与相对效率刻度}
+实际 $\gamma$ 能谱中全能峰叠加在环境本底、电子学噪声与康普顿连续谱之上。设某一全能峰左侧本底为 $B_l$，右侧本底为 $B_h$，峰区第 $i$ 道以前的累计计数为 $A_i$，整个峰区累计计数为 $A_t$，则第 $i$ 道本底用阶梯近似表示为
+\begin{equation}
+    B_i=B_h+(B_l-B_h)\frac{A_i}{A_t}.
+\end{equation}
+将峰区总计数扣除该本底后得到全能峰净面积 $S$。
+
+$^{152}\mathrm{Eu}$ 具有多条已知能量和分支比的 $\gamma$ 射线。对每一条 $\gamma$ 射线，将净面积除以分支比 $I_\gamma$ 得到归一化净面积：
+\begin{equation}
+    S_{\mathrm{n}}=\frac{S}{I_\gamma}.
+\end{equation}
+取 \SI{0.12178}{MeV} 峰处探测效率为 1，则相对效率为
+\begin{equation}
+    p(E)=\frac{S_{\mathrm{n}}(E)}{S_{\mathrm{n}}(\SI{0.12178}{MeV})}.
+\end{equation}
+在 \SIrange{0.1}{1.5}{MeV} 能量范围内，高纯锗探测器的相对效率可按
+\begin{equation}
+    \ln p=c_1+c_2\ln E+c_3(\ln E)^2
+    \label{eq:efffit}
+\end{equation}
+拟合，其中 $E$ 以 \si{MeV} 为单位。
+
+\section{实验装置与步骤}
+实验装置由高纯锗探测器、液氮冷却装置、前置放大器、线性放大器、多道脉冲幅度分析器、高压电源、NIM 机箱、计算机以及 $^{60}\mathrm{Co}$、$^{152}\mathrm{Eu}$ 放射源组成。
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.72\textwidth]{manual_extract/page2_img2.png}
+    \caption{高纯锗 $\gamma$ 谱仪方框图}
+\end{figure}
+
+实验步骤如下：
 \begin{enumerate}
-    \item 打开机箱电源，缓慢调节高压到高纯锗额定工作电压。
-    \item 根据实验指导书调节高压电源、线性放大器等参数，使仪器工作在最优状态。
-    \item 检查冷却系统，确保探测器保持在液氮温度。
+    \item 打开机箱电源，缓慢调节高压至高纯锗探测器额定工作电压，等待谱仪工作状态稳定。
+    \item 测量 $^{60}\mathrm{Co}$ 的 $\gamma$ 能谱，确定两个全能峰峰位，并利用式~\eqref{eq:calib} 对谱仪进行能量刻度。
+    \item 由 $^{60}\mathrm{Co}$ 的 \SI{1.33249}{MeV} 全能峰计算能量分辨率；在 \SIrange{1040}{1096}{keV} 康普顿坪区计算平均计数，求峰康比。
+    \item 测量 $^{152}\mathrm{Eu}$ 的 $\gamma$ 能谱，确定若干全能峰峰位并计算净面积。
+    \item 按分支比进行强度归一，取 \SI{0.12178}{MeV} 峰处相对效率为 1，计算各峰相对效率，并用式~\eqref{eq:efffit} 拟合相对效率曲线。
 \end{enumerate}
 
-\subsection{$^{60}$Co能谱测量与能量刻度}
-\begin{enumerate}
-    \item 将$^{60}$Co放射源放在探测器前的标准位置。
-    \item 采集$^{60}$Co的伽马能谱。
-    \item 利用$^{60}$Co的两个已知峰位（\SI{1.173}{\mega\electronvolt}和\SI{1.332}{\mega\electronvolt}）进行能量刻度。
-    \item 从能谱中确定\SI{1.332}{\mega\electronvolt}峰的峰位、半高宽（FWHM）。
-    \item 计算能量分辨率。
-    \item 选取康普顿坪平台区域（\SI{1040}{\kilo\electronvolt}至\SI{1096}{\kilo\electronvolt}）计算峰康比。
-\end{enumerate}
-
-\subsection{$^{152}$Eu相对效率刻度}
-\begin{enumerate}
-    \item 将$^{152}$Eu放射源放在与$^{60}$Co相同的标准位置。
-    \item 采集$^{152}$Eu的伽马能谱，要求各$\gamma$能峰的面积不少于$\SI{10000}{}$个计数。
-    \item 对各$\gamma$能峰进行背景扣除。
-    \item 按各$\gamma$能峰对应的分支比进行强度归一化。
-    \item 以最低能量的峰为参考，计算各峰的相对效率。
-    \item 按公式~\eqref{eq:efficiency}~作相对效率曲线拟合。
-\end{enumerate}
-
-\section{实验数据}
-
-\subsection{$^{60}$Co能谱测量结果}
-
-测量时间：\uline{2026年5月6日\ 19:28:32}
-
-实时时间：\SI{1200}{\second}
+\section{数据处理与结果}
+\subsection{$^{60}\mathrm{Co}$ 能量刻度}
+$^{60}\mathrm{Co}$ 能谱测量时间为 \SI{1200}{s}。两个全能峰峰位由峰区扣本底后的质心确定，结果列于表~\ref{tab:co-peaks}。
 
 \begin{table}[htbp]
 \centering
-\caption{$^{60}$Co能谱测量主要参数}
-\begin{tabular}{lc}
+\caption{$^{60}\mathrm{Co}$ 全能峰峰位与能量刻度数据\label{tab:co-peaks}}
+\begin{tabular}{cccc}
 \toprule
-参数项 & 测量值 \\
+峰能量 $E$ / \si{MeV} & 峰位道址 $C$ & FWHM / 道 & 峰区净面积 \\
 \midrule
-\SI{1.332}{\mega\electronvolt}峰位通道 & 12 \\
-峰值计数 & \num{16426584} \\
-半高宽（FWHM）/ 通道 & 20 \\
-半高宽（FWHM）/ \si{\kilo\electronvolt} & 1.50 \\
-能量分辨率 & 0.11\% \\
-峰康比 & 19.91 \\
+1.17323 & 3022.686 & 24.876 & 3327.8 \\
+1.33249 & 3431.572 & 24.409 & 3083.8 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\subsubsection{能量分辨率计算}
-$$
-\mathrm{E.R.} = \frac{\text{FWHM}}{E_\gamma} \times 100\% = \frac{1.50\,\text{keV}}{\SI{1332}{\kilo\electronvolt}} \times 100\% = 0.11\%
-$$
+由两点线性刻度得
+\begin{equation}
+    E=(3.89498\times10^{-4})C-0.00409944,
+    \label{eq:calib-result}
+\end{equation}
+其中 $E$ 的单位为 \si{MeV}。刻度后的 $^{60}\mathrm{Co}$ 能谱如图~\ref{fig:co60-spectrum} 所示。
 
-这个能量分辨率达到了高纯锗探测器的典型水平，说明本次实验中仪器工作状况良好。
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.86\textwidth]{assets/co60_spectrum.png}
+    \caption{$^{60}\mathrm{Co}$ 高纯锗 $\gamma$ 能谱\label{fig:co60-spectrum}}
+\end{figure}
 
-\subsubsection{峰康比计算}
-全能峰的计数总和为：
-$$
-N_{\text{peak}} = 16,426,584
-$$
+对 \SI{1.33249}{MeV} 全能峰，半高宽折合为
+\begin{equation}
+    \Delta E=24.409\times 3.89498\times10^{-4}\ \si{MeV}=\SI{9.507}{keV}.
+\end{equation}
+故能量分辨率为
+\begin{equation}
+    R=\frac{9.507}{1332.49}\times100\%=0.7135\%.
+\end{equation}
+在 \SIrange{1040}{1096}{keV} 康普顿坪区取平均计数，并以 \SI{1.33249}{MeV} 全能峰最大计数作为峰计数，得到峰康比
+\begin{equation}
+    \frac{P}{C}=5.44.
+\end{equation}
 
-康普顿坪平台区（\SI{1040}{\kilo\electronvolt}至\SI{1096}{\kilo\electronvolt}）的平均计数为测定值。由于本实验使用的数据为简化演示数据，康普顿平台的平均计数约为全能峰计数的5\%。
+\subsection{$^{152}\mathrm{Eu}$ 全能峰净面积与相对效率}
+$^{152}\mathrm{Eu}$ 能谱测量时间为 \SI{1200}{s}。按式~\eqref{eq:calib-result} 将道址换算为能量，其刻度后能谱见图~\ref{fig:eu152-spectrum}。
 
-$$
-\text{峰康比} = \frac{N_{\text{peak}}}{N_{\text{compton}} \times \Delta E} \approx 19.91
-$$
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.86\textwidth]{assets/eu152_spectrum.png}
+    \caption{$^{152}\mathrm{Eu}$ 高纯锗 $\gamma$ 能谱\label{fig:eu152-spectrum}}
+\end{figure}
 
-\subsection{$^{152}$Eu能谱分析}
-
-测量时间：\uline{2026年5月6日\ 19:53:50}
-
-实时时间：\SI{1200}{\second}
-
-$^{152}$Eu放射源中各主要伽马能峰的能量及分支比如表~\ref{tab:eu152}~所示。
+选取 $^{152}\mathrm{Eu}$ 的六个全能峰进行净面积与相对效率计算，结果列于表~\ref{tab:eu-eff}。分支比以百分数数值代入，归一化净面积只用于相对效率计算。
 
 \begin{table}[htbp]
 \centering
-\caption{$^{152}$Eu $\gamma$射线能谱部分全能峰的能量和分支比}
-\label{tab:eu152}
-\begin{tabular}{ccccccc}
+\caption{$^{152}\mathrm{Eu}$ 全能峰净面积与相对效率\label{tab:eu-eff}}
+\begin{tabular}{cccccc}
 \toprule
-能量 / \si{\mega\electronvolt} & 1.40801 & 1.11212 & 0.96401 & 0.77887 & 0.34428 & 0.12178 \\
+$E$ / \si{MeV} & 分支比 /\% & 峰位道址 & 净面积 $S$ & $S/I_\gamma$ & 相对效率 $p$ \\
 \midrule
-分支比 / \% & 20.57 & 13.35 & 13.20 & 12.70 & 26.20 & 28.00 \\
-\midrule
-预期通道位置 & 12.7 & 10.0 & 8.7 & 7.0 & 3.1 & 1.1 \\
+1.40801 & 20.57 & 3626.916 & 2434.7 & 118.36 & 0.45334 \\
+1.11212 & 13.35 & 2864.881 & 1526.2 & 114.32 & 0.43787 \\
+0.96401 & 13.20 & 2484.981 & 1758.7 & 133.23 & 0.51030 \\
+0.77887 & 12.70 & 2007.866 & 1721.3 & 135.53 & 0.51911 \\
+0.34428 & 26.20 & 889.521  & 4889.2 & 186.61 & 0.71474 \\
+0.12178 & 28.00 & 318.364  & 7310.4 & 261.09 & 1.00000 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\section{数据处理与计算}
+由表~\ref{tab:eu-eff} 可见，随 $\gamma$ 光子能量升高，全能峰相对效率总体下降。对 $\ln p$ 与 $\ln E$ 作二次多项式拟合，得到
+\begin{equation}
+    \ln p=-0.719187-0.332851\ln E+0.005563(\ln E)^2,
+    \label{eq:eff-result}
+\end{equation}
+拟合的对数空间决定系数为
+\begin{equation}
+    R^2=0.98251.
+\end{equation}
+相对效率拟合曲线如图~\ref{fig:efficiency} 所示。
 
-\subsection{背景扣除}
-实验测得的$\gamma$能谱包含有环境本底、噪声和康普顿平台等因素影响。对全能峰进行背景扣除的方法如下：
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.72\textwidth]{assets/relative_efficiency.png}
+    \caption{高纯锗探测器相对效率刻度曲线\label{fig:efficiency}}
+\end{figure}
 
-假设全能峰左侧（低能侧）本底为$B_l$，右侧（高能侧）本底为$B_h$，则第$i$通道的本底$B_i$为：
-$$
-B_i = B_h + (B_l - B_h) \cdot \frac{A_i}{A_t}
-$$
-其中$A_i$为全能峰第$i$通道以前的累计计数，$A_t$为全能峰总计数。
-
-\subsection{相对效率刻度}
-
-\subsubsection{强度归一化}
-将$^{152}$Eu各全能峰的净面积分别除以各峰对应的分支比，所得结果即各分支比都为1情况下（强度归一），各全能峰应记录到的净面积值，称为归一化净面积。
-
-设第$j$个峰的净面积为$N_j$，分支比为$B_j$（\%），则归一化面积为：
-$$
-N_j' = \frac{N_j}{B_j / 100}
-$$
-
-\subsubsection{相对效率计算}
-设最低能量\SI{0.12178}{\mega\electronvolt}处的$\gamma$光子探测效率为1，将各全能峰归一化净面积分别除以\SI{0.12178}{\mega\electronvolt}处全能峰的净面积，即得各全能峰相对于\SI{0.12178}{\mega\electronvolt}处的相对效率：
-$$
-\varepsilon_j = \frac{N_j'}{N_{\text{ref}}'}
-$$
-其中$N_{\text{ref}}'$为\SI{0.12178}{\mega\electronvolt}峰的归一化面积。
-
-\subsubsection{效率曲线拟合}
-由各全能峰的相对效率值，按公式~\eqref{eq:efficiency}~对数据进行多项式拟合，得到探测器在能量范围内的相对效率曲线。
-
-设$\ln(p) = c_1 + c_2 \ln(E) + c_3 (\ln E)^2$，则拟合参数为：
-\begin{align}
-\text{参数矩阵方程：} \quad \begin{pmatrix} 1 & \ln E_1 & (\ln E_1)^2 \\ 1 & \ln E_2 & (\ln E_2)^2 \\ \vdots & \vdots & \vdots \\ 1 & \ln E_n & (\ln E_n)^2 \end{pmatrix} \begin{pmatrix} c_1 \\ c_2 \\ c_3 \end{pmatrix} = \begin{pmatrix} \ln \varepsilon_1 \\ \ln \varepsilon_2 \\ \vdots \\ \ln \varepsilon_n \end{pmatrix}
-\end{align}
-
-\section{主要结果与结论}
-
-\subsection{$^{60}$Co能谱分析结果}
-
-通过对$^{60}$Co能谱的测量与分析，得到以下主要结果：
-
+\subsection{误差分析}
+本实验结果的主要不确定性来自以下方面：
 \begin{enumerate}
-    \item \textbf{能量分辨率：}\SI{0.11}{\percent}
-    
-    这表明所使用的高纯锗探测器具有优异的能量分辨率，完全符合高纯锗探测器的技术指标。高纯锗探测器相比于NaI(Tl)晶体探测器有着显著的优势。
-    
-    \item \textbf{峰康比：}19.91
-    
-    较高的峰康比说明探测器能够有效地区分全能峰和本底信号，这是进行精确能谱分析的必要条件。
-    
-    \item \textbf{能量刻度：}线性关系 $E[\text{keV}] = 111 \times \text{channel}$
-    
-    能谱数据与已知的$^{60}$Co衰变线能量符合良好，说明能量校准正确。
+    \item 全能峰计数的统计涨落，尤其是在高能区峰面积较小时，峰位、半高宽和净面积均会受到影响。
+    \item 峰区本底扣除采用阶梯近似，康普顿连续谱形状与环境本底的局部变化会引入系统偏差。
+    \item 能量刻度仅采用 $^{60}\mathrm{Co}$ 的两个峰，若谱仪存在轻微非线性，低能区和高能区能量换算会有偏差。
+    \item 探测器高压、放大倍数、电子学噪声和死时间效应会影响峰形及峰面积。
+    \item 源与探测器相对位置若有微小变化，会影响绝对计数率；本实验采用相对效率处理，可部分抵消源活度和测量时间的共同因子影响。
 \end{enumerate}
 
-\subsection{探测效率特性}
-
-通过$^{152}$Eu多线源的测量，可以得到探测器在\SI{0.12}{\mega\electronvolt}至\SI{1.4}{\mega\electronvolt}能量范围内的相对效率曲线。
-
-根据理论和实验的结合，效率随能量的变化规律符合公式~\eqref{eq:efficiency}~的描述。在较低能量时，效率相对较高；在较高能量时，由于全能相互作用截面的减小，探测效率逐渐下降。
-
-\subsection{实验收获与结论}
-
+\section{实验结论}
 \begin{enumerate}
-    \item 通过本次实验，深入理解了高纯锗探测器的工作原理和伽马射线与物质的相互作用过程。
-    \item 掌握了高分辨率伽马能谱测量的基本方法，学会了用多道分析仪进行能谱采集。
-    \item 理解了能量分辨率、峰康比等性能指标的物理意义，以及它们对能谱测量精度的影响。
-    \item 学会了如何进行背景扣除、强度归一化等数据处理技巧。
-    \item 掌握了多参数的相对效率刻度方法，了解了伽马射线探测效率与能量的关系。
+    \item 由 $^{60}\mathrm{Co}$ 两个全能峰完成能量刻度，得到线性关系 $E=(3.89498\times10^{-4})C-0.00409944$，其中 $E$ 以 \si{MeV} 为单位。
+    \item $^{60}\mathrm{Co}$ 的 \SI{1.33249}{MeV} 全能峰半高宽约为 \SI{9.507}{keV}，对应能量分辨率约为 $0.7135\%$；峰康比约为 5.44。
+    \item 对 $^{152}\mathrm{Eu}$ 六个全能峰进行了峰位、净面积和分支比归一化处理，得到了以 \SI{0.12178}{MeV} 为基准的相对效率。
+    \item 高纯锗探测器相对效率随能量升高总体降低，拟合关系为 $\ln p=-0.719187-0.332851\ln E+0.005563(\ln E)^2$，对数空间拟合决定系数为 $R^2=0.98251$。
 \end{enumerate}
 
 \section{思考题}
-
 \begin{enumerate}
-    \item 试从原理上分析高纯锗探测器对$\gamma$射线的能量分辨率好于NaI(Tl)晶体的主要原因。
-    
-    \textit{答：高纯锗探测器产生的电子-空穴对数目更多（每MeV产生约3000对，而NaI(Tl)只有500对），相对统计涨落更小；且采用低温冷却操作，噪声更低。}
-    
-    \item $\gamma$谱的峰康比对实际应用有什么意义？
-    
-    \textit{答：峰康比直接反映了全能峰与背景的分离程度。高峰康比表明峰的检测更清晰，有利于准确确定峰位和面积，对定量分析有重要意义。}
-    
-    \item 在测量$\gamma$射线能量时，是否要对探头外壳的吸收效应进行能量吸收校正？
-    
-    \textit{答：对于$\gamma$射线能量低于$\sim$300 keV的情况，探头外壳的吸收效应明显，需要进行校正；对于较高能量的$\gamma$射线，吸收效应相对较小，但精密测量时仍应考虑。}
-    
-    \item 试比较塑料闪烁体、NaI(Tl)晶体、高纯锗探测器的优缺点，各在什么场合下选用合适。
-    
-    \textit{答：
-    \begin{itemize}
-        \item 塑料闪烁体：响应快，抗辐照能力强，但能量分辨率差（$\sim$10\%），适用于本体探测。
-        \item NaI(Tl)：能量分辨率中等（$\sim$7\%），成本低，适用于一般$\gamma$射线计量。
-        \item HPGe：能量分辨率最好（$<1$\%），但需要液氮冷却，成本高，适用于精密能谱分析。
-    \end{itemize}
-    }
+    \item \textbf{试从原理上分析高纯锗探测器对 $\gamma$ 射线的能量分辨率好于 NaI(Tl) 晶体的主要原因。}\\
+    高纯锗探测器中产生一个电子--空穴对所需平均能量约为数 \si{eV}，显著小于 NaI(Tl) 闪烁体产生并收集一个有效光电子所对应的能量，因此同一入射能量下高纯锗探测器产生的载流子数更多，统计涨落相对更小。同时高纯锗探测器将电离电荷直接转换为电信号，避免了闪烁发光、光传输、光阴极转换和倍增过程中的附加涨落，故全能峰更窄，能量分辨率更高。
+    \item \textbf{$\gamma$ 谱的峰康比对实际应用有什么意义？}\\
+    峰康比反映全能峰相对康普顿连续本底的突出程度。峰康比越高，弱峰越容易从连续本底中识别出来，峰面积扣本底的不确定性越小，复杂样品中多核素分析、弱放射性活度测量和特征峰定量分析的可靠性越高。
+    \item \textbf{在测量 $\gamma$ 射线能量时，是否要对探头外壳的吸收效应进行能量吸收校正？}\\
+    若只确定全能峰能量，探头外壳吸收主要改变入射到灵敏区的光子数，对全能峰峰位影响很小，通常不需要进行能量吸收校正。若进行效率刻度或低能 $\gamma$ 射线强度测量，外壳和端窗吸收会显著改变探测效率，尤其低能区更明显，此时需要在效率修正中考虑吸收效应。
+    \item \textbf{试比较塑料闪烁体、NaI(Tl) 晶体、高纯锗探测器的优缺点及适用场合。}\\
+    塑料闪烁体时间响应快、可制成大面积探测器、机械性能好，适合快符合、宇宙线计数和带电粒子触发测量，但能量分辨率较差。NaI(Tl) 晶体发光效率高、探测效率较大、可在室温下工作，适合一般 $\gamma$ 能谱测量和辐射监测，但能量分辨率中等且易潮解。高纯锗探测器能量分辨率最高，适合精密 $\gamma$ 能谱、核素鉴别和复杂谱线分析，但需要低温冷却，系统维护要求较高，成本也较高。
 \end{enumerate}
 
-\section{参考文献}
-\begin{enumerate}
-    \item 复旦大学、清华大学、北京大学合编，原子核物理实验方法（第二版修订本），第五章，原子能出版社，1985。
-    \item 徐克尊等编，粒子探测技术，第四章，上海科技出版社，1981。
-    \item 北京大学、复旦大学主编，核物理实验，实验15，原子能出版社，1984。
-    \item Moens L, Hoste J. Calculation of the peak efficiency of high-purity germanium detectors. \textit{The International journal of applied radiation and isotopes}, 1983, 34(8): 1085-1095.
-    \item Gehrke R J, Davidson J R. Acquisition of quality $\gamma$-ray spectra with HPGe spectrometers. \textit{Applied Radiation and isotopes}, 2005, 62(3): 479-499.
-\end{enumerate}
+\appendix
+\section{数据处理脚本与图像文件}
+数据处理脚本为 \texttt{analyze\_gamma.py}。图像文件保存在 \texttt{assets/} 目录下，包括 \texttt{co60\_spectrum.png}、\texttt{eu152\_spectrum.png} 和 \texttt{relative\_efficiency.png}。
 
 \end{document}

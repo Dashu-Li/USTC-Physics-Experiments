@@ -1,10 +1,10 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (MiKTeX 24.4) (preloaded format=xelatex 2025.4.3)  6 MAY 2026 02:13
+This is XeTeX, Version 3.141592653-2.6-0.999996 (MiKTeX 24.4) (preloaded format=xelatex 2025.4.3)  6 MAY 2026 02:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**./实验报告.tex
-(实验报告.tex
+**./核磁共振实验报告-徐子钦.tex
+(核磁共振实验报告-徐子钦.tex
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-07-20>
 (D:\CTEX\MiKTeX\tex/latex/base\article.cls
@@ -287,6 +287,17 @@ LaTeX Info: Redefining \Relbar on input line 970.
 LaTeX Info: Redefining \[ on input line 2953.
 LaTeX Info: Redefining \] on input line 2954.
 )
+(D:\CTEX\MiKTeX\tex/latex/amsfonts\amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(D:\CTEX\MiKTeX\tex/latex/amsfonts\amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
 (D:\CTEX\MiKTeX\tex/latex/graphics\graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
 
@@ -354,29 +365,94 @@ Package: iftex 2022/02/03 v1.0f TeX engine tests
 \Gm@dimlist=\toks23
 
 (D:\CTEX\MiKTeX\tex/latex/geometry\geometry.cfg))
-(D:\CTEX\MiKTeX\tex/latex/ulem\ulem.sty
-\UL@box=\box58
-\UL@hyphenbox=\box59
-\UL@skip=\skip62
-\UL@hook=\toks24
-\UL@height=\dimen263
-\UL@pe=\count314
-\UL@pixel=\dimen264
-\ULC@box=\box60
-Package: ulem 2019/11/18
-\ULdepth=\dimen265
+(D:\CTEX\MiKTeX\tex/latex/siunitx\siunitx.sty
+Package: siunitx 2025-07-09 v3.4.14 A comprehensive (SI) units package
+\l__siunitx_number_uncert_offset_int=\count314
+\l__siunitx_number_exponent_fixed_int=\count315
+\l__siunitx_number_min_decimal_int=\count316
+\l__siunitx_number_min_integer_int=\count317
+\l__siunitx_number_round_precision_int=\count318
+\l__siunitx_number_lower_threshold_int=\count319
+\l__siunitx_number_upper_threshold_int=\count320
+\l__siunitx_number_group_first_int=\count321
+\l__siunitx_number_group_size_int=\count322
+\l__siunitx_number_group_minimum_int=\count323
+\l__siunitx_angle_tmp_dim=\dimen263
+\l__siunitx_angle_marker_box=\box58
+\l__siunitx_angle_unit_box=\box59
+\l__siunitx_compound_count_int=\count324
+
+(D:\CTEX\MiKTeX\tex/latex/translations\translations.sty
+Package: translations 2022/02/05 v1.12 internationalization of LaTeX2e packages
+ (CN)
+
+(D:\CTEX\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count325
 )
+(D:\CTEX\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(D:\CTEX\MiKTeX\tex/generic/infwarerr\infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+(D:\CTEX\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode not found.
+))
+\l__siunitx_table_tmp_box=\box60
+\l__siunitx_table_tmp_dim=\dimen264
+\l__siunitx_table_column_width_dim=\dimen265
+\l__siunitx_table_integer_box=\box61
+\l__siunitx_table_decimal_box=\box62
+\l__siunitx_table_uncert_box=\box63
+\l__siunitx_table_before_box=\box64
+\l__siunitx_table_after_box=\box65
+\l__siunitx_table_before_dim=\dimen266
+\l__siunitx_table_carry_dim=\dimen267
+\l__siunitx_unit_tmp_int=\count326
+\l__siunitx_unit_position_int=\count327
+\l__siunitx_unit_total_int=\count328
+
 (D:\CTEX\MiKTeX\tex/latex/tools\array.sty
 Package: array 2024/06/14 v2.6d Tabular extension package (FMi)
-\col@sep=\dimen266
-\ar@mcellbox=\box61
-\extrarowheight=\dimen267
-\NC@list=\toks25
-\extratabsurround=\skip63
-\backup@length=\skip64
-\ar@cellbox=\box62
-) (实验报告.aux)
-\openout1 = `实验报告.aux'.
+\col@sep=\dimen268
+\ar@mcellbox=\box66
+\extrarowheight=\dimen269
+\NC@list=\toks24
+\extratabsurround=\skip62
+\backup@length=\skip63
+\ar@cellbox=\box67
+))
+(D:\CTEX\MiKTeX\tex/latex/ulem\ulem.sty
+\UL@box=\box68
+\UL@hyphenbox=\box69
+\UL@skip=\skip64
+\UL@hook=\toks25
+\UL@height=\dimen270
+\UL@pe=\count329
+\UL@pixel=\dimen271
+\ULC@box=\box70
+Package: ulem 2019/11/18
+\ULdepth=\dimen272
+)
+Package translations Info: No language package found. I am going to use `englis
+h' as default language. on input line 15.
+
+(D:\CTEX\MiKTeX\tex/latex/graphics\color.sty
+Package: color 2024/01/14 v1.3d Standard LaTeX Color (DPC)
+
+(D:\CTEX\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: xetex.def on input line 149.
+
+(D:\CTEX\MiKTeX\tex/latex/graphics\mathcolor.ltx)) (核磁共振实验报告-徐子钦.aux)
+\openout1 = `核磁共振实验报告-徐子钦.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
 LaTeX Font Info:    ... okay on input line 15.
@@ -399,7 +475,7 @@ Package fontspec Info:
 (fontspec)             Adjusting the maths setup (use [no-math] to avoid
 (fontspec)             this).
 
-\symlegacymaths=\mathgroup4
+\symlegacymaths=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
 (Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 15.
 LaTeX Font Info:    Redeclaring math accent \acute on input line 15.
@@ -487,6 +563,24 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 
+(D:\CTEX\MiKTeX\tex/latex/translations/dicts\translations-basic-dictionary-engl
+ish.trsl
+File: translations-basic-dictionary-english.trsl (english translation file `tra
+nslations-basic-dictionary')
+)
+Package translations Info: loading dictionary `translations-basic-dictionary' f
+or `english'. on input line 15.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 16.
+
+ (D:\CTEX\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 16.
+
+
+(D:\CTEX\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
 
 [1
 
@@ -494,28 +588,291 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 
 [2]
 
+LaTeX Warning: File `resonance_scan.png' not found on input line 90.
+
+核磁共振实验报告-徐子钦.tex:90: Unable to load picture or PDF file 'resonance_scan.png'.
+<to be read again> 
+                   }
+l.90 ...s[width=0.8\textwidth]{resonance_scan.png}
+                                                  ）
+The requested image couldn't be read because
+it was not a recognized image format.
+
+
+核磁共振实验报告-徐子钦.tex:90: Package graphics Error: Division by 0.
+
+See the graphics package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.90 ...s[width=0.8\textwidth]{resonance_scan.png}
+                                                  ）
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+File: resonance_scan.png Graphic file (type bmp)
+<resonance_scan.png>
+
+Overfull \hbox (180.87444pt too wide) in paragraph at lines 90--91
+[]|\TU/SimSun(0)/m/n/12 （在 此 处 粘 贴 或 附 上 扫 描 数 据 表 格 或 图 像，|  占 位：| []）| 
+ []
+
+
+LaTeX Warning: File `FID_placeholder.png' not found on input line 94.
+
+核磁共振实验报告-徐子钦.tex:94: Unable to load picture or PDF file 'FID_placeholder.png'.
+<to be read again> 
+                   }
+l.94 ...[width=0.8\textwidth]{FID_placeholder.png}
+                                                  
+The requested image couldn't be read because
+it was not a recognized image format.
+
+
+核磁共振实验报告-徐子钦.tex:94: Package graphics Error: Division by 0.
+
+See the graphics package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.94 ...[width=0.8\textwidth]{FID_placeholder.png}
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+File: FID_placeholder.png Graphic file (type bmp)
+<FID_placeholder.png>
+
+Overfull \hbox (41.78165pt too wide) in paragraph at lines 94--95
+[]\TU/lmr/m/n/12 FID \TU/SimSun(0)/m/n/12 原 始 波 形：|  占 位 [] 
+ []
+
+
+LaTeX Warning: File `echo_placeholder.png' not found on input line 95.
+
+核磁共振实验报告-徐子钦.tex:95: Unable to load picture or PDF file 'echo_placeholder.png'.
+<to be read again> 
+                   }
+l.95 ...width=0.8\textwidth]{echo_placeholder.png}
+                                                  
+The requested image couldn't be read because
+it was not a recognized image format.
+
+
+核磁共振实验报告-徐子钦.tex:95: Package graphics Error: Division by 0.
+
+See the graphics package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.95 ...width=0.8\textwidth]{echo_placeholder.png}
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+File: echo_placeholder.png Graphic file (type bmp)
+<echo_placeholder.png>
+
+Overfull \hbox (66.29494pt too wide) in paragraph at lines 95--96
+[]\TU/SimSun(0)/m/n/12 回 波 序 列 原 始 波 形：|  占 位 [] 
+ []
+
+
+
 [3]
+核磁共振实验报告-徐子钦.tex:142: Missing $ inserted.
+<inserted text> 
+                $
+l.142     \item resonance_
+                          scan.csv（共振扫描原始数据）
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+核磁共振实验报告-徐子钦.tex:143: LaTeX Error: Command \item invalid in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.143     \item
+                FID_waveforms/（原始时域波形文件）
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+核磁共振实验报告-徐子钦.tex:143: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.143     \item F
+                 ID_waveforms/（原始时域波形文件）
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+核磁共振实验报告-徐子钦.tex:143: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.143     \item F
+                 ID_waveforms/（原始时域波形文件）
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+核磁共振实验报告-徐子钦.tex:144: LaTeX Error: Command \item invalid in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.144     \item
+                echo_waveforms/（回波序列原始文件）
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+核磁共振实验报告-徐子钦.tex:144: Missing $ inserted.
+<inserted text> 
+                $
+l.144     \item e
+                 cho_waveforms/（回波序列原始文件）
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+核磁共振实验报告-徐子钦.tex:144: Missing } inserted.
+<inserted text> 
+                }
+l.144     \item e
+                 cho_waveforms/（回波序列原始文件）
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+Missing character: There is no （ in font [lmroman12-regular]:mapping=tex-text;!
+Missing character: There is no 共 in font [lmroman12-regular]:mapping=tex-text;!
+Missing character: There is no 振 in font [lmroman12-regular]:mapping=tex-text;!
+Missing character: There is no 扫 in font [lmroman12-regular]:mapping=tex-text;!
+Missing character: There is no 描 in font [lmroman12-regular]:mapping=tex-text;!
+Missing character: There is no 原 in font [lmroman12-regular]:mapping=tex-text;!
+Missing character: There is no 始 in font [lmroman12-regular]:mapping=tex-text;!
+Missing character: There is no 数 in font [lmroman12-regular]:mapping=tex-text;!
+Missing character: There is no 据 in font [lmroman12-regular]:mapping=tex-text;!
+Missing character: There is no ） in font [lmroman12-regular]:mapping=tex-text;!
+Missing character: There is no （ in font [lmroman12-regular]:mapping=tex-text;!
+Missing character: There is no 原 in font [lmroman12-regular]:mapping=tex-text;!
+Missing character: There is no 始 in font [lmroman12-regular]:mapping=tex-text;!
+Missing character: There is no 时 in font [lmroman12-regular]:mapping=tex-text;!
+Missing character: There is no 域 in font [lmroman12-regular]:mapping=tex-text;!
+Missing character: There is no 波 in font [lmroman12-regular]:mapping=tex-text;!
+Missing character: There is no 形 in font [lmroman12-regular]:mapping=tex-text;!
+Missing character: There is no 文 in font [lmroman12-regular]:mapping=tex-text;!
+Missing character: There is no 件 in font [lmroman12-regular]:mapping=tex-text;!
+Missing character: There is no ） in font [lmroman12-regular]:mapping=tex-text;!
+核磁共振实验报告-徐子钦.tex:144: Extra }, or forgotten \endgroup.
+\par ...m \@noitemerr {\@@par }\fi \else {\@@par }
+                                                  \fi 
+l.144     \item e
+                 cho_waveforms/（回波序列原始文件）
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+
 
 [4]
-File: IMG_20260319_161609.jpg Graphic file (type bmp)
-<IMG_20260319_161609.jpg>
+核磁共振实验报告-徐子钦.tex:144: Missing $ inserted.
+<inserted text> 
+                $
+l.144     \item echo_
+                     waveforms/（回波序列原始文件）
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
 
 
-[5]
+核磁共振实验报告-徐子钦.tex:145: LaTeX Error: Command \end{itemize} invalid in math mode.
 
-[6] (实验报告.aux)
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.145 \end{itemize}
+                   
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+核磁共振实验报告-徐子钦.tex:145: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.145 \end{itemize}
+                   
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+核磁共振实验报告-徐子钦.tex:145: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.145 \end{itemize}
+                   
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+核磁共振实验报告-徐子钦.tex:145: Missing $ inserted.
+<inserted text> 
+                $
+l.145 \end{itemize}
+                   
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+Missing character: There is no （ in font [lmroman12-regular]:mapping=tex-text;!
+Missing character: There is no 回 in font [lmroman12-regular]:mapping=tex-text;!
+Missing character: There is no 波 in font [lmroman12-regular]:mapping=tex-text;!
+Missing character: There is no 序 in font [lmroman12-regular]:mapping=tex-text;!
+Missing character: There is no 列 in font [lmroman12-regular]:mapping=tex-text;!
+Missing character: There is no 原 in font [lmroman12-regular]:mapping=tex-text;!
+Missing character: There is no 始 in font [lmroman12-regular]:mapping=tex-text;!
+Missing character: There is no 文 in font [lmroman12-regular]:mapping=tex-text;!
+Missing character: There is no 件 in font [lmroman12-regular]:mapping=tex-text;!
+Missing character: There is no ） in font [lmroman12-regular]:mapping=tex-text;!
+
+
+[5] (核磁共振实验报告-徐子钦.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2022/07/14>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 8062 strings out of 409029
- 218732 string characters out of 5762832
- 1937612 words of memory out of 5000000
- 30637 multiletter control sequences out of 15000+600000
- 566003 words of font info for 94 fonts, out of 8000000 for 9000
+ 13112 strings out of 409029
+ 355122 string characters out of 5762832
+ 1935612 words of memory out of 5000000
+ 35632 multiletter control sequences out of 15000+600000
+ 571645 words of font info for 117 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 93i,11n,111p,365b,336s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 93i,7n,111p,381b,408s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on 实验报告.pdf (6 pages).
+Error 1 (driver return code) generating output;
+file 核磁共振实验报告-徐子钦.pdf may not be valid.
