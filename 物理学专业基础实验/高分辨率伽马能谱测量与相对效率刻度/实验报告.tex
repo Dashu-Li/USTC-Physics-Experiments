@@ -8,8 +8,6 @@
 \usepackage{ulem}
 \usepackage{caption}
 \usepackage{subcaption}
-\usepackage{tikz}
-\usetikzlibrary{positioning,arrows.meta}
 \geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
 \sisetup{per-mode=symbol}
 
@@ -32,7 +30,7 @@
 
 \section{实验原理}
 \subsection{高纯锗探测器的探测机制}
-高纯锗探测器主要用于测定 $\gamma$ 射线能谱，具有能量分辨率高、能量线性好的特点。探测器通常为 P--I--N 型结构，其中 I 区为本征灵敏区。当 $\gamma$ 光子进入灵敏区后，与介质原子发生光电效应、康普顿散射或电子对效应等相互作用，产生次级电子；次级电子通过电离效应产生大量电子--空穴对。在强电场作用下，电子和空穴分别向对应电极漂移，并在输出回路中感应电荷信号。若产生的电子--空穴对数为 $N$，则被收集的电荷量为
+高纯锗探测器主要用于测定 $\gamma$ 射线能谱，具有能量分辨率高、能量线性好的特点。探测器通常为 P-I-N 型结构，其中 I 区为本征灵敏区。当 $\gamma$ 光子进入灵敏区后，与介质原子发生光电效应、康普顿散射或电子对效应等相互作用，产生次级电子；次级电子通过电离效应产生大量电子-空穴对。在强电场作用下，电子和空穴分别向对应电极漂移，并在输出回路中感应电荷信号。若产生的电子-空穴对数为 $N$，则被收集的电荷量为
 \begin{equation}
     Q=N\mathrm{e},
 \end{equation}
@@ -78,7 +76,7 @@ $^{152}\mathrm{Eu}$ 具有多条已知能量和分支比的 $\gamma$ 射线。�
 \end{equation}
 在 \SIrange{0.1}{1.5}{MeV} 能量范围内，高纯锗探测器的相对效率可按
 \begin{equation}
-    \ln p=c_1+c_2\ln E+c_3(\ln E)^2
+    \ln p=c_1+c_2\ln E+c_3(\ln E)^{2}
     \label{eq:efffit}
 \end{equation}
 拟合，其中 $E$ 以 \si{MeV} 为单位。
@@ -88,26 +86,7 @@ $^{152}\mathrm{Eu}$ 具有多条已知能量和分支比的 $\gamma$ 射线。�
 
 \begin{figure}[htbp]
     \centering
-    \begin{tikzpicture}[
-        node distance=1.0cm and 0.9cm,
-        block/.style={draw, rounded corners, minimum width=2.2cm, minimum height=0.9cm, align=center},
-        line/.style={-Latex, thick}
-    ]
-        \node[block] (detector) {高纯锗\\探测器};
-        \node[block, below=of detector] (cooling) {液氮\\冷却装置};
-        \node[block, left=of detector] (hv) {高压\\电源};
-        \node[block, right=of detector] (preamp) {前置\\放大器};
-        \node[block, right=of preamp] (amp) {线性\\放大器};
-        \node[block, right=of amp] (mca) {多道脉冲\\幅度分析器};
-        \node[block, right=of mca] (computer) {计算机};
-
-        \draw[line] (hv) -- (detector);
-        \draw[line] (detector) -- (preamp);
-        \draw[line] (preamp) -- (amp);
-        \draw[line] (amp) -- (mca);
-        \draw[line] (mca) -- (computer);
-        \draw[line] (cooling) -- (detector);
-    \end{tikzpicture}
+    \includegraphics[width=0.82\textwidth]{manual_extract/page2_img1.png}
     \caption{高纯锗 $\gamma$ 谱仪方框图}
 \end{figure}
 
@@ -193,7 +172,7 @@ $E$ / \si{MeV} & 分支比 /\% & 峰位道址 & 净面积 $S$ & $S/I_\gamma$ & �
 
 由表~\ref{tab:eu-eff} 可见，随 $\gamma$ 光子能量升高，全能峰相对效率总体下降。对 $\ln p$ 与 $\ln E$ 作二次多项式拟合，得到
 \begin{equation}
-    \ln p=-0.719187-0.332851\ln E+0.005563(\ln E)^2,
+    \ln p=-0.719187-0.332851\ln E+0.005563(\ln E)^{2},
     \label{eq:eff-result}
 \end{equation}
 拟合的对数空间决定系数为
@@ -223,19 +202,19 @@ $E$ / \si{MeV} & 分支比 /\% & 峰位道址 & 净面积 $S$ & $S/I_\gamma$ & �
     \item 由 $^{60}\mathrm{Co}$ 两个全能峰完成能量刻度，得到线性关系 $E=(3.89498\times10^{-4})C-0.00409944$，其中 $E$ 以 \si{MeV} 为单位。
     \item $^{60}\mathrm{Co}$ 的 \SI{1.33249}{MeV} 全能峰半高宽约为 \SI{9.507}{keV}，对应能量分辨率约为 $0.7135\%$；峰康比约为 5.44。
     \item 对 $^{152}\mathrm{Eu}$ 六个全能峰进行了峰位、净面积和分支比归一化处理，得到了以 \SI{0.12178}{MeV} 为基准的相对效率。
-    \item 高纯锗探测器相对效率随能量升高总体降低，拟合关系为 $\ln p=-0.719187-0.332851\ln E+0.005563(\ln E)^2$，对数空间拟合决定系数为 $R^2=0.98251$。
+    \item 高纯锗探测器相对效率随能量升高总体降低，拟合关系为 $\ln p=-0.719187-0.332851\ln E+0.005563(\ln E)^{2}$，对数空间拟合决定系数为 $R^2=0.98251$。
 \end{enumerate}
 
 \section{思考题}
 \begin{enumerate}
-    \item \textbf{试从原理上分析高纯锗探测器对 $\gamma$ 射线的能量分辨率好于 NaI(Tl) 晶体的主要原因。}\\
-    高纯锗探测器中产生一个电子--空穴对所需平均能量约为数 \si{eV}，显著小于 NaI(Tl) 闪烁体产生并收集一个有效光电子所对应的能量，因此同一入射能量下高纯锗探测器产生的载流子数更多，统计涨落相对更小。同时高纯锗探测器将电离电荷直接转换为电信号，避免了闪烁发光、光传输、光阴极转换和倍增过程中的附加涨落，故全能峰更窄，能量分辨率更高。
+    \item \textbf{试从原理上分析高纯锗探测器对 $\gamma$ 射线的能量分辨率好于 NaI~(Tl) 晶体的主要原因。}\\
+    高纯锗探测器中产生一个电子-空穴对所需平均能量约为数 \si{eV}，显著小于 NaI~(Tl) 闪烁体产生并收集一个有效光电子所对应的能量，因此同一入射能量下高纯锗探测器产生的载流子数更多，统计涨落相对更小。同时高纯锗探测器将电离电荷直接转换为电信号，避免了闪烁发光、光传输、光阴极转换和倍增过程中的附加涨落，故全能峰更窄，能量分辨率更高。
     \item \textbf{$\gamma$ 谱的峰康比对实际应用有什么意义？}\\
     峰康比反映全能峰相对康普顿连续本底的突出程度。峰康比越高，弱峰越容易从连续本底中识别出来，峰面积扣本底的不确定性越小，复杂样品中多核素分析、弱放射性活度测量和特征峰定量分析的可靠性越高。
     \item \textbf{在测量 $\gamma$ 射线能量时，是否要对探头外壳的吸收效应进行能量吸收校正？}\\
     若只确定全能峰能量，探头外壳吸收主要改变入射到灵敏区的光子数，对全能峰峰位影响很小，通常不需要进行能量吸收校正。若进行效率刻度或低能 $\gamma$ 射线强度测量，外壳和端窗吸收会显著改变探测效率，尤其低能区更明显，此时需要在效率修正中考虑吸收效应。
-    \item \textbf{试比较塑料闪烁体、NaI(Tl) 晶体、高纯锗探测器的优缺点及适用场合。}\\
-    塑料闪烁体时间响应快、可制成大面积探测器、机械性能好，适合快符合、宇宙线计数和带电粒子触发测量，但能量分辨率较差。NaI(Tl) 晶体发光效率高、探测效率较大、可在室温下工作，适合一般 $\gamma$ 能谱测量和辐射监测，但能量分辨率中等且易潮解。高纯锗探测器能量分辨率最高，适合精密 $\gamma$ 能谱、核素鉴别和复杂谱线分析，但需要低温冷却，系统维护要求较高，成本也较高。
+    \item \textbf{试比较塑料闪烁体、NaI~(Tl) 晶体、高纯锗探测器的优缺点及适用场合。}\\
+    塑料闪烁体时间响应快、可制成大面积探测器、机械性能好，适合快符合、宇宙线计数和带电粒子触发测量，但能量分辨率较差。NaI~(Tl) 晶体发光效率高、探测效率较大、可在室温下工作，适合一般 $\gamma$ 能谱测量和辐射监测，但能量分辨率中等且易潮解。高纯锗探测器能量分辨率最高，适合精密 $\gamma$ 能谱、核素鉴别和复杂谱线分析，但需要低温冷却，系统维护要求较高，成本也较高。
 \end{enumerate}
 
 \end{document}
