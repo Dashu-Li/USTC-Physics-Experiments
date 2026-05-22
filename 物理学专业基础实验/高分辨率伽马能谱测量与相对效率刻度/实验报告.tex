@@ -8,6 +8,8 @@
 \usepackage{ulem}
 \usepackage{caption}
 \usepackage{subcaption}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta}
 \geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
 \sisetup{per-mode=symbol}
 
@@ -86,7 +88,26 @@ $^{152}\mathrm{Eu}$ 具有多条已知能量和分支比的 $\gamma$ 射线。�
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.72\textwidth]{manual_extract/page2_img1.png}
+    \begin{tikzpicture}[
+        node distance=1.0cm and 0.9cm,
+        block/.style={draw, rounded corners, minimum width=2.2cm, minimum height=0.9cm, align=center},
+        line/.style={-Latex, thick}
+    ]
+        \node[block] (detector) {高纯锗\\探测器};
+        \node[block, below=of detector] (cooling) {液氮\\冷却装置};
+        \node[block, left=of detector] (hv) {高压\\电源};
+        \node[block, right=of detector] (preamp) {前置\\放大器};
+        \node[block, right=of preamp] (amp) {线性\\放大器};
+        \node[block, right=of amp] (mca) {多道脉冲\\幅度分析器};
+        \node[block, right=of mca] (computer) {计算机};
+
+        \draw[line] (hv) -- (detector);
+        \draw[line] (detector) -- (preamp);
+        \draw[line] (preamp) -- (amp);
+        \draw[line] (amp) -- (mca);
+        \draw[line] (mca) -- (computer);
+        \draw[line] (cooling) -- (detector);
+    \end{tikzpicture}
     \caption{高纯锗 $\gamma$ 谱仪方框图}
 \end{figure}
 
