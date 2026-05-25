@@ -1,0 +1,184 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[UTF8]{ctex}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{geometry}
+\usepackage{siunitx}
+\usepackage{ulem}
+\usepackage{caption}
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+\sisetup{per-mode=symbol}
+\graphicspath{{assets/}{5.25/}}
+
+\title{\Huge{\textbf{\uuline{实\ 验\ 报\ 告}}}}
+\author{\uline{少年班学院} \quad 姓名: \uline{李大恕} \quad 学号: \uline{PB24000145}}
+\date{2026年5月26日}
+
+\begin{document}
+\maketitle
+
+\section{实验题目}
+部分相干光源的空间相干性测量与分析
+
+\section{实验目的}
+\begin{enumerate}
+    \item 理解部分相干光源的空间相干性及其随横向距离衰减的物理含义。
+    \item 掌握利用激光与旋转毛玻璃产生部分相干光的方法。
+    \item 熟悉改进迈克尔逊干涉光路中光程差、平面镜倾角和柱透镜反转对干涉图样的影响。
+    \item 观察不同毛玻璃状态和位置下干涉条纹区域及条纹对比度的变化，分析部分相干光的空间相干特性。
+\end{enumerate}
+
+\section{实验原理}
+\subsection{部分相干光的空间相干性}
+部分相干光的重要特征是光场中不同横向位置之间只具有有限的相干性。两点之间的横向距离越大，其相干程度越弱，因而只有距离较近的光场点之间才能形成较清晰、稳定的干涉条纹。以部分相干的 Collett-Wolf 光源为例，空间相干度 $g(\rho)$ 与两点间距离 $\rho$ 的关系可写为
+\begin{equation}
+    g(\rho)=\exp\left(-\frac{\rho^2}{2\sigma_g^2}\right),
+    \label{eq:coherence}
+\end{equation}
+其中 $\sigma_g$ 是相干性衰减的特征尺度。当 $\rho$ 超过这一尺度后，相干度迅速减小，干涉条纹的可见度也随之下降。
+
+部分相干光在远距离传输过程中光强分布较为均匀，干涉条纹清晰稳定，同时可以有效降低激光散斑的影响；但其空间相干性会随横向距离快速衰减，因此横向相距较远的两束光难以产生明显干涉。
+
+\subsection{迈克尔逊干涉与条纹对比度}
+在迈克尔逊干涉仪中，入射光经分束后形成两束光，两束光分别经平面镜反射后重新叠加。调节两臂的光程差可以改变干涉相位，调节平面镜之间的相对倾角可以得到不同方向和不同间距的干涉条纹。
+
+干涉条纹的清晰程度通常用条纹对比度表示：
+\begin{equation}
+    V=\frac{I_{\max}-I_{\min}}{I_{\max}+I_{\min}},
+    \label{eq:visibility}
+\end{equation}
+其中 $I_{\max}$ 和 $I_{\min}$ 分别为局部条纹强度的最大值和最小值。对于部分相干光，条纹对比度与两束叠加光之间的相干程度密切相关。当两束光对应的源面点横向间距较小时，互相干性较强，条纹对比度较高；当对应点间距增大时，互相干性降低，条纹逐渐变浅甚至消失。
+
+\subsection{部分相干光源相干性测量光路}
+实验在迈克尔逊干涉光路的基础上进行改造，用激光与旋转毛玻璃组合产生部分相干光源，并在其中一路加入柱透镜，使分束后的某一束光在竖直方向发生反转。实验光路如图~\ref{fig:optical_path} 所示。
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.72\textwidth]{page2_img2_Image53.jpg}
+    \caption{部分相干光空间相干性测量光路}
+    \label{fig:optical_path}
+\end{figure}
+
+激光经透镜扩束和毛玻璃散射后形成具有有限空间相干尺度的光场，再经光阑、分束器和平面镜构成双光束干涉。由于柱透镜将其中一路光束作竖直方向反转，屏幕或 CCD 上同一位置处叠加的两束光实际对应于源面上一对互为镜像的光场点。两点之间的横向距离随观察位置改变而改变，因此不同区域的条纹对比度不同。靠近相干性较好的重合区域时，条纹较清晰；远离该区域时，两束光对应点的横向间距增大，空间相干性减弱，条纹逐渐消失。
+
+\section{实验仪器}
+实验装置如图~\ref{fig:device} 所示，主要元件包括：
+\begin{itemize}
+    \item 波长为 \SI{532}{\nano\meter} 的半导体激光器；
+    \item 焦距为 \SI{15}{\milli\meter} 的凸透镜 L1；
+    \item 焦距为 \SI{50}{\milli\meter} 的凸透镜 L2；
+    \item 毛玻璃 G 及其步进电机；
+    \item 直径可调的光阑 F；
+    \item 平面镜 M1、M2；
+    \item 焦距为 \SI{2}{\centi\meter} 的水平放置柱透镜 CL1；
+    \item 分束器、CCD 成像系统及光学平台。
+\end{itemize}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.82\textwidth]{page3_img1_Image63.jpg}
+    \caption{部分相干光空间相干性测量实验装置}
+    \label{fig:device}
+\end{figure}
+
+\section{实验过程}
+\begin{enumerate}
+    \item 按实验光路安装激光器、透镜、毛玻璃及步进电机、光阑、分束器、平面镜、柱透镜和 CCD，使各光学元件共轴，光轴平行于光学平台。
+    \item 调整下方平面镜的位置和倾角，使 CCD 图像上的干涉条纹尽可能粗。此时两分光路近似等光程，两平面镜近似互相垂直。
+    \item 继续微调平面镜，使两平面镜在水平或竖直方向存在适当夹角，分别获得竖直、水平或倾斜方向的干涉条纹，并观察条纹间距的变化。
+    \item 在未加入毛玻璃的条件下观察普通迈克尔逊干涉图样，记录条纹方向、间距和清晰程度。
+    \item 加入静止毛玻璃，观察散斑背景中的干涉条纹，比较其与未加入毛玻璃时的差别。
+    \item 启动步进电机使毛玻璃旋转，观察条纹范围和对比度的变化。重点记录条纹是否只在部分区域保留，以及中间区域和两侧区域的条纹清晰程度。
+    \item 改变旋转毛玻璃的位置，记录存在明显干涉条纹的区域变化。
+\end{enumerate}
+
+\section{实验现象与图像记录}
+实验所得 CCD 图像保存在 \texttt{5.25} 文件夹中。为便于在报告中引用，原始 BMP 图像已转换为 PNG 图像，图像内容未作物理量修正。实验图像记录如图~\ref{fig:records1} 和图~\ref{fig:records2} 所示。
+
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}{0.31\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Pic_20260525192628038.png}
+        \caption*{(a)}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.31\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Pic_20260525194646918.png}
+        \caption*{(b)}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.31\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Pic_20260525195435698.png}
+        \caption*{(c)}
+    \end{minipage}
+    \caption{实验记录图像（一）}
+    \label{fig:records1}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}{0.31\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Pic_20260525195448209.png}
+        \caption*{(d)}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.31\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Pic_20260525203147728.png}
+        \caption*{(e)}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.31\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Pic_20260525203201995.png}
+        \caption*{(f)}
+    \end{minipage}
+    \caption{实验记录图像（二）}
+    \label{fig:records2}
+\end{figure}
+
+从图像记录可以看出，干涉图样不是在整个光斑范围内都保持相同清晰度。部分区域中亮暗条纹较集中、可见度较高，而远离该区域后条纹逐渐变弱，背景中散斑与光强起伏对条纹的影响更明显。该现象说明本实验光场具有有限空间相干尺度，只有互相对应的两点具有足够高空间相干性时，叠加后才能形成可观察的干涉条纹。
+
+毛玻璃静止时，散斑结构对局部光强有明显调制，散斑内部仍可能出现条纹；毛玻璃旋转后，随机散斑在 CCD 曝光时间内被时间平均，不具有固定相位关系的部分被削弱，而空间相干性较强的区域仍保留可见条纹。因此，旋转毛玻璃条件下的图像更能体现部分相干光的横向相干范围。
+
+\section{数据处理与分析}
+\subsection{条纹可见度的定性判据}
+若沿垂直于条纹方向取局部强度剖面，可以由式~\eqref{eq:visibility} 计算条纹可见度。实际图像中亮暗条纹受 CCD 响应、背景光强、散斑以及光斑不均匀性共同影响，宜在较小局部区域内选取相邻明暗条纹，分别测定 $I_{\max}$ 与 $I_{\min}$ 后计算局部 $V$。在没有额外标定数据时，本报告采用图像中条纹清晰程度和可见区域范围作为空间相干性的定性判据。
+
+\subsection{不同区域条纹对比度差异}
+实验图像中，条纹主要集中在光斑的局部区域，而非均匀分布在整个重叠光斑中。这与柱透镜反转后的几何对应关系一致：CCD 上同一点处叠加的两束光来自源面上一对互为镜像的点，离对称区域越远，两点间横向距离越大。由式~\eqref{eq:coherence} 可知，空间相干度随横向距离近似快速衰减，所以远离相干性较好区域时，条纹可见度降低。
+
+\subsection{毛玻璃位置对条纹范围的影响}
+改变毛玻璃位置会改变部分相干光源的等效源面位置及其经透镜后的成像关系，进而改变 CCD 平面上两束干涉光对应源面点的横向间距分布。当毛玻璃位于不同位置时，同一 CCD 观察点对应的源面点对不再相同，满足较小横向间距的区域随之移动或改变大小。因此，明显干涉条纹出现的区域会发生变化。
+
+\section{误差来源与改进}
+\begin{enumerate}
+    \item 光路调节误差：两臂光程差和平面镜相对倾角的微小偏差会改变条纹间距和方向，进而影响局部条纹可见度判断。
+    \item 光学元件共轴误差：透镜、光阑、分束器、柱透镜与 CCD 若未严格共轴，会使两束光斑重叠区域减小或偏移。
+    \item 毛玻璃转动状态：转速不足或不稳定时，CCD 曝光时间内的散斑平均不充分，部分随机散斑会残留在图像中。
+    \item CCD 成像影响：曝光时间、增益设置和像素饱和会改变记录到的明暗强度，从而影响由图像估计的对比度。
+\end{enumerate}
+
+改进时可保持固定曝光和增益参数，沿垂直于条纹方向提取多条强度剖面，在相同窗口大小下计算局部可见度，并绘制可见度随横向位置的变化曲线，从而更定量地分析部分相干光的空间相干尺度。
+
+\section{实验结论}
+\begin{enumerate}
+    \item 利用激光与旋转毛玻璃可以产生具有有限空间相干尺度的部分相干光源。
+    \item 在改进迈克尔逊干涉光路中，柱透镜使其中一路光束发生竖直方向反转，使 CCD 上不同位置处叠加的两束光对应源面上不同横向间距的两点。
+    \item 实验图像显示，明显干涉条纹只在部分区域保留，远离相干性较好的区域后条纹可见度降低，说明部分相干光的空间相干性随横向距离增大而迅速衰减。
+    \item 毛玻璃位置改变会改变等效源面与成像关系，使明显条纹出现区域发生变化。
+\end{enumerate}
+
+\section{思考题}
+\textbf{毛玻璃位于不同位置时为什么条纹出现区域有变化？}
+
+毛玻璃的位置决定了部分相干光源的等效源面位置、光束会聚或发散状态，以及源面横向坐标到 CCD 平面的映射关系。实验中柱透镜和反射镜使两束参与干涉的光近似互为镜像，CCD 上某一点处叠加的两束光对应于源面上一对横向分离的点。只有这对点的横向距离小于或接近相干性衰减尺度时，局部空间相干度才足够高，条纹才清晰可见。
+
+当毛玻璃移动到不同位置时，透镜系统对等效源面的成像关系随之改变，CCD 上各位置对应的源面点对也发生改变。于是，满足较小横向间距、较高空间相干度的区域会移动、扩大或缩小，表现为干涉条纹出现区域发生变化。
+
+\end{document}
