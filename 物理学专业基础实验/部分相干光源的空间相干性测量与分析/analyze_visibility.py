@@ -22,14 +22,14 @@ IMAGES = [
 ROI_OVERRIDES = {
     # 图(b)条纹倾斜且有效条纹区域较宽，自动 ROI 过窄时会使方向识别偏向局部光斑边缘。
     "Pic_20260525194646918.png": (306, 843, 283, 782),
-    # 图(c)条纹近似水平，采用较宽条纹区进行方向校核。
-    "Pic_20260525195435698.png": (14, 1262, 164, 971),
+    # 图(c)为毛玻璃未接电时的散斑图样，干涉条纹不完整，只取局部可见条纹区分析。
+    "Pic_20260525195435698.png": (160, 460, 710, 950),
 }
 
 ANGLE_OVERRIDES = {
     # 角度为垂直于条纹的投影坐标方向，单位为度。
     "Pic_20260525194646918.png": 75.0,
-    "Pic_20260525195435698.png": 86.0,
+    "Pic_20260525195435698.png": 105.0,
 }
 
 # 取红色通道作为主要强度通道；实验干涉图像以红色条纹为主。
@@ -128,107 +128,111 @@ def local_visibility(g: np.ndarray, x0: int, x1: int, y0: int, y1: int, theta_de
         mean_int.append(mean)
     return np.array(ss), np.array(vis), np.array(mean_int), coords, profile
 
-summary_rows = []
-profile_rows = []
+def main():
+    summary_rows = []
+    profile_rows = []
 
-fig, axes = plt.subplots(3, 2, figsize=(10, 10), dpi=160, constrained_layout=True)
-axes = axes.ravel()
+    fig, axes = plt.subplots(3, 2, figsize=(10, 10), dpi=160, constrained_layout=True)
+    axes = axes.ravel()
 
-for ax, (fname, label) in zip(axes, IMAGES):
-    g = load_intensity(IMG_DIR / fname)
-    x0, x1, y0, y1 = get_roi(fname, g)
-    theta = get_profile_angle(fname, g, x0, x1, y0, y1)
-    ss, vis, mean_int, coords, profile = local_visibility(g, x0, x1, y0, y1, theta)
-    if len(ss) == 0:
-        continue
-    s0, s1 = float(np.min(coords)), float(np.max(coords))
-    width = s1 - s0
-    left_mask = ss < s0 + width / 3
-    mid_mask = (ss >= s0 + width / 3) & (ss < s0 + 2 * width / 3)
-    right_mask = ss >= s0 + 2 * width / 3
+    for ax, (fname, label) in zip(axes, IMAGES):
+        g = load_intensity(IMG_DIR / fname)
+        x0, x1, y0, y1 = get_roi(fname, g)
+        theta = get_profile_angle(fname, g, x0, x1, y0, y1)
+        ss, vis, mean_int, coords, profile = local_visibility(g, x0, x1, y0, y1, theta)
+        if len(ss) == 0:
+            continue
+        s0, s1 = float(np.min(coords)), float(np.max(coords))
+        width = s1 - s0
+        left_mask = ss < s0 + width / 3
+        mid_mask = (ss >= s0 + width / 3) & (ss < s0 + 2 * width / 3)
+        right_mask = ss >= s0 + 2 * width / 3
 
-    def avg(mask):
-        return float(np.nanmean(vis[mask])) if np.any(mask) else float("nan")
+        def avg(mask):
+            return float(np.nanmean(vis[mask])) if np.any(mask) else float("nan")
 
-    v_left, v_mid, v_right = avg(left_mask), avg(mid_mask), avg(right_mask)
-    valid = np.isfinite(vis)
-    v_max = float(np.nanmax(vis[valid]))
-    s_at_max = float(ss[np.nanargmax(vis)])
+        v_left, v_mid, v_right = avg(left_mask), avg(mid_mask), avg(right_mask)
+        valid = np.isfinite(vis)
+        v_max = float(np.nanmax(vis[valid]))
+        s_at_max = float(ss[np.nanargmax(vis)])
 
-    summary_rows.append({
-        "image": fname,
-        "label": label,
-        "profile_angle_deg": theta,
-        "roi_x0": x0,
-        "roi_x1": x1,
-        "roi_y0": y0,
-        "roi_y1": y1,
-        "V_left": v_left,
-        "V_middle": v_mid,
-        "V_right": v_right,
-        "V_max": v_max,
-        "s_at_V_max": s_at_max,
-        "mean_intensity": float(np.mean(g[y0:y1, x0:x1])),
-        "valid_width_pixel": int(ss[-1] - ss[0]) if len(ss) > 1 else 0,
-    })
-    for s, v, m in zip(ss, vis, mean_int):
-        profile_rows.append({"image": fname, "label": label, "profile_angle_deg": theta, "s_pixel": float(s), "visibility": float(v), "mean_intensity": float(m)})
+        summary_rows.append({
+            "image": fname,
+            "label": label,
+            "profile_angle_deg": theta,
+            "roi_x0": x0,
+            "roi_x1": x1,
+            "roi_y0": y0,
+            "roi_y1": y1,
+            "V_left": v_left,
+            "V_middle": v_mid,
+            "V_right": v_right,
+            "V_max": v_max,
+            "s_at_V_max": s_at_max,
+            "mean_intensity": float(np.mean(g[y0:y1, x0:x1])),
+            "valid_width_pixel": int(ss[-1] - ss[0]) if len(ss) > 1 else 0,
+        })
+        for s, v, m in zip(ss, vis, mean_int):
+            profile_rows.append({"image": fname, "label": label, "profile_angle_deg": theta, "s_pixel": float(s), "visibility": float(v), "mean_intensity": float(m)})
 
-    ax.plot(ss, vis, marker="o", ms=2, lw=1)
-    ax.axvline(s0 + width / 3, color="gray", lw=0.8, ls="--")
-    ax.axvline(s0 + 2 * width / 3, color="gray", lw=0.8, ls="--")
-    ax.set_title(f"{label[-2]} {fname[-18:-4]}")
-    ax.set_xlabel("s / pixel")
-    ax.set_ylabel("V")
-    ax.set_ylim(0, 1.05)
-    ax.grid(alpha=0.3)
+        ax.plot(ss, vis, marker="o", ms=2, lw=1)
+        ax.axvline(s0 + width / 3, color="gray", lw=0.8, ls="--")
+        ax.axvline(s0 + 2 * width / 3, color="gray", lw=0.8, ls="--")
+        ax.set_title(f"{label[-2]} {fname[-18:-4]}")
+        ax.set_xlabel("s / pixel")
+        ax.set_ylabel("V")
+        ax.set_ylim(0, 1.05)
+        ax.grid(alpha=0.3)
 
-fig.suptitle("Local fringe visibility versus profile coordinate", fontsize=14)
-fig.savefig(OUT_DIR / "visibility_profiles.png")
-plt.close(fig)
+    fig.suptitle("Local fringe visibility versus profile coordinate", fontsize=14)
+    fig.savefig(OUT_DIR / "visibility_profiles.png")
+    plt.close(fig)
 
-fig, axes = plt.subplots(3, 2, figsize=(10, 10), dpi=160, constrained_layout=True)
-axes = axes.ravel()
-for ax, (fname, label) in zip(axes, IMAGES):
-    g = load_intensity(IMG_DIR / fname)
-    x0, x1, y0, y1 = get_roi(fname, g)
-    theta = get_profile_angle(fname, g, x0, x1, y0, y1)
-    _, _, _, coords, profile = local_visibility(g, x0, x1, y0, y1, theta)
-    ax.plot(coords, profile, lw=1)
-    ax.set_title(f"{label[-2]} projected intensity profile")
-    ax.set_xlabel("s / pixel")
-    ax.set_ylabel("mean red value")
-    ax.grid(alpha=0.3)
-fig.savefig(OUT_DIR / "intensity_profiles.png")
-plt.close(fig)
+    fig, axes = plt.subplots(3, 2, figsize=(10, 10), dpi=160, constrained_layout=True)
+    axes = axes.ravel()
+    for ax, (fname, label) in zip(axes, IMAGES):
+        g = load_intensity(IMG_DIR / fname)
+        x0, x1, y0, y1 = get_roi(fname, g)
+        theta = get_profile_angle(fname, g, x0, x1, y0, y1)
+        _, _, _, coords, profile = local_visibility(g, x0, x1, y0, y1, theta)
+        ax.plot(coords, profile, lw=1)
+        ax.set_title(f"{label[-2]} projected intensity profile")
+        ax.set_xlabel("s / pixel")
+        ax.set_ylabel("mean red value")
+        ax.grid(alpha=0.3)
+    fig.savefig(OUT_DIR / "intensity_profiles.png")
+    plt.close(fig)
 
-# 生成每张图的 ROI 标注图。
-fig, axes = plt.subplots(3, 2, figsize=(10, 12), dpi=160, constrained_layout=True)
-axes = axes.ravel()
-for ax, (fname, label) in zip(axes, IMAGES):
-    g = load_intensity(IMG_DIR / fname)
-    x0, x1, y0, y1 = get_roi(fname, g)
-    theta = get_profile_angle(fname, g, x0, x1, y0, y1)
-    ax.imshow(g, cmap="gray")
-    ax.add_patch(plt.Rectangle((x0, y0), x1 - x0, y1 - y0, fill=False, edgecolor="red", linewidth=1.5))
-    cx, cy = (x0 + x1) / 2, (y0 + y1) / 2
-    length = min(x1 - x0, y1 - y0) * 0.35
-    ax.arrow(cx, cy, length * np.cos(np.deg2rad(theta)), length * np.sin(np.deg2rad(theta)),
-             color="cyan", width=2, head_width=18, length_includes_head=True)
-    ax.set_title(f"{label[-2]}: ROI")
-    ax.axis("off")
-fig.savefig(OUT_DIR / "roi_selection.png")
-plt.close(fig)
+    fig, axes = plt.subplots(3, 2, figsize=(10, 12), dpi=160, constrained_layout=True)
+    axes = axes.ravel()
+    for ax, (fname, label) in zip(axes, IMAGES):
+        g = load_intensity(IMG_DIR / fname)
+        x0, x1, y0, y1 = get_roi(fname, g)
+        theta = get_profile_angle(fname, g, x0, x1, y0, y1)
+        ax.imshow(g, cmap="gray")
+        ax.add_patch(plt.Rectangle((x0, y0), x1 - x0, y1 - y0, fill=False, edgecolor="red", linewidth=1.5))
+        cx, cy = (x0 + x1) / 2, (y0 + y1) / 2
+        length = min(x1 - x0, y1 - y0) * 0.35
+        ax.arrow(cx, cy, length * np.cos(np.deg2rad(theta)), length * np.sin(np.deg2rad(theta)),
+                 color="cyan", width=2, head_width=18, length_includes_head=True)
+        ax.set_title(f"{label[-2]}: ROI")
+        ax.axis("off")
+    fig.savefig(OUT_DIR / "roi_selection.png")
+    plt.close(fig)
 
-with open(OUT_DIR / "visibility_summary.csv", "w", newline="", encoding="utf-8-sig") as f:
-    writer = csv.DictWriter(f, fieldnames=list(summary_rows[0].keys()))
-    writer.writeheader()
-    writer.writerows(summary_rows)
+    with open(OUT_DIR / "visibility_summary.csv", "w", newline="", encoding="utf-8-sig") as f:
+        writer = csv.DictWriter(f, fieldnames=list(summary_rows[0].keys()))
+        writer.writeheader()
+        writer.writerows(summary_rows)
 
-with open(OUT_DIR / "visibility_profiles.csv", "w", newline="", encoding="utf-8-sig") as f:
-    writer = csv.DictWriter(f, fieldnames=list(profile_rows[0].keys()))
-    writer.writeheader()
-    writer.writerows(profile_rows)
+    with open(OUT_DIR / "visibility_profiles.csv", "w", newline="", encoding="utf-8-sig") as f:
+        writer = csv.DictWriter(f, fieldnames=list(profile_rows[0].keys()))
+        writer.writeheader()
+        writer.writerows(profile_rows)
 
-for row in summary_rows:
-    print(row)
+    for row in summary_rows:
+        print(row)
+
+
+if __name__ == "__main__":
+    main()
