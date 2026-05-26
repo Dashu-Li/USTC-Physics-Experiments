@@ -49,27 +49,63 @@ def smooth(profile: np.ndarray, width: int = 21) -> np.ndarray:
     return np.convolve(profile, kernel, mode="same")
 
 
-def local_visibility(g: np.ndarray, x0: int, x1: int, y0: int, y1: int, win: int = 120, step: int = 20):
-    """由水平一维平均强度剖面计算局部可见度。
+def projected_profile(g: np.ndarray, x0: int, x1: int, y0: int, y1: int, theta_deg: float):
+    """沿与条纹近似平行方向平均，得到垂直于条纹方向的投影剖面。"""
+    sub = g[y0:y1, x0:x1]
+    yy, xx = np.indices(sub.shape)
+    xx = xx + x0
+    yy = yy + y0
+    theta = np.deg2rad(theta_deg)
+    coord = xx * np.cos(theta) + yy * np.sin(theta)
+    c0 = int(np.floor(np.min(coord)))
+    bins = np.rint(coord - c0).astype(int)
+    sums = np.bincount(bins.ravel(), weights=sub.ravel())
+    counts = np.bincount(bins.ravel())
+    valid = counts > 0
+    coords = c0 + np.arange(len(sums))[valid]
+    profile = sums[valid] / counts[valid]
+    return coords.astype(float), profile.astype(float)
 
-    先对 ROI 内每一列沿 y 方向平均，再平滑；在滑动窗口内用 90% 与 10%
-    分位数近似明暗纹强度，以降低孤立热像素和纯黑背景对 Michelson 公式的影响。
+
+def estimate_profile_angle(g: np.ndarray, x0: int, x1: int, y0: int, y1: int):
+    """搜索使投影剖面调制度最大的方向，作为垂直于条纹方向的坐标轴。"""
+    best_angle, best_score = 0.0, -np.inf
+    for angle in np.linspace(-60, 60, 61):
+        coords, profile = projected_profile(g, x0, x1, y0, y1, angle)
+        if len(profile) < 160:
+            continue
+        prof = smooth(profile, width=25)
+        mean = float(np.mean(prof))
+        if mean <= 0:
+            continue
+        score = float((np.percentile(prof, 90) - np.percentile(prof, 10)) / mean)
+        if score > best_score:
+            best_angle, best_score = float(angle), score
+    return best_angle
+
+
+def local_visibility(g: np.ndarray, x0: int, x1: int, y0: int, y1: int, theta_deg: float, win: int = 120, step: int = 20):
+    """由垂直于条纹方向的一维平均强度剖面计算局部可见度。
+
+    先在 ROI 内沿条纹近似平行方向平均，再平滑；在滑动窗口内用 90% 与 10%
+    分位数近似明暗纹强度，以降低孤立热像素和暗背景对 Michelson 公式的影响。
     """
-    profile = smooth(np.mean(g[y0:y1, :], axis=0), width=25)
+    coords, raw_profile = projected_profile(g, x0, x1, y0, y1, theta_deg)
+    profile = smooth(raw_profile, width=25)
     bg = float(np.percentile(profile, 20))
-    xs, vis, mean_int = [], [], []
-    for xc in range(x0 + win // 2, x1 - win // 2 + 1, step):
-        seg = profile[xc - win // 2:xc + win // 2]
+    ss, vis, mean_int = [], [], []
+    for start in range(0, len(profile) - win + 1, step):
+        seg = profile[start:start + win]
         mean = float(np.mean(seg))
         if mean <= bg + 0.01:
             continue
         imax = float(np.percentile(seg, 90))
         imin = float(np.percentile(seg, 10))
         v = (imax - imin) / (imax + imin) if (imax + imin) > 0 else np.nan
-        xs.append(xc)
+        ss.append(float(coords[start + win // 2]))
         vis.append(v)
         mean_int.append(mean)
-    return np.array(xs), np.array(vis), np.array(mean_int), profile
+    return np.array(ss), np.array(vis), np.array(mean_int), coords, profile
 
 summary_rows = []
 profile_rows = []
@@ -80,13 +116,15 @@ axes = axes.ravel()
 for ax, (fname, label) in zip(axes, IMAGES):
     g = load_intensity(IMG_DIR / fname)
     x0, x1, y0, y1 = detect_roi(g)
-    xs, vis, mean_int, profile = local_visibility(g, x0, x1, y0, y1)
-    if len(xs) == 0:
+    theta = estimate_profile_angle(g, x0, x1, y0, y1)
+    ss, vis, mean_int, coords, profile = local_visibility(g, x0, x1, y0, y1, theta)
+    if len(ss) == 0:
         continue
-    width = x1 - x0
-    left_mask = xs < x0 + width / 3
-    mid_mask = (xs >= x0 + width / 3) & (xs < x0 + 2 * width / 3)
-    right_mask = xs >= x0 + 2 * width / 3
+    s0, s1 = float(np.min(coords)), float(np.max(coords))
+    width = s1 - s0
+    left_mask = ss < s0 + width / 3
+    mid_mask = (ss >= s0 + width / 3) & (ss < s0 + 2 * width / 3)
+    right_mask = ss >= s0 + 2 * width / 3
 
     def avg(mask):
         return float(np.nanmean(vis[mask])) if np.any(mask) else float("nan")
@@ -94,11 +132,12 @@ for ax, (fname, label) in zip(axes, IMAGES):
     v_left, v_mid, v_right = avg(left_mask), avg(mid_mask), avg(right_mask)
     valid = np.isfinite(vis)
     v_max = float(np.nanmax(vis[valid]))
-    x_at_max = int(xs[np.nanargmax(vis)])
+    s_at_max = float(ss[np.nanargmax(vis)])
 
     summary_rows.append({
         "image": fname,
         "label": label,
+        "profile_angle_deg": theta,
         "roi_x0": x0,
         "roi_x1": x1,
         "roi_y0": y0,
@@ -107,23 +146,23 @@ for ax, (fname, label) in zip(axes, IMAGES):
         "V_middle": v_mid,
         "V_right": v_right,
         "V_max": v_max,
-        "x_at_V_max": x_at_max,
+        "s_at_V_max": s_at_max,
         "mean_intensity": float(np.mean(g[y0:y1, x0:x1])),
-        "valid_width_pixel": int(xs[-1] - xs[0]) if len(xs) > 1 else 0,
+        "valid_width_pixel": int(ss[-1] - ss[0]) if len(ss) > 1 else 0,
     })
-    for x, v, m in zip(xs, vis, mean_int):
-        profile_rows.append({"image": fname, "label": label, "x_pixel": int(x), "visibility": float(v), "mean_intensity": float(m)})
+    for s, v, m in zip(ss, vis, mean_int):
+        profile_rows.append({"image": fname, "label": label, "profile_angle_deg": theta, "s_pixel": float(s), "visibility": float(v), "mean_intensity": float(m)})
 
-    ax.plot(xs, vis, marker="o", ms=2, lw=1)
-    ax.axvline(x0 + width / 3, color="gray", lw=0.8, ls="--")
-    ax.axvline(x0 + 2 * width / 3, color="gray", lw=0.8, ls="--")
+    ax.plot(ss, vis, marker="o", ms=2, lw=1)
+    ax.axvline(s0 + width / 3, color="gray", lw=0.8, ls="--")
+    ax.axvline(s0 + 2 * width / 3, color="gray", lw=0.8, ls="--")
     ax.set_title(f"{label[-2]} {fname[-18:-4]}")
-    ax.set_xlabel("x / pixel")
+    ax.set_xlabel("s / pixel")
     ax.set_ylabel("V")
     ax.set_ylim(0, 1.05)
     ax.grid(alpha=0.3)
 
-fig.suptitle("Local fringe visibility versus horizontal pixel position", fontsize=14)
+fig.suptitle("Local fringe visibility versus profile coordinate", fontsize=14)
 fig.savefig(OUT_DIR / "visibility_profiles.png")
 plt.close(fig)
 
@@ -132,11 +171,11 @@ axes = axes.ravel()
 for ax, (fname, label) in zip(axes, IMAGES):
     g = load_intensity(IMG_DIR / fname)
     x0, x1, y0, y1 = detect_roi(g)
-    _, _, _, profile = local_visibility(g, x0, x1, y0, y1)
-    ax.plot(profile, lw=1)
-    ax.axvspan(x0, x1, color="orange", alpha=0.15)
-    ax.set_title(f"{label[-2]} horizontal intensity profile")
-    ax.set_xlabel("x / pixel")
+    theta = estimate_profile_angle(g, x0, x1, y0, y1)
+    _, _, _, coords, profile = local_visibility(g, x0, x1, y0, y1, theta)
+    ax.plot(coords, profile, lw=1)
+    ax.set_title(f"{label[-2]} projected intensity profile")
+    ax.set_xlabel("s / pixel")
     ax.set_ylabel("mean red value")
     ax.grid(alpha=0.3)
 fig.savefig(OUT_DIR / "intensity_profiles.png")
@@ -148,8 +187,13 @@ axes = axes.ravel()
 for ax, (fname, label) in zip(axes, IMAGES):
     g = load_intensity(IMG_DIR / fname)
     x0, x1, y0, y1 = detect_roi(g)
+    theta = estimate_profile_angle(g, x0, x1, y0, y1)
     ax.imshow(g, cmap="gray")
     ax.add_patch(plt.Rectangle((x0, y0), x1 - x0, y1 - y0, fill=False, edgecolor="red", linewidth=1.5))
+    cx, cy = (x0 + x1) / 2, (y0 + y1) / 2
+    length = min(x1 - x0, y1 - y0) * 0.35
+    ax.arrow(cx, cy, length * np.cos(np.deg2rad(theta)), length * np.sin(np.deg2rad(theta)),
+             color="cyan", width=2, head_width=18, length_includes_head=True)
     ax.set_title(f"{label[-2]}: ROI")
     ax.axis("off")
 fig.savefig(OUT_DIR / "roi_selection.png")
