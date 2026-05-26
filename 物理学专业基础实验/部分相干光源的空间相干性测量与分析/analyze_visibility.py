@@ -19,6 +19,19 @@ IMAGES = [
     ("Pic_20260525203201995.png", "图(f)"),
 ]
 
+ROI_OVERRIDES = {
+    # 图(b)条纹倾斜且有效条纹区域较宽，自动 ROI 过窄时会使方向识别偏向局部光斑边缘。
+    "Pic_20260525194646918.png": (306, 843, 283, 782),
+    # 图(c)条纹近似水平，采用较宽条纹区进行方向校核。
+    "Pic_20260525195435698.png": (14, 1262, 164, 971),
+}
+
+ANGLE_OVERRIDES = {
+    # 角度为垂直于条纹的投影坐标方向，单位为度。
+    "Pic_20260525194646918.png": 75.0,
+    "Pic_20260525195435698.png": 86.0,
+}
+
 # 取红色通道作为主要强度通道；实验干涉图像以红色条纹为主。
 def load_intensity(path: Path) -> np.ndarray:
     arr = np.asarray(Image.open(path).convert("RGB"), dtype=float)
@@ -42,6 +55,14 @@ def detect_roi(g: np.ndarray):
     y0 = max(0, cy - half_h)
     y1 = min(g.shape[0], cy + half_h)
     return int(x0), int(x1), int(y0), int(y1)
+
+
+def get_roi(fname: str, g: np.ndarray):
+    return ROI_OVERRIDES.get(fname, detect_roi(g))
+
+
+def get_profile_angle(fname: str, g: np.ndarray, x0: int, x1: int, y0: int, y1: int):
+    return ANGLE_OVERRIDES.get(fname, estimate_profile_angle(g, x0, x1, y0, y1))
 
 
 def smooth(profile: np.ndarray, width: int = 21) -> np.ndarray:
@@ -115,8 +136,8 @@ axes = axes.ravel()
 
 for ax, (fname, label) in zip(axes, IMAGES):
     g = load_intensity(IMG_DIR / fname)
-    x0, x1, y0, y1 = detect_roi(g)
-    theta = estimate_profile_angle(g, x0, x1, y0, y1)
+    x0, x1, y0, y1 = get_roi(fname, g)
+    theta = get_profile_angle(fname, g, x0, x1, y0, y1)
     ss, vis, mean_int, coords, profile = local_visibility(g, x0, x1, y0, y1, theta)
     if len(ss) == 0:
         continue
@@ -170,8 +191,8 @@ fig, axes = plt.subplots(3, 2, figsize=(10, 10), dpi=160, constrained_layout=Tru
 axes = axes.ravel()
 for ax, (fname, label) in zip(axes, IMAGES):
     g = load_intensity(IMG_DIR / fname)
-    x0, x1, y0, y1 = detect_roi(g)
-    theta = estimate_profile_angle(g, x0, x1, y0, y1)
+    x0, x1, y0, y1 = get_roi(fname, g)
+    theta = get_profile_angle(fname, g, x0, x1, y0, y1)
     _, _, _, coords, profile = local_visibility(g, x0, x1, y0, y1, theta)
     ax.plot(coords, profile, lw=1)
     ax.set_title(f"{label[-2]} projected intensity profile")
@@ -186,8 +207,8 @@ fig, axes = plt.subplots(3, 2, figsize=(10, 12), dpi=160, constrained_layout=Tru
 axes = axes.ravel()
 for ax, (fname, label) in zip(axes, IMAGES):
     g = load_intensity(IMG_DIR / fname)
-    x0, x1, y0, y1 = detect_roi(g)
-    theta = estimate_profile_angle(g, x0, x1, y0, y1)
+    x0, x1, y0, y1 = get_roi(fname, g)
+    theta = get_profile_angle(fname, g, x0, x1, y0, y1)
     ax.imshow(g, cmap="gray")
     ax.add_patch(plt.Rectangle((x0, y0), x1 - x0, y1 - y0, fill=False, edgecolor="red", linewidth=1.5))
     cx, cy = (x0 + x1) / 2, (y0 + y1) / 2
