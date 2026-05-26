@@ -19,10 +19,10 @@ IMAGES = [
     ("Pic_20260525203201995.png", "图(f)"),
 ]
 
-# 取绿色通道作为主要强度通道；图像以绿色干涉光为主。
+# 取红色通道作为主要强度通道；实验干涉图像以红色条纹为主。
 def load_intensity(path: Path) -> np.ndarray:
     arr = np.asarray(Image.open(path).convert("RGB"), dtype=float)
-    return arr[:, :, 1]
+    return arr[:, :, 0]
 
 
 def detect_roi(g: np.ndarray):
@@ -137,7 +137,7 @@ for ax, (fname, label) in zip(axes, IMAGES):
     ax.axvspan(x0, x1, color="orange", alpha=0.15)
     ax.set_title(f"{label[-2]} horizontal intensity profile")
     ax.set_xlabel("x / pixel")
-    ax.set_ylabel("mean green value")
+    ax.set_ylabel("mean red value")
     ax.grid(alpha=0.3)
 fig.savefig(OUT_DIR / "intensity_profiles.png")
 plt.close(fig)
